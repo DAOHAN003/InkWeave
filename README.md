@@ -2,9 +2,11 @@
 
 > 面向长篇小说与网络文学创作的 AI 桌面工作台<br>
 > 当前版本：**V10.1.1**
-<!-- CI 徽章：推送到 GitHub 后取消下面两行注释，把 USER/inkweave 替换为实际用户名/仓库名即可显示 CI 状态：
-[![CI](https://github.com/USER/inkweave/actions/workflows/ci.yml/badge.svg)](https://github.com/USER/inkweave/actions/workflows/ci.yml)
--->
+[![CI](https://github.com/DAOHAN003/InkWeave/actions/workflows/ci.yml/badge.svg)](https://github.com/DAOHAN003/InkWeave/actions/workflows/ci.yml)
+[![Release](https://github.com/DAOHAN003/InkWeave/actions/workflows/release.yml/badge.svg)](https://github.com/DAOHAN003/InkWeave/releases)
+[![License](https://img.shields.io/github/license/DAOHAN003/InkWeave)](LICENSE)
+[![Latest Release](https://img.shields.io/github/v/release/DAOHAN003/InkWeave)](https://github.com/DAOHAN003/InkWeave/releases)
+
 
 **墨织 InkWeave** 是一款基于 Tauri、React、TypeScript 与 Rust 构建的桌面端小说创作工具。项目以完整的“作品工程”为核心，把灵感构思、角色与世界观管理、卷章规划、正文写作、AI 协作、质量分析、审校修改和稿件导出整合到同一工作区。
 
