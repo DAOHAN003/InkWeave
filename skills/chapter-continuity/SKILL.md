@@ -2,7 +2,7 @@
 name: chapter-continuity
 description: 写正文、续写或改写章节时，核对前情、章纲、人物状态、时间地点和未回收伏笔。
 version: 1.0.0
-author: FuxiLoom
+author: 墨织 InkWeave
 tags: [builtin, chapter_writing]
 trigger_keywords: [写正文, 续写, 改写, 章节, 衔接, 前情]
 task_types: [chapter_writing]

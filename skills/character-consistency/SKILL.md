@@ -2,7 +2,7 @@
 name: character-consistency
 description: 新增角色、写对白或检查 OOC 时，对齐角色档案、关系和前情行为。
 version: 1.0.0
-author: FuxiLoom
+author: 墨织 InkWeave
 tags: [builtin, character_expansion, chapter_writing]
 trigger_keywords: [角色, 人物, 对白, 关系, OOC, 人设]
 task_types: [character_expansion, chapter_writing]

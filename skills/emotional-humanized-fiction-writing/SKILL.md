@@ -2,7 +2,7 @@
 name: emotional-humanized-fiction-writing
 description: 用于小说续写、改写和文风调整，重点解决 AI 写作中情感表达偏弱、人物过度理性、叙事过于工整、解释过度、缺少真人写作毛刺感的问题。
 version: 1.0.0
-author: FuxiLoom
+author: 墨织 InkWeave
 tags: [builtin, chapter_writing]
 trigger_keywords: [续写, 改写, 文风, 拟人化, 降低AI感, 情感增强, 暧昧拉扯, 心理描写]
 task_types: [chapter_writing]

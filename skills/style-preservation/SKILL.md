@@ -2,7 +2,7 @@
 name: style-preservation
 description: 续写、润色和改写时保持作者自画像、已有正文与项目风格笔记的一致性。
 version: 1.0.0
-author: FuxiLoom
+author: 墨织 InkWeave
 tags: [builtin, chapter_writing, general]
 trigger_keywords: [文风, 润色, 改写, 续写, 风格, 口吻]
 task_types: [chapter_writing, general]

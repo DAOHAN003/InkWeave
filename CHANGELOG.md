@@ -55,7 +55,6 @@
 
 # 墨织 InkWeave · 更新日志
 
-# FuxiLoom Novel Writer Ai · 更新日志
 
 ## [10.1.1] - 2026-10-15（E2E 回归网扩容：新功能追平）
 
@@ -411,7 +410,6 @@
 - 四门禁全绿：tsc 0 / vitest 90 文件 1113 用例 / vite build 13.31s / boundary 零侵蚀
 - Chrome CDP 9222（web）：三域 CRUD + 确认框 + 持久化 ✓；连写 5 章 → 撤销整批 → 旧稿恢复 + AI 稿入版本 ✓；洞察面板质量门 0.90 chip ✓（VLM 9/10）
 - WebView2 CDP 9223（桌面）：新建演示世界（71 实体/1065 事件）→ 详情卡筛选（类型 Enlightenment 显 12/共 21、剩余全匹配）→ 时间轴联动回归（T12 → 当前刻 12）✓（VLM 9/10）
-# FuxiLoom Novel Writer Ai · 更新日志
 
 版本号与 `package.json` / `tauri.conf.json` 同步；正式发布挂 GitHub Releases。
 

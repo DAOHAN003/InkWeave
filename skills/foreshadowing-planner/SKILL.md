@@ -2,7 +2,7 @@
 name: foreshadowing-planner
 description: 规划、埋设或回收伏笔时，核对来源章节、读者知情范围和回收时机。
 version: 1.0.0
-author: FuxiLoom
+author: 墨织 InkWeave
 tags: [builtin, chapter_outline, chapter_writing]
 trigger_keywords: [伏笔, 悬念, 回收, 铺垫, 反转, 章纲]
 task_types: [chapter_outline, chapter_writing]
