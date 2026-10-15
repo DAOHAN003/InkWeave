@@ -26,7 +26,7 @@
 ## 二、快速开始
 
 ```python
-import sys; sys.path.insert(0, r'E:\万象')
+import sys; sys.path.insert(0, r'<你的万象目录>')
 from world_simulator.world_engine import WorldEngine
 
 # 创建引擎

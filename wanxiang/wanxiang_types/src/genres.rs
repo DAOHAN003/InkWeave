@@ -250,7 +250,7 @@ impl WorldRules {
 
 /// 开放题材标识：任意字符串，不再受 closed `WorldType` 枚举约束。
 ///
-/// FuxiLoom 可传入任意 `genre` 字符串（如 `"shitian"` / `"铸命"`），引擎不再硬编码分支；
+/// 调用方可传入任意 `genre` 字符串（如 `"shitian"` / `"铸命"`），引擎不再硬编码分支；
 /// 未知题材统一导向 `WorldType::Custom` → 中性主题（见 `theme.rs`），绝不泄漏仙侠设定。
 pub type GenreId = String;
 

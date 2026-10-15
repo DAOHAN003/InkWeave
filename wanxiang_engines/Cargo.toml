@@ -18,8 +18,8 @@ version = "0.1.0"
 edition = "2021"
 authors = ["Ling Ming <wanxiang@research.lab>"]
 license = "Apache-2.0"
-repository = "https://github.com/fuxiloom/wanxiang_engines"
-description = "WanXiang L0 核心真理源层：世界态守恒 + 因果核心，FuxiLoom 二开基底"
+repository = "https://github.com/DAOHAN003/InkWeave"
+description = "WanXiang L0 核心真理源层：世界态守恒 + 因果核心"
 
 [workspace.dependencies]
 serde = { version = "1.0", features = ["derive"] }

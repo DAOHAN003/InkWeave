@@ -1,6 +1,6 @@
 //! Agent 运行时引擎 — ReAct 循环 + Brain 认知框架 + GrillMe 需求澄清
 //!
-//! 实现依据：`i:\万象技术库\10_openagent技术\02_Agent运行时\Agent运行时引擎.md`
+//! 实现依据：`内部技术文档 · Agent运行时引擎.md`
 //!
 //! 核心数据结构：
 //! - [`AgentStep`]：单步执行记录（step_num/thought/action/action_input/observation/timestamp/success/duration_ms）

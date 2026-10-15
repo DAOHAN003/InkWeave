@@ -65,7 +65,7 @@ pub struct WorldSimulator {
     /// 因 WorldSimulator 不经序列化持久化（检查点只存 seed+tick+rules 并重放），
     /// 此 rng 字段不会触发 Serialize 问题；重放时由 new_with_seed 重建 → 逐字节一致。
     pub meme_rng: StdRng,
-    /// 运行时认知层开关（08-03 FuxiLoom 接入新增）：
+    /// 运行时认知层开关（接入层新增）：
     /// 保持全局 `layers::*` 常量默认 false（契约测试锁定），但允许调用方按需开启。
     /// 仅覆盖「纯计算 / 只产描述性事件 / 不改守恒量」的安全层：theory_of_mind、
     /// counterfactual、meme（三者注释均声明零 rng 或 rng 子流注入 → 确定性可复现）。
@@ -145,7 +145,7 @@ impl WorldSimulator {
         self.verbose = verbose;
     }
 
-    /// 开启安全认知层（08-03 FuxiLoom 接入新增）：
+    /// 开启安全认知层（接入层新增）：
     /// 心智理论 / 反事实推理 / 模因进化——三者均为「纯计算 / 只产描述性事件 / 不改守恒量」，
     /// 开启后同 seed 仍可复现（零 rng 或 rng 子流注入），守恒 drift 依旧 ≈0。
     /// 不动全局 layers 常量（契约测试锁定默认 false），仅对本实例生效。

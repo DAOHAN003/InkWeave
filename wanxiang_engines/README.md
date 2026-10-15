@@ -1,12 +1,12 @@
 # wanxiang_engines — 万象引擎工作空间
 
-> FuxiLoom 二开基底 — 基于 `i:\万象技术库` 技术档案的自研引擎集合
+> 自研确定性引擎集合（源自内部技术档案）
 >
 > **版本**：0.1.0  **工具链**：Rust edition 2021  **测试**：707/707 全绿（L0-L6 引擎 468 + L8 安全配置 191 + L7 桥接 48）
 
 ## 1. 定位
 
-`wanxiang_engines` 是 FuxiLoom 二开的**自研引擎基底**，提供数学确定性、零 LLM token 的世界态与因果核心。
+`wanxiang_engines` 是**自研引擎基底**，提供数学确定性、零 LLM token 的世界态与因果核心。
 所有引擎都遵循"自研优先、每技术独立扁平目录、12 份标准文档"原则。
 
 ## 2. L0-L6 + L8 引擎层 ✅ 完成（L7 在 src-tauri）
@@ -108,7 +108,7 @@ wanxiang_engines/
         └── API_REFERENCE.md    # ✅
 ```
 
-### 2.2 实现依据（i:\万象技术库）
+### 2.2 实现依据（内部技术档案）
 
 | 文档 | 落地 crate |
 |---|---|
@@ -164,7 +164,7 @@ test result: ok. 54 passed; 0 failed  (config_system, L8)
                    659 passed; 0 failed  (wanxiang_engines L0-L6 + L8)
 
 # L7 桥接层（位于 src-tauri/wanxiang_bridge.rs，非本 workspace）
-cargo test --bin fuxiloom-novel-writer-ai wanxiang_bridge
+cargo test --bin inkweave-novel-writer-ai wanxiang_bridge
 test result: ok. 48 passed; 0 failed  (wanxiang_bridge, L7 含 L8 桥接)
 ─────────────────────────────────────────
                    707 passed; 0 failed  (L0-L8 + L7 合计)
@@ -252,12 +252,12 @@ test result: ok. 48 passed; 0 failed  (wanxiang_bridge, L7 含 L8 桥接)
 
 ### 2.6 L7 前端集成层（src-tauri/wanxiang_bridge.rs）
 
-L7 是 FuxiLoom 二开的**前端集成层**，把 L0-L6 的 Rust 引擎 API 包装为 Tauri 命令，让前端 TypeScript 通过 `invoke('wx_*', {...})` 直接调用，无需走 LLM。
+L7 是 墨织 InkWeave 二开的**前端集成层**，把 L0-L6 的 Rust 引擎 API 包装为 Tauri 命令，让前端 TypeScript 通过 `invoke('wx_*', {...})` 直接调用，无需走 LLM。
 
 - **位置**：`<repo>/src-tauri\src\wanxiang_bridge.rs`（单 mod，与 `lingming/` 平级，不在本 workspace 内）
 - **依赖**：`src-tauri/Cargo.toml` 已加 8 个 path 依赖（world_state/causal_core/lingming_core/memory_core/lingming_com/agent_runtime/llm_adapter/novel_writer_suite）
 - **注册**：`src-tauri/src/main.rs` 已加 `mod wanxiang_bridge;` + `invoke_handler!` 注册 40 个 `wx_*` 命令
-- **测试**：25/25 全绿（`cargo test --bin fuxiloom-novel-writer-ai wanxiang_bridge`），不破坏本 workspace 468 个测试
+- **测试**：25/25 全绿（`cargo test --bin inkweave-novel-writer-ai wanxiang_bridge`），不破坏本 workspace 468 个测试
 - **文档**：`src-tauri/docs/{WHITE_PAPER.md, API_REFERENCE.md}` ✅
 - **设计**：零业务逻辑包装层，只做类型转换 + 状态托管（`lazy_static!` + `Mutex<HashMap<usize, T>>` 多实例）+ 命令暴露；复杂入参用 JSON 字符串；错误统一返回 `{"error": "..."}`
 
@@ -278,7 +278,7 @@ L7 是 FuxiLoom 二开的**前端集成层**，把 L0-L6 的 Rust 引擎 API 包
 
 ### 2.7 L8 安全部署层（security_suite + config_system）
 
-L8 是 FuxiLoom 二开的**安全部署层**，包含七层纵深防御安全体系 + 极简配置系统。
+L8 是 墨织 InkWeave 二开的**安全部署层**，包含七层纵深防御安全体系 + 极简配置系统。
 
 #### security_suite（137 测试）— 七层安全 + 文件沙箱
 
@@ -342,7 +342,7 @@ L7/L8 桥接层完成后，三套并行实现（前端 `lingming_*` 调用、后
 | **L4** | 智能体工具层 | 02_Agent运行时 + 09_工具系统 + 10_技能系统 + 13_团队协作 | ✅ 完成 |
 | **L5** | AI/LLM 适配层 | 03_LLM适配层 + lianzhihe_rs + 16_多模态 | ✅ 完成（lianzhihe_rs 待规格） |
 | **L6** | 写作场景应用层 | novel_writer_suite + intuition_engine + novel_assistant | ✅ 完成 |
-| **L7** | FuxiLoom 前端集成层 | FuxiLoom_集成规格.md 路径C（Tauri 命令包装） | ✅ 完成 |
+| **L7** | 墨织 InkWeave 前端集成层 | 墨织 InkWeave_集成规格.md 路径C（Tauri 命令包装） | ✅ 完成 |
 | **L8** | 安全部署层 | 07_安全系统七层 + 文件沙箱 + 17_配置系统 | ✅ 完成 |
 
 ## 4. 设计原则
@@ -397,16 +397,16 @@ cargo doc --workspace --open     # 生成 API 文档
 
 # L7 桥接层测试（位于 src-tauri/，依赖本 workspace 的 8 个 crate）
 cd <repo>/src-tauri
-cargo test --bin fuxiloom-novel-writer-ai wanxiang_bridge   # 25 个测试
+cargo test --bin inkweave-novel-writer-ai wanxiang_bridge   # 25 个测试
 ```
 
-## 6. 与 FuxiLoom 主仓的关系
+## 6. 与 墨织 InkWeave 主仓的关系
 
-`wanxiang_engines/` 是 FuxiLoom 仓库的子目录（非子模块）。
-FuxiLoom 主仓的 `src-tauri/` / `lingming/` / `novel_core/` 等已有代码，通过 Cargo path 依赖引用 `wanxiang_engines` 的 crate：
+`wanxiang_engines/` 是 墨织 InkWeave 仓库的子目录（非子模块）。
+墨织 InkWeave 主仓的 `src-tauri/` / `lingming/` / `novel_core/` 等已有代码，通过 Cargo path 依赖引用 `wanxiang_engines` 的 crate：
 
 ```toml
-# FuxiLoom 主仓 src-tauri/Cargo.toml
+# 墨织 InkWeave 主仓 src-tauri/Cargo.toml
 [dependencies]
 world_state = { path = "../wanxiang_engines/world_state" }
 causal_core = { path = "../wanxiang_engines/causal_core" }
@@ -420,4 +420,4 @@ L8 阶段已完成安全部署层（`security_suite` 七层纵深防御 + `confi
 
 - 作者：Ling Ming <wanxiang@research.lab>
 - 许可：Apache-2.0
-- 仓库：https://github.com/fuxiloom/wanxiang_engines
+- 仓库：https://github.com/inkweave/wanxiang_engines

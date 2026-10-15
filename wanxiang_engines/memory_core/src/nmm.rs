@@ -1028,7 +1028,7 @@ mod tests {
         assert_eq!(nmm.len(), 2);
 
         let json = nmm.to_json();
-        let dir = std::env::temp_dir().join(format!("fuxiloom_nmm_test_{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("inkweave_nmm_test_{}", std::process::id()));
         let _ = std::fs::create_dir_all(&dir);
         let path = dir.join("nmm_persist.json");
         std::fs::write(&path, &json).expect("应能写入 NMM 临时文件");

@@ -1,6 +1,6 @@
 //! 技能系统 — SkillManager + TF-IDF 关键词匹配 + 前置条件检查
 //!
-//! 实现依据：`i:\万象技术库\10_openagent技术\10_技能系统\技能系统.md`
+//! 实现依据：`内部技术文档 · 10_openagent技术\10_技能系统\技能系统.md`
 //!
 //! 核心数据结构：
 //! - [`SkillPrerequisites`]：前置条件（env_vars/commands）
@@ -749,7 +749,7 @@ mod tests {
         let id = COUNTER.fetch_add(1, Ordering::SeqCst);
 
         let mut tmp = env::temp_dir();
-        tmp.push(format!("fuxiloom_skill_test_{}_{}", std::process::id(), id));
+        tmp.push(format!("inkweave_skill_test_{}_{}", std::process::id(), id));
         // 清理可能残留的旧目录
         let _ = fs::remove_dir_all(&tmp);
         fs::create_dir_all(&tmp).expect("创建临时目录失败");

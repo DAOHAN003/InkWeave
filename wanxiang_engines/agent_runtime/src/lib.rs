@@ -1,12 +1,12 @@
 //! agent_runtime — 万象 L4 智能体工具层
 //!
 //! 实现依据：
-//! - `i:\万象技术库\10_openagent技术\02_Agent运行时\Agent运行时引擎.md`（ReAct 循环 + Brain + GrillMe + Trace）
-//! - `i:\万象技术库\10_openagent技术\02_Agent运行时\工具注册中心.md`（ToolRegistry O(1) 哈希 + OpenAI schema）
-//! - `i:\万象技术库\10_openagent技术\02_Agent运行时\工具安全策略.md`（四级风险 + 路径沙箱 + 三种审批模式）
-//! - `i:\万象技术库\10_openagent技术\09_工具系统\工具系统与审批.md`（M/M/1 审批队列 + 危险命令 DFA）
-//! - `i:\万象技术库\10_openagent技术\10_技能系统\技能系统.md`（SKILL.md + TF-IDF + 前置条件）
-//! - `i:\万象技术库\10_openagent技术\13_团队协作\团队协作引擎.md`（DAG 关键路径 + Gustafson + 匈牙利 + 信息熵）
+//! - `内部技术文档 · Agent运行时引擎.md`（ReAct 循环 + Brain + GrillMe + Trace）
+//! - `内部技术文档 · 工具注册中心.md`（ToolRegistry O(1) 哈希 + OpenAI schema）
+//! - `内部技术文档 · 工具安全策略.md`（四级风险 + 路径沙箱 + 三种审批模式）
+//! - `内部技术文档 · 10_openagent技术\09_工具系统\工具系统与审批.md`（M/M/1 审批队列 + 危险命令 DFA）
+//! - `内部技术文档 · 10_openagent技术\10_技能系统\技能系统.md`（SKILL.md + TF-IDF + 前置条件）
+//! - `内部技术文档 · 10_openagent技术\13_团队协作\团队协作引擎.md`（DAG 关键路径 + Gustafson + 匈牙利 + 信息熵）
 //!
 //! 四个子模块：
 //! - [`runner`]：AgentRunner ReAct 循环 — 观察→思考→行动→观察→输出

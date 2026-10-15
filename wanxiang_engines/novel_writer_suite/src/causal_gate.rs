@@ -611,7 +611,7 @@ mod tests {
         w.add_foreshadow("古剑泛起微光");
 
         let json = w.to_json();
-        let dir = std::env::temp_dir().join(format!("fuxiloom_world_test_{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("inkweave_world_test_{}", std::process::id()));
         let _ = std::fs::create_dir_all(&dir);
         let path = dir.join("world.json");
         std::fs::write(&path, &json).expect("应能写入世界图临时文件");

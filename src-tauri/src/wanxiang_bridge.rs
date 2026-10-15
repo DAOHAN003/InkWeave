@@ -1,6 +1,6 @@
 //! wanxiang_bridge — L7 前端集成层
 //!
-//! 实现依据：`i:\万象技术库\FuxiLoom_集成规格.md` 路径 C（Tauri 命令包装）
+//! 实现依据：内部集成规格 · 路径 C（Tauri 命令包装）
 //!
 //! 定位：把 wanxiang_engines L0-L6 的 Rust 引擎 API 包装为 Tauri 命令，
 //! 让前端 TypeScript 通过 `invoke('wx_*', {...})` 直接调用，无需走 LLM。

@@ -82,7 +82,7 @@ impl WorldModel {
         }
     }
 
-    /// 带安全认知层创建世界（08-03 FuxiLoom 接入新增）：
+    /// 带安全认知层创建世界（接入层新增）：
     /// 在 `new` 基础上开启心智理论 / 反事实 / 模因进化——三者纯计算、只产描述性事件、
     /// 不改守恒量，同 seed 仍可复现（零 rng 或 rng 子流注入），守恒 drift 依旧 ≈0。
     /// 对应万象铁律「新能力默认关、开启须双 seed 逐字节一致」的运行时版：全局 layers
@@ -96,7 +96,7 @@ impl WorldModel {
         }
     }
 
-    /// 带安全认知层 + 种子实体创建（08-03 FuxiLoom 接入新增）：
+    /// 带安全认知层 + 种子实体创建（接入层新增）：
     /// `new_seeded_with` 的认知层增强版——播种外部设定实体的同时开启
     /// 心智理论 / 反事实 / 模因（纯计算、只产描述性事件、不改守恒量，同 seed 可复现）。
     pub fn new_seeded_with_cognition<F: FnOnce(&mut EntityManager)>(

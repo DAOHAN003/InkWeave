@@ -11,11 +11,11 @@ use log::{info, warn, debug};
 use chrono::Local;
 use rand::Rng;
 
-/// 万象根目录（从环境变量或默认路径获取）
+/// 万象根目录（从环境变量获取；未设置时用工作目录下的相对路径）
 fn get_wanxiang_root() -> PathBuf {
     std::env::var("WANXIANG_ROOT")
         .map(PathBuf::from)
-        .unwrap_or_else(|_| PathBuf::from("E:\\万象"))
+        .unwrap_or_else(|_| PathBuf::from("./wanxiang_modules"))
 }
 
 // ============================================================
