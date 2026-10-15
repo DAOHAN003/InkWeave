@@ -21,7 +21,7 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 # 并发
 parking_lot = "0.12"
-dashmap = "5.5"
+dashmap = "6.2"
 crossbeam = "0.8"
 rayon = "1.8"
 # 数学与随机
