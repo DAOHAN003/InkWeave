@@ -19,60 +19,10 @@
     "ja": "翻訳API設定",
     "en": "Translation API Config"
   },
-  "settings.translate.provider": {
-    "zh": "提供商",
-    "ja": "プロバイダー",
-    "en": "Provider"
-  },
-  "settings.translate.useGlobal": {
-    "zh": "沿用通用 AI 配置",
-    "ja": "汎用AI設定を使用",
-    "en": "Follow General AI Config"
-  },
   "settings.translate.model": {
     "zh": "模型",
     "ja": "モデル",
     "en": "Model"
-  },
-  "settings.translate.modelPh": {
-    "zh": "模型 ID，例如 deepseek-chat / gpt-4o-mini",
-    "ja": "モデルID（例: deepseek-chat / gpt-4o-mini）",
-    "en": "Model ID, e.g. deepseek-chat / gpt-4o-mini"
-  },
-  "settings.translate.refreshModels": {
-    "zh": "刷新模型列表",
-    "ja": "モデル一覧を更新",
-    "en": "Refresh model list"
-  },
-  "settings.translate.verify": {
-    "zh": "测试连接",
-    "ja": "接続テスト",
-    "en": "Test Connection"
-  },
-  "settings.translate.verifying": {
-    "zh": "测试中…",
-    "ja": "テスト中…",
-    "en": "Testing…"
-  },
-  "settings.translate.modelHint": {
-    "zh": "输入模型 ID 或点刷新拉取可用列表",
-    "ja": "モデルIDを入力または更新ボタンでリストを取得",
-    "en": "Enter model ID or click refresh to fetch available list"
-  },
-  "settings.translate.showList": {
-    "zh": "显示列表",
-    "ja": "一覧を表示",
-    "en": "Show list"
-  },
-  "settings.translate.hideList": {
-    "zh": "隐藏列表",
-    "ja": "一覧を閉じる",
-    "en": "Hide list"
-  },
-  "settings.translate.reset": {
-    "zh": "重置",
-    "ja": "リセット",
-    "en": "Reset"
   },
   "settings.translate.baseUrl": {
     "zh": "Base URL",
@@ -83,166 +33,6 @@
     "zh": "API Key",
     "ja": "API Key",
     "en": "API Key"
-  },
-  "settings.translate.globalValue": {
-    "zh": "AI 模型配置",
-    "ja": "AI Model Config",
-    "en": "AI Model Config"
-  },
-  "settings.translate.loading": {
-    "zh": "加载中...",
-    "ja": "読み込み中...",
-    "en": "Loading..."
-  },
-  "settings.translate.noModels": {
-    "zh": "暂无可用模型",
-    "ja": "利用可能なモデルなし",
-    "en": "No available models"
-  },
-  "settings.translate.savedMsg": {
-    "zh": "翻译模型设置已保存",
-    "ja": "翻訳モデル設定を保存しました",
-    "en": "Translation model settings saved"
-  },
-  "platform.qidian": {
-    "zh": "起点中文网",
-    "ja": "起点中文網",
-    "en": "Qidian"
-  },
-  "platform.fanqie": {
-    "zh": "番茄小说",
-    "ja": "番茄小説",
-    "en": "Fanqie"
-  },
-  "platform.feilu": {
-    "zh": "飞卢小说",
-    "ja": "飛盧小説",
-    "en": "Feilu"
-  },
-  "platform.changpei": {
-    "zh": "长佩文学",
-    "ja": "長佩文学",
-    "en": "Changpei"
-  },
-  "platform.zongheng": {
-    "zh": "纵横中文网",
-    "ja": "縱横中文網",
-    "en": "Zongheng"
-  },
-  "platform.17k": {
-    "zh": "17K小说网",
-    "ja": "17K小説網",
-    "en": "17K"
-  },
-  "platform.shuqi": {
-    "zh": "书旗小说",
-    "ja": "書旗小説",
-    "en": "Shuqi"
-  },
-  "platform.jinjiang": {
-    "zh": "晋江文学城",
-    "ja": "晋江文学城",
-    "en": "Jinjiang"
-  },
-  "platform.zhihu": {
-    "zh": "知乎盐选",
-    "ja": "知乎塩選",
-    "en": "Zhihu Yanxuan"
-  },
-  "platform.sf": {
-    "zh": "菠萝包轻小说",
-    "ja": "鳳梨包ライトノベル",
-    "en": "SF Light Novel"
-  },
-  "platform.xirang": {
-    "zh": "息壤中文网",
-    "ja": "息壌中文網",
-    "en": "Xirang"
-  },
-  "platform.narou": {
-    "zh": "小説家になろう",
-    "ja": "小説家になろう",
-    "en": "Shōsetsuka ni Narō"
-  },
-  "platform.kakuyomu": {
-    "zh": "カクヨム",
-    "ja": "カクヨム",
-    "en": "Kakuyomu"
-  },
-  "platform.dengeki": {
-    "zh": "电击文库",
-    "ja": "電撃文庫",
-    "en": "Dengeki Bunko"
-  },
-  "platform.kadokawa": {
-    "zh": "KADOKAWA文库",
-    "ja": "KADOKAWA文庫",
-    "en": "KADOKAWA"
-  },
-  "platform.fujimi": {
-    "zh": "富士见文库",
-    "ja": "富士見ファンタジア文庫",
-    "en": "Fujimi Fantasia"
-  },
-  "platform.sneaker": {
-    "zh": "角川 Sneaker文库",
-    "ja": "角川スニーカー文庫",
-    "en": "Kadokawa Sneaker"
-  },
-  "platform.mf": {
-    "zh": "MF文库J",
-    "ja": "MF文庫J",
-    "en": "MF Bunko J"
-  },
-  "platform.famitsu": {
-    "zh": "Fami通文库",
-    "ja": "ファミ通文庫",
-    "en": "Famitsu Bunko"
-  },
-  "platform.ga": {
-    "zh": "GA文库",
-    "ja": "GA文庫",
-    "en": "GA Bunko"
-  },
-  "platform.hj": {
-    "zh": "HJ文库",
-    "ja": "HJ文庫",
-    "en": "HJ Bunko"
-  },
-  "platform.ichijinsha": {
-    "zh": "一迅社（女性向）",
-    "ja": "一迅社（女性向け）",
-    "en": "Ichijinsha"
-  },
-  "platform.shueisha": {
-    "zh": "集英社",
-    "ja": "集英社",
-    "en": "Shueisha"
-  },
-  "platform.kodansha": {
-    "zh": "讲谈社",
-    "ja": "講談社",
-    "en": "Kodansha"
-  },
-  "platformGroup.cn": {
-    "zh": "中国平台",
-    "ja": "中国プラットフォーム",
-    "en": "China platforms"
-  },
-  "platformGroup.jp.web": {
-    "zh": "日本平台 - 网络投稿",
-    "ja": "日本プラットフォーム - Web投稿",
-    "en": "Japan - Web submissions"
-  },
-  "platformGroup.jp.kdkw": {
-    "zh": "日本平台 - KADOKAWA系",
-    "ja": "日本プラットフォーム - KADOKAWA系",
-    "en": "Japan - KADOKAWA group"
-  },
-  "platformGroup.jp.other": {
-    "zh": "日本平台 - 其他出版社",
-    "ja": "日本プラットフォーム - その他出版社",
-    "en": "Japan - Other publishers"
   },
   "设置中心": {
     "zh": "设置中心",
@@ -4093,5 +3883,15 @@
     "zh": "万象世界生成（本地确定性模拟，不联网）",
     "ja": "万象ワールド生成（ローカル決定論シミュレーション、オフライン）",
     "en": "Wanxiang world generation (local deterministic simulation, offline)"
+  },
+  "发现新版本": {
+    "zh": "发现新版本",
+    "ja": "新しいバージョンがあります",
+    "en": "New version available"
+  },
+  "前往下载": {
+    "zh": "前往下载",
+    "ja": "ダウンロード",
+    "en": "Get it"
   }
 }

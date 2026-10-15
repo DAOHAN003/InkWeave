@@ -865,7 +865,7 @@ export const ModelSettingsPanel: React.FC = () => {
           {t('settings.translate.descText', lang)}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <Field label={t('API 地址')} hint="留空回落主 AI 配置">
+          <Field label={t('settings.translate.baseUrl', lang)} hint="留空回落主 AI 配置">
             <Input
               value={translateBase}
               onChange={(e) => {
@@ -876,7 +876,7 @@ export const ModelSettingsPanel: React.FC = () => {
               size="sm"
             />
           </Field>
-          <Field label={t('模型名')} hint="如 deepseek-chat / qwen3.8">
+          <Field label={t('settings.translate.model', lang)} hint="如 deepseek-chat / qwen3.8">
             <Input
               value={translateModel}
               onChange={(e) => {
@@ -887,7 +887,7 @@ export const ModelSettingsPanel: React.FC = () => {
               size="sm"
             />
           </Field>
-          <Field label={t('API Key')} hint="本地端点可留空">
+          <Field label={t('settings.translate.apiKey', lang)} hint="本地端点可留空">
             <Input
               value={translateKey}
               onChange={(e) => {

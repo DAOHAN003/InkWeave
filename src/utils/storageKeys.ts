@@ -77,6 +77,7 @@ export const STORAGE_KEYS = {
 
   // 首启引导（商业化 onboarding，已见即不再弹）
   WELCOME_SEEN: 'fuxiloom.welcome_seen',
+  UPDATE_CHECK_LAST_AT: 'fuxiloom.updateCheck.lastAt',
 
   // 每日写作目标（商业化：状态栏进度；0=未设置）
   DAILY_GOAL: 'fuxiloom.daily_goal',

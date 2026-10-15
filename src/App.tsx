@@ -71,6 +71,7 @@ import { ConfirmProvider } from './components/UI/ConfirmDialog';
 import { ToastProvider, useToast } from './components/UI/Toast';
 import { useLang, t } from './i18n';
 import { CommandPalette, type CommandItem } from './components/CommandPalette';
+import { UpdateBanner } from './components/App/UpdateBanner';
 import { ensureSkillsLoaded } from './utils/localSkills';
 import { chatWithAIOverride, applyGlobalSystemPrompt } from './utils/ai/request';
 import { chatStructured, PIPELINE_SCHEMAS } from './utils/ai/structuredOutput';
@@ -1332,6 +1333,7 @@ export default function App() {
         onClose={() => setCommandOpen(false)}
         commands={commands}
       />
+      <UpdateBanner />
       </Suspense>
       </div>
     </ConfirmProvider>

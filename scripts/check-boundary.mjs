@@ -128,23 +128,9 @@ const PENDING_TS_MODULES = [
  *
  * 登记纪律同 PENDING_TS_MODULES：到期未接线也未撤销登记 → 门禁失败。
  */
-const PENDING_I18N_PREFIXES = [
-  {
-    prefix: 'settings.translate.',
-    reason: '「对照翻译」专用模型配置面板的文案；翻译功能为规划项（README 已声明「配置结构与 i18n 文案已预留，无调用入口」），随 translation.ts / translationStore.ts 一起保留',
-    reviewBy: '2026-12-31',
-  },
-  {
-    prefix: 'platform.',
-    reason: '平台清单（起点/番茄/晋江 + 日系轻小说投稿方向共 28 个平台名）；平台选择与适配分析为规划项，尚无 UI 入口',
-    reviewBy: '2026-12-31',
-  },
-  {
-    prefix: 'platformGroup.',
-    reason: '同上（平台分组：中文平台 / 日系轻小说方向）',
-    reviewBy: '2026-12-31',
-  },
-];
+// 2026-10-15 归档：platform.* / platformGroup.* / settings.translate.* 中未接线的键已随
+// 「更新检查 + i18n 档案化」班次从 ui.json 移除（git 历史可找回）。待接线登记清零。
+const PENDING_I18N_PREFIXES = [];
 
 const C = {
   red: (s) => `\x1b[31m${s}\x1b[0m`,
