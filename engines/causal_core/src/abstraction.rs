@@ -5,9 +5,9 @@
 //! 核心问题：自动发现两个不同领域的因果图是否结构同构，
 //!   无需人工指定变量映射（如 price↔drug, demand↔symptom）。
 //!
-//! 算法（基于排列枚举的 VF2 简化版，V<20 时可行）：
+//! 算法（当前版本使用排列枚举，而非完整 VF2；仅适用于小图）：
 //! 1. 若 G_A 与 G_B 节点数不同 → NotIsomorphic
-//! 2. 枚举 V_A → V_B 的所有双射（V! 个排列）
+//! 2. 小图上枚举所有双射（V! 个排列；超过上限时返回 SearchLimitExceeded）
 //! 3. 对每个映射 f，计算：
 //!    - matched = 图 A 中边 (u,v) 在图 B 中 (f(u),f(v)) 也存在的数量
 //!    - sign_match = matched 中符号也一致的边数
@@ -37,8 +37,10 @@ pub enum AbstractionResult {
         /// 匹配到的边数
         matched_edges: usize,
     },
-    /// 节点数不同，不可能同构
+    /// 节点数不同或拓扑不匹配。
     NotIsomorphic(String),
+    /// 当前排列枚举实现不支持这么大的图，以避免失控的阶乘级耗时/内存。
+    SearchLimitExceeded { nodes: usize, max_nodes: usize },
 }
 
 impl AbstractionResult {
@@ -56,6 +58,9 @@ impl AbstractionResult {
 }
 
 /// 因果抽象发现引擎
+/// The current permutation enumerator is deliberately capped at a small graph size.
+const MAX_EXACT_SEARCH_NODES: usize = 8;
+
 #[derive(Debug, Clone)]
 pub struct CausalAbstractionDiscovery {
     graph_a: CausalGraph,
@@ -104,7 +109,15 @@ impl CausalAbstractionDiscovery {
             };
         }
 
-        // 枚举所有 V! 个排列
+        // Materializing all permutations is O(V!) in both time and memory.
+        // Refuse larger graphs instead of risking excessive allocation or latency.
+        if na > MAX_EXACT_SEARCH_NODES {
+            return AbstractionResult::SearchLimitExceeded {
+                nodes: na,
+                max_nodes: MAX_EXACT_SEARCH_NODES,
+            };
+        }
+
         let mut best_mapping: Option<HashMap<usize, usize>> = None;
         let mut best_sim = -1.0f64;
         let mut best_sign = 0.0f64;
@@ -401,6 +414,25 @@ mod tests {
         for (i, (w, e)) in weights.iter().zip(expected.iter()).enumerate() {
             assert!((w - e).abs() < 1e-9, "weight {} mismatch: {} vs {}", i, w, e);
         }
+    }
+
+    #[test]
+    fn test_large_graph_returns_search_limit() {
+        let mut a = CausalGraph::new();
+        let mut b = CausalGraph::new();
+        let mut nodes_a = Vec::new();
+        let mut nodes_b = Vec::new();
+        for i in 0..9 {
+            nodes_a.push(a.add_node(&format!("a{i}")));
+            nodes_b.push(b.add_node(&format!("b{i}")));
+        }
+        a.add_edge(nodes_a[0], nodes_a[1], 1.0);
+        b.add_edge(nodes_b[0], nodes_b[1], 1.0);
+        let d = CausalAbstractionDiscovery::new(a, b);
+        assert!(matches!(
+            d.discover(),
+            AbstractionResult::SearchLimitExceeded { nodes: 9, max_nodes: 8 }
+        ));
     }
 
     #[test]
