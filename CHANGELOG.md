@@ -53,7 +53,7 @@
 - 我的作品侧直连当前作品卷章（免导入），目标书支持 txt/md 文件（GBK 自适应）、粘贴文本、内置双样书（山河劫 / 九霄剑帝）。
 - 新增 22 个引擎单测（分章 / 度量 / 对标 / 适配器全链路），i18n +63 词条三语。
 
-# FuxiLoom Novel Writer Ai · 更新日志
+# 墨织 InkWeave · 更新日志
 
 # FuxiLoom Novel Writer Ai · 更新日志
 
