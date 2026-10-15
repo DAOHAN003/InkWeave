@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+# Cancel previous runs on the same ref
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ts-gate:
+    name: TS Four-Gate (tsc / vitest / boundary / build)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check (tsc --noEmit)
+        run: npm run check
+
+      - name: Unit tests (vitest)
+        run: npm run test:ts
+
+      - name: Boundary audit
+        run: npm run check:boundary
+
+      - name: Production build (vite build)
+        run: npm run build
+
+      - name: Upload build artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ github.sha }}
+          path: dist/
+          retention-days: 14
+
+  # Rust 冷编译门禁（10-12 新增）
+  # 为什么单列：此前 Rust 侧从未在 CI 跑过，靠本机 warm target 掩盖了一个 P0——
+  # tauri-build → schemars 0.8 → indexmap 1.9.3 的 has_std 探测在干净环境失效，
+  # 导致任何冷编译（GitHub Actions / 新克隆仓库 / 发布构建）都失败。
+  # 本 job 从零 target 编译，专门防这一类"warm 假绿"。
+  rust-check:
+    name: Rust cold check (src-tauri)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Tauri v2 在 Linux 上需要 webkit2gtk-4.1（不是 4.0）
+      - name: Install Tauri system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            patchelf \
+            build-essential \
+            libssl-dev
+
+      - name: Install dependencies
+        run: npm ci
+
+      # tauri-build 在 build.rs 阶段会校验 frontendDist，先产出 dist
+      - name: Build frontend
+        run: npm run build
+
+      # --locked：禁止依赖重新解析漂移（lock 必须与 Cargo.toml 同步）
+      - name: Cold cargo check (--locked)
+        run: cd src-tauri && cargo check --locked

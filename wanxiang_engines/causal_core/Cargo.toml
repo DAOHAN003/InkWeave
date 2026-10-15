@@ -1,0 +1,17 @@
+[package]
+name = "causal_core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "因果核心：CausalGraph + do-calculus + d-分离 + 后门准则 + 反事实 + 抽象发现，零 LLM token 验证"
+
+[lib]
+name = "causal_core"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+world_state = { path = "../world_state" }

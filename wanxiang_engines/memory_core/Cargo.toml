@@ -1,0 +1,19 @@
+[package]
+name = "memory_core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "万象 L2 记忆数据层：NMM 统一记忆(SDR+神经调质+向量因果融合) + 因果全息记忆(do-calculus 直接计算) + 因果压缩存储(一条边代替 N 条事实)"
+
+[lib]
+name = "memory_core"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+rand = { workspace = true }
+sha2 = { workspace = true }
+causal_core = { path = "../causal_core" }

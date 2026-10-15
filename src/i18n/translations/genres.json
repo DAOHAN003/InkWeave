@@ -1,0 +1,638 @@
+{
+  "xuanhuan": {
+    "label":   { "zh": "玄幻",       "ja": "玄幻（中華ファンタジー）", "en": "Xuanhuan" },
+    "tagline": { "zh": "金手指 + 升级 + 战斗，男频爽文核心节奏",
+                 "ja": "チート + レベルアップ + バトル、男性向け爽快系の王道",
+                 "en": "Cheats + power-leveling + battles — the male-oriented power-fantasy backbone" }
+  },
+  "xianxia": {
+    "label":   { "zh": "仙侠",       "ja": "仙侠（修真）",     "en": "Xianxia" },
+    "tagline": { "zh": "御剑飞行、问道长生，节奏稍稳，意境与境界并重",
+                 "ja": "御剣飛行・長生問道、テンポは穏やか、意境と境界を両立",
+                 "en": "Sword-flight and Daoist immortality — measured pacing, mood and tier matter equally" }
+  },
+  "urban": {
+    "label":   { "zh": "都市",       "ja": "現代都市",         "en": "Urban" },
+    "tagline": { "zh": "扮猪吃虎 + 打脸装逼，现代背景的爽感节奏",
+                 "ja": "見かけ最弱 + 顔面殴打、現代を舞台にした爽快テンポ",
+                 "en": "Hidden-power + face-slap satisfaction in a modern setting" }
+  },
+  "romance": {
+    "label":   { "zh": "言情",       "ja": "恋愛（中華）",     "en": "Romance" },
+    "tagline": { "zh": "心动、拉扯、糖与刀，女频核心情感节奏",
+                 "ja": "胸キュン・じれじれ・甘さと痛み、女性向け恋愛の王道",
+                 "en": "Heartbeats, tension, sugar and angst — the female-oriented romance core" }
+  },
+  "suspense": {
+    "label":   { "zh": "悬疑推理",   "ja": "サスペンス・推理", "en": "Suspense / Mystery" },
+    "tagline": { "zh": "线索、误导、真相，节奏靠'未知'驱动",
+                 "ja": "手がかり・誤導・真相、テンポは「未知」によって駆動",
+                 "en": "Clues, misdirection, reveals — pacing driven by the unknown" }
+  },
+  "history": {
+    "label":   { "zh": "历史",       "ja": "歴史（中華）",     "en": "Historical" },
+    "tagline": { "zh": "权谋、史观、时代浪潮，宏观叙事 + 微观人物",
+                 "ja": "権謀・史観・時代のうねり、マクロな叙事 + ミクロな人物",
+                 "en": "Realpolitik, historiography, sweeping eras — macro narrative + micro characters" }
+  },
+  "scifi": {
+    "label":   { "zh": "科幻",       "ja": "SF",               "en": "Sci-Fi" },
+    "tagline": { "zh": "想象力 × 逻辑性，设定即吸引力",
+                 "ja": "想像力 × 論理性、設定そのものが魅力",
+                 "en": "Imagination × logic — the setting itself is the hook" }
+  },
+  "wuxia": {
+    "label":   { "zh": "武侠",       "ja": "武侠",             "en": "Wuxia" },
+    "tagline": { "zh": "江湖恩怨、武学传奇，节奏稳健，情义为骨",
+                 "ja": "江湖の恩怨と武学伝奇、安定したテンポと義の骨格",
+                 "en": "Jianghu vendettas and martial legend — steady pacing, honor at the core" }
+  },
+  "esports": {
+    "label":   { "zh": "游戏竞技",   "ja": "Eスポーツ",        "en": "Esports" },
+    "tagline": { "zh": "对局、操作、团队荣誉，节奏靠'比分'与'操作'驱动",
+                 "ja": "試合・プレイ・チーム栄誉、スコアと操作で駆動",
+                 "en": "Matches, plays, team glory — paced by score and execution" }
+  },
+  "system": {
+    "label":   { "zh": "系统流",     "ja": "システム系",       "en": "System Cultivation" },
+    "tagline": { "zh": "系统提示驱动节奏，奖励即爽点",
+                 "ja": "システム通知でテンポ、報酬がそのまま爽快感",
+                 "en": "System notifications pace the story, rewards = payoff" }
+  },
+  "infinite": {
+    "label":   { "zh": "无限流",     "ja": "無限流（多層世界）", "en": "Infinite Worlds" },
+    "tagline": { "zh": "副本切换 + 主线追寻，节奏分'副本'与'休整'两段式",
+                 "ja": "ダンジョン切替 + メインライン、攻略と休息の二段テンポ",
+                 "en": "Instance-hopping + an over-arching mystery, alternating raid and rest" }
+  },
+  "apocalypse": {
+    "label":   { "zh": "末世",       "ja": "ポストアポカリプス", "en": "Apocalypse" },
+    "tagline": { "zh": "生存压力即节奏，资源 + 异变 + 人心",
+                 "ja": "生存圧力がそのままテンポ、資源 + 異変 + 人心",
+                 "en": "Survival pressure is the pacing — resources, mutations, human nature" }
+  },
+  "daily": {
+    "label":   { "zh": "日常治愈",   "ja": "日常・癒し",       "en": "Slice-of-Life Healing" },
+    "tagline": { "zh": "慢节奏温暖叙事，细节即魅力",
+                 "ja": "ゆったり温かい叙事、ディテールこそ魅力",
+                 "en": "Warm slow narrative — detail is the appeal" }
+  },
+  "military": {
+    "label":   { "zh": "军事",       "ja": "軍事",             "en": "Military" },
+    "tagline": { "zh": "战场、铁血、家国，硬派男频",
+                 "ja": "戦場・鉄血・国家、硬派な男性向け",
+                 "en": "Battlefields, blood and country — hardcore male-oriented" }
+  },
+  "paranormal": {
+    "label":   { "zh": "灵异",       "ja": "ホラー（中華怪奇）", "en": "Paranormal" },
+    "tagline": { "zh": "民俗 + 未知 + 阴气，靠'诡'驱动节奏",
+                 "ja": "民俗 + 未知 + 陰気、「怪異」でテンポを刻む",
+                 "en": "Folk customs + the unknown — paced by eeriness" }
+  },
+  "palace": {
+    "label":   { "zh": "宫斗宅斗",   "ja": "宮廷劇・家門争い", "en": "Palace Intrigue" },
+    "tagline": { "zh": "深宫 / 高门，内斗是节奏核心",
+                 "ja": "深宮 / 高門、内輪争いがテンポの核",
+                 "en": "Deep palaces and great houses — internal strife paces the story" }
+  },
+  "entertainment": {
+    "label":   { "zh": "娱乐圈",     "ja": "芸能界",           "en": "Showbiz" },
+    "tagline": { "zh": "星光 + 内幕 + 情感，现代爽感 + 业内质感",
+                 "ja": "スターの輝き + 業界裏 + 感情、現代爽快 + 業界感",
+                 "en": "Stardom + insider drama + emotion — modern thrills with industry texture" }
+  },
+  "farming": {
+    "label":   { "zh": "种田",       "ja": "ほのぼの経営",     "en": "Slow-Cultivation / Farming" },
+    "tagline": { "zh": "低冲突 + 经营 + 成长，长线慢节奏治愈",
+                 "ja": "低対立 + 経営 + 成長、ゆったりした癒しの長尺",
+                 "en": "Low conflict + management + growth — long-form, soothing pacing" }
+  },
+  "fastTransmigration": {
+    "label":   { "zh": "快穿",       "ja": "ファスト転生",     "en": "Quick Transmigration" },
+    "tagline": { "zh": "单元剧 + 任务制，一个世界一场戏",
+                 "ja": "オムニバス + タスク制、一世界一幕",
+                 "en": "Episodic mission-based transmigration — one world per arc" }
+  },
+  "femaleStrong": {
+    "label":   { "zh": "女强 / 大女主", "ja": "強い女主人公",  "en": "Strong Heroine" },
+    "tagline": { "zh": "女主为尊，事业 / 情感双线并重",
+                 "ja": "女主上位、事業と感情の両軸",
+                 "en": "Heroine-first — career and romance carried in tandem" }
+  },
+  "bl": {
+    "label":   { "zh": "耽美 / BL",  "ja": "BL（ボーイズラブ）", "en": "BL (Boys' Love)" },
+    "tagline": { "zh": "男男情感 + 职业 / 玄幻 / 古代多题材可融合",
+                 "ja": "男性同士の感情 + 職業 / ファンタジー / 古代と融合可",
+                 "en": "Male-male romance, fuses easily with profession / fantasy / ancient settings" }
+  },
+  "gl": {
+    "label":   { "zh": "百合 / GL",  "ja": "百合（GL）",        "en": "GL (Yuri)" },
+    "tagline": { "zh": "双女主羁绊，情感浓度 > 冲突强度",
+                 "ja": "ダブルヒロインの絆、感情濃度 > 対立強度",
+                 "en": "Dual-heroine bond — emotional density over conflict intensity" }
+  },
+  "workplace": {
+    "label":   { "zh": "职场",       "ja": "お仕事もの",       "en": "Workplace" },
+    "tagline": { "zh": "行业专业度 × 人物博弈，冷静克制爽感",
+                 "ja": "業界プロフェッショナリズム × 人物の駆け引き、冷静で抑制された爽快感",
+                 "en": "Industry expertise × interpersonal play — cool, restrained satisfaction" }
+  },
+  "isekai": {
+    "label":   { "zh": "异世界转生", "ja": "異世界転生",       "en": "Isekai" },
+    "tagline": { "zh": "なろう系核心节奏：转生 → 系统 / 才能 → 慢生活 or 征途",
+                 "ja": "なろう系の王道：転生 → システム / 才能 → スローライフ or 冒険譚",
+                 "en": "Narō-style core: reincarnate → cheat / talent → slow life or adventure" }
+  },
+  "akuyaku": {
+    "label":   { "zh": "恶役令嬢",   "ja": "悪役令嬢",         "en": "Villainess Reincarnation" },
+    "tagline": { "zh": "破滅回避 + 逆ハー / 真愛，女性向核心节奏",
+                 "ja": "破滅回避 + 逆ハー / 真愛、女性向け王道",
+                 "en": "Doom-flag evasion + reverse-harem / true love — female-oriented core" }
+  },
+  "school": {
+    "label":   { "zh": "校园（日系）","ja": "学園もの",         "en": "School Story (JP)" },
+    "tagline": { "zh": "学園日常 + ヒロイン群像，节奏柔和但情感密集",
+                 "ja": "学園日常 + ヒロイン群像、柔らかいテンポながら感情は濃密",
+                 "en": "School slice-of-life + heroine ensemble — gentle pacing, dense emotion" }
+  },
+  "lovecome": {
+    "label":   { "zh": "恋爱喜剧",   "ja": "ラブコメ",         "en": "Romantic Comedy" },
+    "tagline": { "zh": "ヒロイン群像 + 误会 + 笑点，密集互动驱动节奏",
+                 "ja": "ヒロイン群像 + 勘違い + 笑い、密度の高い掛け合いがテンポを生む",
+                 "en": "Heroine ensemble + misunderstandings + comedy — dense banter drives the pace" }
+  },
+  "slowLife": {
+    "label":   { "zh": "慢生活",     "ja": "スローライフ",     "en": "Slow Life" },
+    "tagline": { "zh": "異世界でゆっくり暮らす、低緊張 + 生活満足",
+                 "ja": "異世界でゆっくり暮らす、低緊張 + 生活満足",
+                 "en": "Settle into another world — low tension, daily-life fulfillment" }
+  },
+  "jpHorror": {
+    "label":   { "zh": "日式恐怖",   "ja": "ホラー",           "en": "J-Horror" },
+    "tagline": { "zh": "じわじわ来る日式恐怖、'見えない恐怖'が核",
+                 "ja": "じわじわ来る日式ホラー、「見えない恐怖」が核心",
+                 "en": "Creeping J-horror — the unseen is the heart of the dread" }
+  },
+  "mecha": {
+    "label":   { "zh": "机甲",       "ja": "ロボット・メカ",   "en": "Mecha" },
+    "tagline": { "zh": "巨大メカ + 戦闘 + 政治，中硬核SFサブジャンル",
+                 "ja": "巨大メカ + 戦闘 + 政治、中硬派SFサブジャンル",
+                 "en": "Giant robots + combat + politics — a mid-hard SF subgenre" }
+  },
+  "battle": {
+    "label":   { "zh": "战斗物",     "ja": "バトル物",         "en": "Battle Shōnen" },
+    "tagline": { "zh": "能力バトル + 成長、ジャンプ系王道",
+                 "ja": "能力バトル + 成長、ジャンプ系王道",
+                 "en": "Power-battle + growth — Shōnen Jump-style mainline" }
+  },
+  "vrmmo": {
+    "label":   { "zh": "VRMMO",      "ja": "VRMMO",            "en": "VRMMO" },
+    "tagline": { "zh": "オンラインゲーム世界が舞台、攻略 + 仲間 + ログアウト不能",
+                 "ja": "オンラインゲーム世界が舞台、攻略 + 仲間 + ログアウト不能",
+                 "en": "Set inside an online game — raids, party, no logout" }
+  },
+  "dungeon": {
+    "label":   { "zh": "迷宫探索",   "ja": "ダンジョン",       "en": "Dungeon Crawler" },
+    "tagline": { "zh": "ダンジョン探索 + 攻略 + 戦利品、テンポ感重視",
+                 "ja": "ダンジョン探索 + 攻略 + 戦利品、テンポ感重視",
+                 "en": "Dungeon delving + clears + loot — pace-focused" }
+  },
+  "jpMystery": {
+    "label":   { "zh": "推理（日系）","ja": "ミステリー",       "en": "Mystery (JP)" },
+    "tagline": { "zh": "本格 / 社会派 / 日常の謎、ロジック整合が命",
+                 "ja": "本格 / 社会派 / 日常の謎、ロジック整合性が生命",
+                 "en": "Honkaku / shakai-ha / cozy puzzle — logical consistency is everything" }
+  },
+  "jidaiShosetsu": {
+    "label":   { "zh": "时代小说",   "ja": "時代小説",         "en": "Jidai Shōsetsu" },
+    "tagline": { "zh": "歴史考証 + 人間ドラマ、日本史を背景にした重厚物語",
+                 "ja": "歴史考証 + 人間ドラマ、日本史を背景にした重厚物語",
+                 "en": "Historically grounded human drama set against Japan's past" }
+  },
+  "esperBattle": {
+    "label":   { "zh": "异能战斗",   "ja": "異能バトル",       "en": "Esper Battle" },
+    "tagline": { "zh": "現代 / 学園 + 異能、ルール明示型バトル",
+                 "ja": "現代 / 学園 + 異能、ルール明示型バトル",
+                 "en": "Modern / academy + powers — rules-explicit battles" }
+  },
+  "seijo": {
+    "label":   { "zh": "圣女物",     "ja": "聖女もの",         "en": "Saintess" },
+    "tagline": { "zh": "聖女転生 + 不遇 / ざまぁ、女性向け定番",
+                 "ja": "聖女転生 + 不遇 / ざまぁ、女性向け定番",
+                 "en": "Saintess reincarnation + adversity / payback — female-oriented staple" }
+  },
+  "cookingIsekai": {
+    "label":   { "zh": "异世界料理", "ja": "異世界料理",       "en": "Cooking Isekai" },
+    "tagline": { "zh": "料理 + 異世界 + 慢生活、低緊張 + 食欲満足",
+                 "ja": "料理 + 異世界 + 慢生活、低緊張 + 食欲満足",
+                 "en": "Cooking + isekai + slow life — low tension, appetite satisfied" }
+  },
+  "yokai": {
+    "label":   { "zh": "妖怪 · あやかし", "ja": "妖怪・あやかし", "en": "Yōkai / Ayakashi" },
+    "tagline": { "zh": "和風妖怪 + 人間との交わり、しっとり + 幻想",
+                 "ja": "和風妖怪 + 人との交流、しっとりした幻想",
+                 "en": "Yōkai meets human — wistful and fantastical" }
+  },
+  "idol": {
+    "label":   { "zh": "偶像物",     "ja": "アイドル",         "en": "Idol" },
+    "tagline": { "zh": "ステージ + 友情 + 成長、青春群像物",
+                 "ja": "ステージ + 友情 + 成長、青春群像物",
+                 "en": "Stage + friendship + growth — youthful ensemble" }
+  },
+  "lightBungei": {
+    "label":   { "zh": "轻文艺",     "ja": "ライト文芸",       "en": "Light Literary" },
+    "tagline": { "zh": "ラノベと一般文芸の中間、20-30 代向け落ち着いた物語",
+                 "ja": "ラノベと一般文芸の中間、20-30 代向け落ち着いた物語",
+                 "en": "Between light novels and literary — calm stories for 20s-30s readers" }
+  },
+  "jpSports": {
+    "label":   { "zh": "运动物",     "ja": "スポーツ",         "en": "Sports" },
+    "tagline": { "zh": "練習 + 試合 + 仲間、青春汗物語",
+                 "ja": "練習 + 試合 + 仲間、青春汗の物語",
+                 "en": "Practice + matches + teammates — youthful sweat tales" }
+  },
+  "darkFantasy": {
+    "label":   { "zh": "黑暗幻想",   "ja": "ダークファンタジー", "en": "Dark Fantasy" },
+    "tagline": { "zh": "重く陰鬱な世界観、グロ + 人間悪 + 救いの希少",
+                 "ja": "重く陰鬱な世界観、グロ + 人間悪 + 救いの希少",
+                 "en": "Heavy, somber world — gore, human evil, redemption is rare" }
+  },
+  "westernFantasy": {
+    "label":   { "zh": "奇幻（西幻）", "ja": "西洋ファンタジー", "en": "Western Fantasy" },
+    "tagline": { "zh": "魔法体系 + 种族文明 + 史诗冒险，世界观即吸引力",
+                 "ja": "魔法体系 + 種族文明 + 史詩的冒険、世界観そのものが魅力",
+                 "en": "Magic systems + racial civilizations + epic quests — the world itself is the draw" }
+  },
+  "urbanCultivation": {
+    "label":   { "zh": "都市修仙",   "ja": "都市修仙",           "en": "Urban Cultivation" },
+    "tagline": { "zh": "现代都市 + 修真/异能，扮猪吃虎与降维打击并行",
+                 "ja": "現代都市 + 修真/異能、猫かぶりと次元の差し迫り",
+                 "en": "Modern city + cultivation/powers — hidden strength meets overwhelming force" }
+  },
+  "rebirth": {
+    "label":   { "zh": "重生",       "ja": "重生（逆行）",       "en": "Rebirth" },
+    "tagline": { "zh": "前世记忆 + 逆天改命，已知未来改写命运的爽感节奏",
+                 "ja": "前世の記憶 + 運命改変、知る未来を書き換える爽快感",
+                 "en": "Past-life memories + rewriting fate — the thrill of changing a known future" }
+  },
+  "zuixuZhanShen": {
+    "label":   { "zh": "赘婿战神",   "ja": "贅婿・戦神",         "en": "Son-in-Law / War God" },
+    "tagline": { "zh": "隐忍 + 身份揭露 + 碾压打脸，极简爽文核心节奏",
+                 "ja": "隠忍 + 正体露見 + 圧倒的制裁、極致の爽快系",
+                 "en": "Endurance + identity reveal + overwhelming face-slaps — ultimate power fantasy" }
+  },
+  "guYan": {
+    "label":   { "zh": "古言",       "ja": "古風恋愛（中華）",   "en": "Ancient Romance" },
+    "tagline": { "zh": "诗意古韵 + 权谋爱情，古风美学与情感交织",
+                 "ja": "詩的趣 + 権謀恋愛、古風美学と感情の交織",
+                 "en": "Poetic elegance + courtly romance — ancient aesthetics entwined with emotion" }
+  },
+  "cthulhuMythos": {
+    "label":   { "zh": "克苏鲁 / 诡秘", "ja": "クトゥルフ・詭秘", "en": "Cthulhu / Eldritch" },
+    "tagline": { "zh": "未知恐惧 + 序列晋升 + 理智值管理，知识即诅咒",
+                 "ja": "未知の恐怖 + 序列昇進 + 正気度管理、知識すなわち呪い",
+                 "en": "Fear of the unknown + tier advancement + sanity management — knowledge is a curse" }
+  },
+  "gameFantasy": {
+    "label":   { "zh": "网游 / 游戏异界", "ja": "网游・ゲーム異界", "en": "Game Fantasy" },
+    "tagline": { "zh": "游戏规则 + 冒险升级，攻略即剧情、数值即爽感",
+                 "ja": "ゲームルール + 冒険レベルアップ、攻略がそのまま物語に",
+                 "en": "Game rules + adventure leveling — walkthroughs are plot, stats are thrills" }
+  },
+  "spiritRevival": {
+    "label":   { "zh": "灵气复苏",   "ja": "霊気復興",           "en": "Spirit Revival" },
+    "tagline": { "zh": "世界规则重写 + 个体觉醒争先，从平凡到超凡的时代浪潮",
+                 "ja": "世界ルール書き換え + 個の覚醒競争、凡人から超凡への波",
+                 "en": "Rules rewritten + awakening race — the tidal shift from mundane to extraordinary" }
+  },
+  "cnSchoolYouth": {
+    "label":   { "zh": "校园青春（中式）", "ja": "学園青春（中華）", "en": "School Youth (CN)" },
+    "tagline": { "zh": "校园日常 + 青春成长，酸甜交织的少年时光",
+                 "ja": "学園日常 + 青春の成長、甘酸っぱい少年時代",
+                 "en": "Campus daily life + coming of age — bittersweet youthful days" }
+  },
+  "eraFiction": {
+    "label":   { "zh": "年代文",     "ja": "年代小説（中華）",   "en": "Era Fiction" },
+    "tagline": { "zh": "时代洪流 + 小人物奋斗，烟火气与时代感的年代叙事",
+                 "ja": "時代の波 + 庶民の奮闘、生活感と時代感の物語",
+                 "en": "Era tides + everyman struggles — period narratives with lived-in texture" }
+  },
+  "cnMystery": {
+    "label":   { "zh": "推理（中式）", "ja": "推理（中華）",       "en": "Mystery (CN)" },
+    "tagline": { "zh": "线索链 + 逻辑推理 + 真相揭露，智力驱动型节奏核心",
+                 "ja": "手がかり連鎖 + 論理推理 + 真相暴露、知力駆動型テンポ",
+                 "en": "Clue chains + logical deduction + truth reveals — intellect-driven pacing" }
+  },
+  "harem": {
+    "label":   { "zh": "后宫 / ハーレム", "ja": "ハーレム",       "en": "Harem" },
+    "tagline": { "zh": "複数ヒロイン＋個性衝突＋選択保留，角色魅力即驱动力",
+                 "ja": "複数ヒロイン＋個性衝突＋選択保留、キャラ魅力が推進力",
+                 "en": "Multiple heroines + clashing personalities + deferred choices — character appeal drives it" }
+  },
+  "lightNovel": {
+    "label":   { "zh": "一般轻小说", "ja": "一般ライトノベル",   "en": "Light Novel (General)" },
+    "tagline": { "zh": "ラノベの中間帯——キャッチーな設定与易读性为核心",
+                 "ja": "ラノベの中間帯——キャッチーな設定と読みやすさが命",
+                 "en": "The broad LN middle ground — catchy premises and readability above all" }
+  },
+  "timeSlip": {
+    "label":   { "zh": "逆行転生",   "ja": "逆行転生",           "en": "Time-Slip Reincarnation" },
+    "tagline": { "zh": "未来の記憶で過去を変える——後悔の再挑戦と運命改変",
+                 "ja": "未来の記憶で過去を変える——後悔の再挑戦と運命改変",
+                 "en": "Change the past with future memories — retrying regrets, rewriting fate" }
+  },
+  "realisticFiction": {
+    "label":   { "zh": "现实",       "ja": "リアリズム小説",     "en": "Realistic Fiction" },
+    "tagline": { "zh": "人间烟火 + 社会百态，扎根现实的深度叙事",
+                 "ja": "人間模様 + 社会の諸相、現実に根ざした深い物語",
+                 "en": "Everyday life + social tapestry — grounded, deep storytelling" }
+  },
+  "cnDoujin": {
+    "label":   { "zh": "同人 / 衍生", "ja": "二次創作（中華）",   "en": "Doujin / Derivative" },
+    "tagline": { "zh": "原作为基 + 再创作自由，情怀与创新并重",
+                 "ja": "原作ベース + 再創作の自由、懐かしさと新しさ",
+                 "en": "Built on original works + creative freedom — nostalgia meets innovation" }
+  },
+  "cnSports": {
+    "label":   { "zh": "体育竞技",   "ja": "スポーツ（中華）",   "en": "Sports (CN)" },
+    "tagline": { "zh": "汗水 + 赛场 + 团队荣誉，竞技体育的热血与成长",
+                 "ja": "汗 + 競技場 + チーム栄誉、スポーツの熱血と成長",
+                 "en": "Sweat + arena + team glory — the passion and growth of competitive sports" }
+  },
+  "tombAdventure": {
+    "label":   { "zh": "盗墓 / 探险", "ja": "盗墓・秘境探検",     "en": "Tomb Adventure" },
+    "tagline": { "zh": "古墓 + 秘境 + 未知机关，探险驱动型节奏核心",
+                 "ja": "古墓 + 秘境 + 未知の罠、探検で駆動するテンポ",
+                 "en": "Ancient tombs + ruins + unknown traps — adventure-driven pacing" }
+  },
+  "mythHonghuang": {
+    "label":   { "zh": "神话 / 洪荒", "ja": "神話・洪荒（中華）", "en": "Myth / Primeval" },
+    "tagline": { "zh": "先天灵宝 + 量劫博弈 + 圣位之争，洪荒体系的宏大叙事",
+                 "ja": "先天霊宝 + 量劫の争い + 聖位争奪、洪荒体系の壮大物語",
+                 "en": "Primordial treasures + kalpa conflicts + sagehood — grand mythic narrative" }
+  },
+  "feiChai": {
+    "label":   { "zh": "废柴逆袭",   "ja": "無能からの逆襲",     "en": "Underdog Rise" },
+    "tagline": { "zh": "从最低谷到最高峰，废柴逆袭的成长史诗",
+                 "ja": "最底辺から最高峰へ、無能からの成り上がり叙事詩",
+                 "en": "From rock bottom to the summit — the epic rise of an underdog" }
+  },
+  "maJia": {
+    "label":   { "zh": "马甲文",     "ja": "多重人格もの",       "en": "Identity Swap" },
+    "tagline": { "zh": "多重身份 + 层层掉马 + 震惊众人，身份游戏的极致爽感",
+                 "ja": "多重身分 + 層々の正体露見 + 周囲の驚愕、身分ゲームの極致",
+                 "en": "Multiple identities + gradual reveals + collective shock — the ultimate identity game" }
+  },
+  "zhuiQi": {
+    "label":   { "zh": "追妻火葬场", "ja": "追妻火葬場",         "en": "Groveling Husband" },
+    "tagline": { "zh": "前期虐 + 后期追 + 极致反转，虐与爽的极端情感过山车",
+                 "ja": "前期の虐 + 後期の追求 + 極致の逆転、虐と爽の極限感情ジェットコースター",
+                 "en": "Hurt first, grovel later — the extreme emotional rollercoaster" }
+  },
+  "nvPei": {
+    "label":   { "zh": "女配",       "ja": "脇役ヒロイン",       "en": "Side Character" },
+    "tagline": { "zh": "穿成女配 + 逆天改命 + 反套路，跳出原书命运的爽感",
+                 "ja": "脇役に転生 + 運命改変 + アンチテンプレ、原作運命からの脱却",
+                 "en": "Transmigrated as a side character + rewrite fate — breaking free from the original plot" }
+  },
+  "jiaZu": {
+    "label":   { "zh": "豪门世家",   "ja": "豪門・名家",         "en": "Wealthy Dynasty" },
+    "tagline": { "zh": "财富 + 权力 + 血脉争夺，豪门世界的爱恨与博弈",
+                 "ja": "富 + 権力 + 血脈争い、豪門世界の愛憎と駆け引き",
+                 "en": "Wealth + power + bloodline battles — love and intrigue in high society" }
+  },
+  "tuanChong": {
+    "label":   { "zh": "团宠",       "ja": "愛され主人公",       "en": "Beloved by All" },
+    "tagline": { "zh": "被爱包围 + 温暖日常 + 反差萌，治愈系万众宠爱",
+                 "ja": "愛に包まれる + 温かい日常 + ギャップ萌え、癒し系の万人愛され",
+                 "en": "Surrounded by love + warm days + gap-moe — healing through universal adoration" }
+  },
+  "quanMou": {
+    "label":   { "zh": "权谋",       "ja": "権謀術数",           "en": "Political Strategy" },
+    "tagline": { "zh": "算计 + 博弈 + 格局，智力驱动的朝堂与政局叙事",
+                 "ja": "策略 + 駆け引き + 大局観、知力駆動の宮廷政治物語",
+                 "en": "Scheming + maneuvering + grand strategy — intellect-driven court politics" }
+  },
+  "zhuaYao": {
+    "label":   { "zh": "捉妖 / 天师", "ja": "妖怪ハンター",       "en": "Demon Hunter" },
+    "tagline": { "zh": "道法自然 + 斩妖除魔 + 民俗根脉，中式捉妖玄学叙事",
+                 "ja": "道法自然 + 降魔除妖 + 民俗の根、中華妖怪ハンター叙事",
+                 "en": "Daoist arts + demon-slaying + folk roots — Chinese ghostbusting mysticism" }
+  },
+  "mofumofu": {
+    "label":   { "zh": "もふもふ",   "ja": "もふもふ",           "en": "Fluffy Companions" },
+    "tagline": { "zh": "もふもふ＋癒し＋異世界——可愛い動物/従魔とのスローライフ",
+                 "ja": "もふもふ＋癒し＋異世界——可愛い動物/従魔とのスローライフ",
+                 "en": "Fluffy friends + healing + isekai — slow life with adorable animal companions" }
+  },
+  "tsuiho": {
+    "label":   { "zh": "追放",       "ja": "追放もの",           "en": "Banished" },
+    "tagline": { "zh": "追放からの成り上がり——見捨てた者たちへの最大の復讐は成功",
+                 "ja": "追放からの成り上がり——見捨てた者たちへの最大の復讐は成功",
+                 "en": "Banished and rising — success is the greatest revenge against those who abandoned you" }
+  },
+  "konyakuHaki": {
+    "label":   { "zh": "婚約破棄",   "ja": "婚約破棄もの",       "en": "Broken Engagement" },
+    "tagline": { "zh": "婚約破棄からの逆襲——捨てられた令嬢の華麗なる転身",
+                 "ja": "婚約破棄からの逆襲——捨てられた令嬢の華麗なる転身",
+                 "en": "Revenge after the broken engagement — the abandoned lady's dazzling transformation" }
+  },
+  "doubutsuTensei": {
+    "label":   { "zh": "動物転生",   "ja": "動物転生",           "en": "Animal Reincarnation" },
+    "tagline": { "zh": "人間以外に転生——動物/魔物の視点で生きる異世界",
+                 "ja": "人間以外に転生——動物/魔物の視点で生きる異世界",
+                 "en": "Reincarnated as a non-human — an isekai through animal/monster eyes" }
+  },
+  "osan": {
+    "label":   { "zh": "おっさん主人公", "ja": "おっさん主人公",   "en": "Middle-Aged MC" },
+    "tagline": { "zh": "人生経験 × 転生 / 異世界——大人の知恵が光る中年主人公物",
+                 "ja": "人生経験 × 転生 / 異世界——大人の知恵が光る中年主人公物",
+                 "en": "Life experience × reincarnation — a middle-aged protagonist whose wisdom shines" }
+  },
+  "seijoTsuiho": {
+    "label":   { "zh": "聖女追放",   "ja": "聖女追放もの",       "en": "Banished Saintess" },
+    "tagline": { "zh": "聖女を追放した代償——真の聖女の復権とざまぁ",
+                 "ja": "聖女を追放した代償——真の聖女の復権とざまぁ",
+                 "en": "The price of banishing the saintess — the true saintess reclaims her place" }
+  },
+  "nichijo": {
+    "label":   { "zh": "日常系",     "ja": "日常系",             "en": "Slice of Life" },
+    "tagline": { "zh": "何気ない毎日に光を——ゆるふわ日常系の心地よさ",
+                 "ja": "何気ない毎日に光を——ゆるふわ日常系の心地よさ",
+                 "en": "Finding light in ordinary days — the comfort of gentle slice-of-life" }
+  },
+  "fanRenLiu": {
+    "label":   { "zh": "凡人流",     "ja": "凡人修仙（凡人流）",   "en": "Mortal Cultivation" },
+    "tagline": { "zh": "无天赋 + 无背景 + 无奇遇，全靠努力与谋略的草根修真",
+                 "ja": "才能無し + 背景無し + 奇遇無し、努力と知略だけで上り詰める",
+                 "en": "No talent + no backing + no lucky breaks — cultivation through sheer effort and cunning" }
+  },
+  "animeStyle": {
+    "label":   { "zh": "二次元",     "ja": "アニメ風",           "en": "Anime Style" },
+    "tagline": { "zh": "动画感 + 吐槽役 + 角色驱动，二次元画风的轻快叙事",
+                 "ja": "アニメ感 + ツッコミ役 + キャラ駆動、二次元画風の軽快な物語",
+                 "en": "Anime vibes + straight-man humor + character-driven — lighthearted 2D-style tales" }
+  },
+  "zhuTianWanJie": {
+    "label":   { "zh": "诸天万界",   "ja": "諸天万界",           "en": "Multiverse Journey" },
+    "tagline": { "zh": "一界一故事 + 万界穿梭，在无尽世界中收集与成长",
+                 "ja": "一界一話 + 諸界を渡り歩く、無限の世界で収集と成長",
+                 "en": "One world, one story + multiverse hopping — collecting and growing across infinite worlds" }
+  },
+  "survivalGame": {
+    "label":   { "zh": "求生",       "ja": "サバイバル",         "en": "Survival" },
+    "tagline": { "zh": "资源匮乏 + 环境危机 + 活下去，生存压力即驱动力",
+                 "ja": "資源不足 + 環境危機 + 生き延びろ、生存圧力が駆動力",
+                 "en": "Scarce resources + environmental threats + stay alive — survival pressure drives it all" }
+  },
+  "villainMC": {
+    "label":   { "zh": "反派主角",   "ja": "悪役主人公",         "en": "Villain MC" },
+    "tagline": { "zh": "以反派为主角，从黑暗面展开的另类叙事",
+                 "ja": "悪役を主人公に、ダークサイドから展開する異色の物語",
+                 "en": "A villain as the lead — an alternative narrative unfolding from the dark side" }
+  },
+  "zombieApocalypse": {
+    "label":   { "zh": "丧尸",       "ja": "ゾンビ黙示録",       "en": "Zombie Apocalypse" },
+    "tagline": { "zh": "尸潮 + 幸存 + 人性博弈，丧尸末世的紧张与考验",
+                 "ja": "ゾンビの波 + サバイバル + 人間性の駆け引き、終末の緊張と試練",
+                 "en": "Zombie hordes + survival + human nature at stake — tension and trials of the apocalypse" }
+  },
+  "ruleStrange": {
+    "label":   { "zh": "规则怪谈",   "ja": "ルール怪談",         "en": "Rule Horror" },
+    "tagline": { "zh": "遵守规则即生存——规则怪谈的未知恐惧与逻辑解谜",
+                 "ja": "ルールを守れ—生き残れ—ルール怪談の未知の恐怖と論理解謎",
+                 "en": "Follow the rules or die — unknown terror and logical puzzles of rule-based horror" }
+  },
+  "quanMinZhuanZhi": {
+    "label":   { "zh": "全民转职",   "ja": "全民転職",           "en": "Global Job Awakening" },
+    "tagline": { "zh": "世界游戏化 + 职业觉醒 + 全球排名，全民转职的进阶之路",
+                 "ja": "世界ゲーム化 + 職業覚醒 + 世界ランク、全民転職の上昇ロード",
+                 "en": "Gamified world + job awakening + global rankings — leveling up together" }
+  },
+  "weiYiFuSu": {
+    "label":   { "zh": "诡异复苏",   "ja": "怪異復活",           "en": "Strange Revival" },
+    "tagline": { "zh": "现代都市 + 厉鬼复苏 + 驭鬼者体系，中式恐怖新范式",
+                 "ja": "現代都市 + 怨霊復活 + 鬼使いシステム、中華ホラーの新境地",
+                 "en": "Modern cities + ghost revival + ghost-tamer systems — a new Chinese horror" }
+  },
+  "shenHao": {
+    "label":   { "zh": "神豪",       "ja": "神豪（マネーチート）", "en": "Mega Rich" },
+    "tagline": { "zh": "无限金钱 + 消费即爽，神豪系统的极致物质满足",
+                 "ja": "無限マネー + 消費こそ快感、神豪システムの究極の物質的満足",
+                 "en": "Unlimited money + spending is the thrill — ultimate material satisfaction" }
+  },
+  "xinShengLiu": {
+    "label":   { "zh": "心声流",     "ja": "本音暴露もの",       "en": "Inner Voice" },
+    "tagline": { "zh": "心声暴露 + 反差认知 + 集体震惊，内心独白的社交炸弹",
+                 "ja": "本音ダダ漏れ + ギャップ + 全員驚愕、内面モノローグが巻き起こす社交爆弾",
+                 "en": "Exposed inner thoughts + contrast shock + collective disbelief — when monologues go public" }
+  },
+  "lianZong": {
+    "label":   { "zh": "恋综",       "ja": "恋愛リアリティ番組", "en": "Dating Show" },
+    "tagline": { "zh": "综艺舞台 + CP博弈 + 全网围观，恋爱综艺的修罗场",
+                 "ja": "バラエティ舞台 + CPかけひき + 全ネト民が注目、恋リアの修羅場",
+                 "en": "Variety stage + CP maneuvering + national attention — the battleground of love" }
+  },
+  "tiJiaShanHun": {
+    "label":   { "zh": "替嫁闪婚",   "ja": "身代わり結婚",       "en": "Proxy Marriage" },
+    "tagline": { "zh": "替嫁开局 + 先婚后爱 + 身份反转，契约婚姻的情感蜕变",
+                 "ja": "身代わり結婚スタート + 結婚からの恋 + 身分反転、契約婚の感情ドラマ",
+                 "en": "Proxy bride + love after marriage + identity twist — from contract to true love" }
+  },
+  "kaiJuLiu": {
+    "label":   { "zh": "开局流",     "ja": "チートスタート系",   "en": "OP Start" },
+    "tagline": { "zh": "开局即巅峰 + 一路碾压 + 极限爽感，从最强起点的碾压叙事",
+                 "ja": "最初から最強 + 終始圧倒 + 極限の爽快感、最強スタートの無敵譚",
+                 "en": "Peak from page one + nonstop domination — the ultimate power fantasy" }
+  },
+  "gouLiang": {
+    "label":   { "zh": "狗粮文",     "ja": "イチャイチャもの",   "en": "Fluff Romance" },
+    "tagline": { "zh": "无虐纯甜 + 日常撒糖 + CP发粮，轻松治愈的甜蜜叙事",
+                 "ja": "ノー虐・甘々 + 日常の発糖 + CPが餌を撒く、癒し系スイートストーリー",
+                 "en": "Zero angst + daily sugar + CP feeding — pure warm-and-fuzzy romance" }
+  },
+  "panDianLiu": {
+    "label":   { "zh": "盘点流",     "ja": "ランキング暴露系",   "en": "Countdown Reveal" },
+    "tagline": { "zh": "榜单揭晓 + 世人震惊 + 历史/角色复盘，盘点即高潮",
+                 "ja": "ランキング発表 + 世間震撼 + 歴史/キャラ総ざらい、ランキングそのものがクライマックス",
+                 "en": "Rankings revealed + collective shock + retrospective — the list itself is the climax" }
+  },
+  "mengBao": {
+    "label":   { "zh": "萌宝",       "ja": "ベビーもの",         "en": "Adorable Child" },
+    "tagline": { "zh": "萌宝助攻 + 亲情治愈 + 妈咪爹地重逢，萌宝带动的温馨叙事",
+                 "ja": "可愛いベビーの恋のキューピッド + 家族の癒し + パパママ再会、ベビーが紡ぐハートフルストーリー",
+                 "en": "Baby matchmaker + family healing + parent reunion — a heartwarming tale led by a child" }
+  },
+  "gaoWu": {
+    "label":   { "zh": "高武",       "ja": "高武世界",           "en": "High Martial" },
+    "tagline": { "zh": "武力为体系核心，拳意通神，硬派男频",
+                 "ja": "武力本位の体系、拳意で神に至る、硬派男性向け",
+                 "en": "Martial arts as the core power system — hardcore male-oriented" }
+  },
+  "dieZhan": {
+    "label":   { "zh": "谍战",       "ja": "諜報戦",             "en": "Espionage" },
+    "tagline": { "zh": "伪装、情报、反侦察，智力博弈型节奏",
+                 "ja": "偽装・諜報・防諜、知力対決型テンポ",
+                 "en": "Disguise, intel, counter-espionage — intellect-driven pacing" }
+  },
+  "kangZhan": {
+    "label":   { "zh": "抗战",       "ja": "抗日戦争",           "en": "Anti-Japanese War" },
+    "tagline": { "zh": "家国仇恨与战火残酷，硬派历史男频",
+                 "ja": "家国の恨みと戦火の残酷、硬派歴史男性向け",
+                 "en": "National hatred and the cruelty of war — hardcore historical fiction" }
+  },
+  "xianxiaRomance": {
+    "label":   { "zh": "仙侠奇缘",   "ja": "仙侠ロマンス",       "en": "Xianxia Romance" },
+    "tagline": { "zh": "御剑红尘，情劫即修行，女频仙侠节奏",
+                 "ja": "御剣で紅塵を翔ける、情劫こそ修行、女性向け仙侠",
+                 "en": "Sword-flight through mortal dust — love-as-cultivation for female readers" }
+  },
+  "urbanReturn": {
+    "label":   { "zh": "都市归来",   "ja": "都市帰還もの",       "en": "Urban Return" },
+    "tagline": { "zh": "归来即巅峰，打脸 + 装逼 + 极致爽感",
+                 "ja": "帰還=頂点、顔面殴打 + 自慢 + 極致爽快",
+                 "en": "Return at the peak — face-slap + flex + ultimate power fantasy" }
+  },
+  "brainHole": {
+    "label":   { "zh": "脑洞流",     "ja": "脳穴系",             "en": "High Concept" },
+    "tagline": { "zh": "高概念设定 + 极致反差，番茄/七猫流量爆款",
+                 "ja": "高コンセプト + 極端ギャップ、トマト/七猫の流量爆款",
+                 "en": "High-concept premise + extreme contrast — algorithm-driven viral hit" }
+  },
+  "liveStreamFlow": {
+    "label":   { "zh": "直播文",     "ja": "配信もの",           "en": "Live-Streaming Fiction" },
+    "tagline": { "zh": "直播 + 弹幕互动，娱乐爽感与世界共证",
+                 "ja": "配信 + コメント連動、エンタメ爽快と世界の見証",
+                 "en": "Streaming + chat interaction — entertainment thrill witnessed by all" }
+  },
+  "chatNovel": {
+    "label":   { "zh": "对话小说",   "ja": "チャット小説",       "en": "Chat Novel" },
+    "tagline": { "zh": "聊天截图 + 对话节奏，碎片化阅读",
+                 "ja": "チャットスクショ + 会話テンポ、スキマ時間読書",
+                 "en": "Chat screenshots + dialogue pacing — bite-sized reading" }
+  },
+  "juBenSha": {
+    "label":   { "zh": "剧本杀",     "ja": "脚本殺人ゲーム",     "en": "Murder-Mystery Script" },
+    "tagline": { "zh": "角色扮演 + 真相揭露，本格推理变体",
+                 "ja": "RP + 真相暴露、本格推理の変種",
+                 "en": "Role-play + truth reveal — a variant of honkaku mystery" }
+  },
+  "superHero": {
+    "label":   { "zh": "超级英雄",   "ja": "スーパーヒーロー",   "en": "Superhero" },
+    "tagline": { "zh": "美漫超英 / 学院系，能力 + 责任 + 大事件",
+                 "ja": "アメコミ超英 / 学園系、能力 + 責任 + 大事件",
+                 "en": "Western superhero / academy — powers + responsibility + crossover events" }
+  },
+  "mihoyoDoujin": {
+    "label":   { "zh": "米哈游同人", "ja": "miHoYo 二次創作",    "en": "miHoYo Doujin" },
+    "tagline": { "zh": "米哈游世界观同人，角色 + 设定 + 玩家共鸣",
+                 "ja": "miHoYo 世界観の二次創作、キャラ + 設定 + プレイヤー共鳴",
+                 "en": "miHoYo-universe doujin — characters + lore + player resonance" }
+  },
+  "general": {
+    "label":   { "zh": "通用",       "ja": "汎用",             "en": "General" },
+    "tagline": { "zh": "未识别类型时的兜底规则",
+                 "ja": "ジャンル未識別時のフォールバック",
+                 "en": "Fallback rules when no genre is detected" }
+  }
+}

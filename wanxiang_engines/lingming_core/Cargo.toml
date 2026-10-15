@@ -1,0 +1,18 @@
+[package]
+name = "lingming_core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "灵明认知意识核心：Piaget 元认知 + UCB1 自主决策 + NSGA-II 进化引擎，集成 world_state 守恒律与 causal_core 因果图"
+
+[lib]
+name = "lingming_core"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+world_state = { path = "../world_state" }
+causal_core = { path = "../causal_core" }
