@@ -994,7 +994,7 @@ dependencies = [
 
 [[package]]
 name = "fuxiloom-novel-writer-ai"
-version = "10.1.0"
+version = "10.1.1"
 dependencies = [
  "agent_runtime",
  "causal_core",
@@ -4157,7 +4157,7 @@ dependencies = [
  "rayon",
  "serde",
  "serde_json",
- "thiserror 1.0.69",
+ "thiserror 2.0.20",
  "tracing",
  "uuid",
  "wanxiang_types",
