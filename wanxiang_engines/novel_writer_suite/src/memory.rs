@@ -1,8 +1,8 @@
 //! ④ memory — 三层记忆 + 遗忘曲线 + 漂移告警
 //!
 //! 实现依据：
-//! - `i:\万象技术库\novel_writer_suite\README.md`（novel_core/memory.rs：Atkinson-Shiffrin + 漂移/防遗忘）
-//! - `i:\万象技术库\novel_writer_suite\causal_gate\README.md`（setting_memory：人设/时间线记忆）
+//! - 内部技术档案 · novel_writer_suite\README.md（novel_core/memory.rs：Atkinson-Shiffrin + 漂移/防遗忘）
+//! - 内部技术档案 · novel_writer_suite\causal_gate\README.md（setting_memory：人设/时间线记忆）
 //!
 //! 定位（钉死）：人设/时间线记忆，防遗忘曲线 + 漂移告警。
 //! - Atkinson-Shiffrin 三层：sensory（感官）/ short-term（短期）/ long-term（长期）

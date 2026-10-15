@@ -1,10 +1,10 @@
 //! lingming_com — 万象 L3 通讯协调层
 //!
 //! 实现依据：
-//! - `i:\万象技术库\10_openagent技术\01_核心引擎\消息总线.md`（双模 MessageBus）
-//! - `i:\万象技术库\01_模块系统\涌现机制三层设计.md`（群体→文明→认知三层）
-//! - `i:\万象技术库\emergence_engine\docs\WHITE_PAPER.md`（三值决策 + 资源再生 + 合作收益）
-//! - `i:\万象技术库\10_openagent技术\06_通信渠道\通信渠道基础架构.md`（M/M/1 + At-Least-Once）
+//! - 内部技术档案 · 10_openagent技术\01_核心引擎\消息总线.md（双模 MessageBus）
+//! - 内部技术档案 · 01_模块系统\涌现机制三层设计.md（群体→文明→认知三层）
+//! - 内部技术档案 · emergence_engine\docs\WHITE_PAPER.md（三值决策 + 资源再生 + 合作收益）
+//! - 内部技术档案 · 10_openagent技术\06_通信渠道\通信渠道基础架构.md（M/M/1 + At-Least-Once）
 //!
 //! 两个子模块：
 //! - [`message_bus`]：消息总线 — MsgType 四类(系统/聊天/工具/协作) + Message + MessageBus

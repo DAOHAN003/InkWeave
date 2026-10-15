@@ -1,6 +1,6 @@
 //! 团队协作引擎 — 多 Agent 角色分工 + DAG 任务调度 + 冲突仲裁
 //!
-//! 实现依据：`i:\万象技术库\10_openagent技术\13_团队协作\团队协作引擎.md`
+//! 实现依据：内部技术档案 · 10_openagent技术\13_团队协作\团队协作引擎.md`
 //!
 //! 核心数据结构：
 //! - [`Role`]：10 种角色（PM/Architect/Developer/Tester/Reviewer/Designer/Researcher/Writer/DevOps/Custom）

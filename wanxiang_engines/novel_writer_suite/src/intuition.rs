@@ -1,6 +1,6 @@
 //! ① intuition — 创意直觉引擎（发散）
 //!
-//! 实现依据：`i:\万象技术库\novel_writer_suite\intuition_engine\src\lib.rs`
+//! 实现依据：内部技术档案 · novel_writer_suite\intuition_engine\src\lib.rs`
 //! （原 pyo3 实现，本版改写为纯 Rust rlib+cdylib）
 //!
 //! 定位（钉死）：只做「发散创意」。给定主题/梗概，蹦出跨领域灵感火花。

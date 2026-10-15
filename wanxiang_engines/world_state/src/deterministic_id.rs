@@ -1,6 +1,6 @@
 //! 确定性 ID 生成 — 无 UUID/SystemTime，跨进程字节级可复现
 //!
-//! 实现依据：`i:\万象技术库\12_万象独创技术\docs\08_确定性ID生成.md`
+//! 实现依据：内部技术档案 · 12_万象独创技术\docs\08_确定性ID生成.md`
 //!
 //! 公式：`prefix_{tick}_{hash|index}`
 //!   - Event：evt_{tick}_{fnv1a32(desc)}

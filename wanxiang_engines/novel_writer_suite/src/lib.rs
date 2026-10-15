@@ -1,6 +1,6 @@
 //! novel_writer_suite — 万象 L6 写作场景应用层
 //!
-//! 实现依据（i:\万象技术库\novel_writer_suite\）：
+//! 实现依据（内部技术档案 · novel_writer_suite\）：
 //! - `README.md`：总线架构 — ①发散 → ②把关 → ③连贯 → ④记忆 → ★自主 闭环
 //! - `intuition_engine/README.md` + `src/lib.rs`：跨域概念图 + 扩散激活蹦灵感
 //! - `intuition_engine/loom_integration/创意发散师.md`：发散师角色卡（大纲前注入跨域火花）

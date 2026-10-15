@@ -1,8 +1,8 @@
 //! ③ coherence — 连贯拼接 + 角色自模型 OOC 检测
 //!
 //! 实现依据：
-//! - `i:\万象技术库\novel_writer_suite\coherence_stitch\README.md`
-//! - `i:\万象技术库\novel_writer_suite\coherence_stitch\coherence_stitch.py`
+//! - 内部技术档案 · novel_writer_suite\coherence_stitch\README.md
+//! - 内部技术档案 · novel_writer_suite\coherence_stitch\coherence_stitch.py
 //!
 //! 定位（钉死）：把「分章碎片拼成连贯长篇、角色不 OOC」这件事做掉。
 //! - [`CharacterSelfModel`]：角色自模型 — 记录行为一致性基线，偏离基线 ⇒ OOC

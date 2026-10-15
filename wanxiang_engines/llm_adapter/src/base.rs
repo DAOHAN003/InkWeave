@@ -1,6 +1,6 @@
 //! base — BaseLLMAdapter 抽象基类与统一接口
 //!
-//! 实现依据：`i:\万象技术库\10_openagent技术\03_LLM适配层\LLM基础适配器.md`
+//! 实现依据：内部技术档案 · 10_openagent技术\03_LLM适配层\LLM基础适配器.md`
 //!
 //! 核心内容：
 //! - [`Message`] / [`Usage`] / [`ToolCall`] / [`ChatResponse`]：LLM 调用统一数据结构

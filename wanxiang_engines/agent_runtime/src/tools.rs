@@ -1,9 +1,9 @@
 //! 工具系统与审批 — ToolRegistry + ToolSecurityPolicy
 //!
 //! 实现依据：
-//! - `i:\万象技术库\10_openagent技术\02_Agent运行时\工具注册中心.md`（ToolRegistry O(1) 哈希查找）
-//! - `i:\万象技术库\10_openagent技术\02_Agent运行时\工具安全策略.md`（四级风险 + 三种审批模式）
-//! - `i:\万象技术库\10_openagent技术\09_工具系统\工具系统与审批.md`（M/M/1 审批 + 路径沙箱）
+//! - 内部技术档案 · 10_openagent技术\02_Agent运行时\工具注册中心.md（ToolRegistry O(1) 哈希查找）
+//! - 内部技术档案 · 10_openagent技术\02_Agent运行时\工具安全策略.md（四级风险 + 三种审批模式）
+//! - 内部技术档案 · 10_openagent技术\09_工具系统\工具系统与审批.md（M/M/1 审批 + 路径沙箱）
 //!
 //! 核心数据结构：
 //! - [`RiskLevel`]：四级风险（Low=0, Medium=1, High=2, Critical=3）

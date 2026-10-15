@@ -1,7 +1,7 @@
 //! 总线 — NovelAssistant 串联 ①→②→③→④ 端到端闭环
 //!
 //! 实现依据：
-//! - `i:\万象技术库\novel_writer_suite\README.md`（novel_assistant：把 ①②③④ + ★ 串成闭环）
+//! - 内部技术档案 · novel_writer_suite\README.md（novel_assistant：把 ①②③④ + ★ 串成闭环）
 //! - 流水线：①发散(敢想) → ②把关(不崩) → ③连贯/OOC(不飘) → ④记忆(不忘/不漂移)
 //!
 //! 设计：

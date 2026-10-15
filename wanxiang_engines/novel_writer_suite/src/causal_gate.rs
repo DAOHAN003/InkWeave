@@ -1,8 +1,8 @@
 //! ② causal_gate — 章节因果一致性门控（收敛）
 //!
 //! 实现依据：
-//! - `i:\万象技术库\novel_writer_suite\causal_gate\README.md`
-//! - `i:\万象技术库\novel_writer_suite\causal_gate\causal_gate.py`
+//! - 内部技术档案 · novel_writer_suite\causal_gate\README.md
+//! - 内部技术档案 · novel_writer_suite\causal_gate\causal_gate.py
 //!
 //! 定位（钉死）：只做「收敛/把关」。把一章结构化事件喂给世界图，输出违规清单。
 //! 不碰发散（那是 ① 的活）、不碰写作、不碰世界观。

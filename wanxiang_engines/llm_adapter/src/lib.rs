@@ -1,9 +1,9 @@
 //! llm_adapter — 万象 L5 AI/LLM 适配层
 //!
 //! 实现依据：
-//! - `i:\万象技术库\10_openagent技术\03_LLM适配层\LLM基础适配器.md`（统一 chat/stream/embed + 指数退避 + 429 + LRU 缓存）
-//! - `i:\万象技术库\10_openagent技术\03_LLM适配层\LLM智能路由.md`（降级链 + 按复杂度路由 + 启动探测 + 串联可靠性）
-//! - `i:\万象技术库\10_openagent技术\16_多模态与语音\多模态支持.md`（跨模态注意力 + 视觉 Token + 图像预处理）
+//! - 内部技术档案 · 10_openagent技术\03_LLM适配层\LLM基础适配器.md（统一 chat/stream/embed + 指数退避 + 429 + LRU 缓存）
+//! - 内部技术档案 · 10_openagent技术\03_LLM适配层\LLM智能路由.md（降级链 + 按复杂度路由 + 启动探测 + 串联可靠性）
+//! - 内部技术档案 · 10_openagent技术\16_多模态与语音\多模态支持.md（跨模态注意力 + 视觉 Token + 图像预处理）
 //!
 //! 三个子模块：
 //! - [`base`]：BaseLLMAdapter 抽象基类 — 统一 chat/stream/embed 契约（LSP 里氏替换）

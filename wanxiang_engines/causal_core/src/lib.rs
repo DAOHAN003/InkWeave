@@ -1,8 +1,8 @@
 //! causal_core — 万象 L0 因果核心
 //!
 //! 实现依据：
-//! - `i:\万象技术库\10_openagent技术\19_因果一致性验证\因果一致性验证引擎.md`
-//! - `i:\万象技术库\10_openagent技术\45_因果抽象发现\因果抽象发现.md`
+//! - 内部技术档案 · 10_openagent技术\19_因果一致性验证\因果一致性验证引擎.md
+//! - 内部技术档案 · 10_openagent技术\45_因果抽象发现\因果抽象发现.md
 //!
 //! 四个子模块：
 //! - [`graph`]：CausalGraph/CausalEdge/CausalNode + add_node/add_edge/find_node/intervene

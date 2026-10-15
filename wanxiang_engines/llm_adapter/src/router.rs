@@ -1,6 +1,6 @@
 //! router — LLMRouter 管理中枢：降级链 + 智能路由 + 启动探测 + 串联可靠性
 //!
-//! 实现依据：`i:\万象技术库\10_openagent技术\03_LLM适配层\LLM智能路由.md`
+//! 实现依据：内部技术档案 · 10_openagent技术\03_LLM适配层\LLM智能路由.md`
 //!
 //! 核心内容：
 //! - [`LLMRouter`]：多后端管理 — primary→fallback[0]→fallback[1]→报错（进程不退出）
