@@ -1,5 +1,10 @@
 # 墨织 InkWeave · 社区版（Community Edition）
 
+[![CI](https://github.com/DAOHAN003/InkWeave/actions/workflows/ci.yml/badge.svg)](https://github.com/DAOHAN003/InkWeave/actions/workflows/ci.yml)
+[![Release](https://github.com/DAOHAN003/InkWeave/actions/workflows/release.yml/badge.svg)](https://github.com/DAOHAN003/InkWeave/releases)
+[![License](https://img.shields.io/github/license/DAOHAN003/InkWeave)](LICENSE)
+[![Latest Release](https://img.shields.io/github/v/release/DAOHAN003/InkWeave)](https://github.com/DAOHAN003/InkWeave/releases)
+
 离线优先的中文小说写作台。你的稿子在你自己的磁盘上，AI 由你自己配——本地 Ollama 或任意 OpenAI 兼容 API。
 
 ```bash
