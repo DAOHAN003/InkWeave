@@ -26,7 +26,7 @@ crossbeam = "0.8"
 rayon = "1.8"
 # 数学与随机
 rand = "0.8"
-rand_distr = "0.4"
+rand_distr = "0.6"
 # 日志
 tracing = "0.1"
 # 错误处理
