@@ -1,5 +1,7 @@
 # 墨织 InkWeave
 
+中文 | [English](README.en.md)
+
 > 面向长篇小说与网络文学创作的 AI 桌面工作台<br>
 > 当前版本：**V10.1.1**
 [![CI](https://github.com/DAOHAN003/InkWeave/actions/workflows/ci.yml/badge.svg)](https://github.com/DAOHAN003/InkWeave/actions/workflows/ci.yml)
