@@ -254,7 +254,7 @@ test result: ok. 48 passed; 0 failed  (wanxiang_bridge, L7 含 L8 桥接)
 
 L7 是 FuxiLoom 二开的**前端集成层**，把 L0-L6 的 Rust 引擎 API 包装为 Tauri 命令，让前端 TypeScript 通过 `invoke('wx_*', {...})` 直接调用，无需走 LLM。
 
-- **位置**：`d:\fork_FuxiLoom\src-tauri\src\wanxiang_bridge.rs`（单 mod，与 `lingming/` 平级，不在本 workspace 内）
+- **位置**：`<repo>/src-tauri\src\wanxiang_bridge.rs`（单 mod，与 `lingming/` 平级，不在本 workspace 内）
 - **依赖**：`src-tauri/Cargo.toml` 已加 8 个 path 依赖（world_state/causal_core/lingming_core/memory_core/lingming_com/agent_runtime/llm_adapter/novel_writer_suite）
 - **注册**：`src-tauri/src/main.rs` 已加 `mod wanxiang_bridge;` + `invoke_handler!` 注册 40 个 `wx_*` 命令
 - **测试**：25/25 全绿（`cargo test --bin fuxiloom-novel-writer-ai wanxiang_bridge`），不破坏本 workspace 468 个测试
@@ -390,13 +390,13 @@ PyO3 包装层在 v0.4+ 以独立 `*_py` crate 形式添加。
 ## 5. 快速开始
 
 ```bash
-cd d:/fork_FuxiLoom/wanxiang_engines
+cd <repo>/wanxiang_engines
 cargo test --workspace           # 跑全部 659 个测试（L0-L6 引擎 + L8 安全配置）
 cargo build --workspace          # 构建 rlib + cdylib
 cargo doc --workspace --open     # 生成 API 文档
 
 # L7 桥接层测试（位于 src-tauri/，依赖本 workspace 的 8 个 crate）
-cd d:/fork_FuxiLoom/src-tauri
+cd <repo>/src-tauri
 cargo test --bin fuxiloom-novel-writer-ai wanxiang_bridge   # 25 个测试
 ```
 
