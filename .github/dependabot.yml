@@ -1,25 +1,35 @@
 version: 2
 updates:
-  # npm dependencies
+  # npm 依赖：minor+patch 分组为一个 PR，major 单开
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 5
+    groups:
+      npm-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
     labels:
       - "dependencies"
       - "npm"
     commit-message:
       prefix: "deps(npm)"
 
-  # Rust: wanxiang_engines workspace
+  # Rust: wanxiang_engines 工作区（社区版保留的确定性套件）
   - package-ecosystem: "cargo"
     directory: "/wanxiang_engines"
     schedule:
       interval: "weekly"
       day: "monday"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
+    groups:
+      cargo-engines:
+        update-types:
+          - "minor"
+          - "patch"
     labels:
       - "dependencies"
       - "cargo"
@@ -32,19 +42,30 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
+    groups:
+      cargo-tauri:
+        update-types:
+          - "minor"
+          - "patch"
     labels:
       - "dependencies"
       - "cargo"
     commit-message:
       prefix: "deps(cargo:tauri)"
 
-  # GitHub Actions
+  # GitHub Actions：分组为一个 PR
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
+    open-pull-requests-limit: 3
+    groups:
+      gha-all:
+        update-types:
+          - "minor"
+          - "patch"
     labels:
       - "dependencies"
       - "github-actions"
