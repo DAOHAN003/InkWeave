@@ -281,7 +281,6 @@ npm run test:e2e         # E2E 冒烟（Playwright + 系统 Edge，浏览器模�
 npm run test:rust        # 引擎 Rust 单测（wanxiang_engines 工作区）
 npm run test:tauri       # Tauri 桥接层单测（src-tauri）
 npm run check:boundary   # 定位边界审计（死命令 / 幽灵调用 / 死配置 / 未挂载命令 / TS 孤岛）
-npm run verify:community # 开源双轨校验：社区版副本剥离不变量 + 版本同步 + tsc 编译（发版前跑）
 npm run ci               # 本地门禁八步：边界审计 → tsc → vitest → vite build → cargo check → 三套 cargo test → 离线核心自检
 node scripts/verify_offline_core.ts   # 零依赖离线核心自检（LNN + 离线词向量 RAG，6 项）
 ```

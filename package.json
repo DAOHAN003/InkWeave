@@ -13,7 +13,6 @@
     "check:boundary": "node scripts/check-boundary.mjs",
     "check:rust": "cd src-tauri && cargo check",
     "verify:offline": "tsx scripts/verify_offline_core.ts",
-    "verify:community": "node scripts/verify-community.mjs",
     "test:ts": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
