@@ -11,7 +11,7 @@ tauri-build = { version = "2", features = [] }
 # → 走 no_std 分支（IndexMap 强制 3 个泛型参数）→ schemars 编译失败。
 # 症状：warm target 全绿（复用已编 rmeta），干净环境必挂——GitHub Actions / 新克隆 / 社区版冷编译。
 # 修法：显式声明同版本依赖，把 std feature 注入 build-deps 实例。
-indexmap = { version = "1.9.3", features = ["std"] }
+indexmap = { version = "2.14.2", features = ["std"] }
 
 [dependencies]
 tauri = { version = "2", features = [ "devtools" ] }
