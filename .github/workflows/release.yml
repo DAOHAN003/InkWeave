@@ -13,6 +13,9 @@ on:
         description: '要发布的 tag（如 v10.1.0，必须已存在于远端）'
         required: true
 
+# 平台说明：当前仅构建 Windows（NSIS）。
+# Linux 矩阵项暂缺：credential_vault.rs 依赖 Windows 凭据管理器（windows_sys），
+# HiDPI 处理同理——跨平台凭据后端落地后再恢复 Linux (AppImage + deb) 目标。
 # 上传 Release 产物需要写权限
 permissions:
   contents: write
@@ -34,11 +37,7 @@ jobs:
           - name: Windows (NSIS)
             os: windows-latest
             args: ''
-          # Linux：conf 里没有 linux 目标，需命令行覆盖
-          - name: Linux (AppImage + deb)
-            os: ubuntu-22.04
-            args: '--bundles appimage,deb'
-
+    
     steps:
       - uses: actions/checkout@v4
 
@@ -50,22 +49,6 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      # Tauri v2 需要 webkit2gtk-4.1（不是 4.0）；tauri-action 不代装系统依赖
-      - name: Install Linux system dependencies
-        if: matrix.os == 'ubuntu-22.04'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libwebkit2gtk-4.1-dev \
-            libayatana-appindicator3-dev \
-            librsvg2-dev \
-            patchelf \
-            build-essential \
-            curl \
-            wget \
-            file \
-            libssl-dev
-
       - name: Build installers and publish draft release
         uses: tauri-apps/tauri-action@v0
         env:
@@ -76,7 +59,7 @@ jobs:
           releaseBody: |
             本版本变更见 [CHANGELOG.md](CHANGELOG.md)。
 
-            Windows 下载 `.exe`（NSIS 安装包），Linux 下载 `.AppImage` 或 `.deb`。
+            Windows 下载 `.exe`（NSIS 安装包）。
           releaseDraft: true
           prerelease: false
           # 不产出 updater 签名清单（避免需要 updater 私钥）
