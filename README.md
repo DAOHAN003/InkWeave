@@ -236,9 +236,7 @@ wanxiang_engines/ Rust 确定性引擎工作区（世界态守恒、因果核心
 wanxiang/         万象模拟引擎工作区（世界生成与演化 SDK，Tauri 桥接依赖）
 src-tauri/        Tauri / Rust 桌面端配置与命令
 skills/           本地小说创作 Skills
-scripts/          本地门禁与自检脚本（ci-check / check-boundary / verify_offline_core 等）
-docs/             设计文档、AI 检测机制与开发记录
-outputs/          验收清单、核验报告与优先级盘点
+scripts/          门禁与自检脚本（ci-check / check-boundary / verify_offline_core 等）
 ```
 
 ## 开发与构建

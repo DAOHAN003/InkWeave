@@ -413,7 +413,7 @@
 - WebView2 CDP 9223（桌面）：新建演示世界（71 实体/1065 事件）→ 详情卡筛选（类型 Enlightenment 显 12/共 21、剩余全匹配）→ 时间轴联动回归（T12 → 当前刻 12）✓（VLM 9/10）
 # FuxiLoom Novel Writer Ai · 更新日志
 
-所有版本均为本地分发（local commit only，不推送远程仓库）。版本号与 `package.json` / `tauri.conf.json` 同步。
+版本号与 `package.json` / `tauri.conf.json` 同步；正式发布挂 GitHub Releases。
 
 
 ## V8.6.0 — 巨石治理第五刀 + 侧栏三域出舱 + 撤销条全覆盖 + 星图时间轴联动（2026-09-30）

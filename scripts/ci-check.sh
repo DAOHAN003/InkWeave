@@ -19,17 +19,17 @@
 #   FX_CARGO_TARGET_DIR=<目录>  Rust 三步统一改用 fresh CARGO_TARGET_DIR。
 #      本环境（agent 沙箱）安全策略会冻结"已存在的 .cargo-build-lock"（写/删/改名全拒，
 #      index.lock 同款模式），cargo 默认 target/debug 无法使用；设此变量指向全新目录
-#      （如 D:/fork_FuxiLoom/src-tauri/checktmp）即可绕过。用户真机无此问题，不设即可用默认 target。
+#      （如 <repo>/src-tauri/checktmp）即可绕过。用户真机无此问题，不设即可用默认 target。
 #      ⚠️ 必须是 Windows 格式绝对路径（如 D:/...）：环境变量值不做 MSYS 路径转换，
 #      传 /d/... 会被 Windows cargo 解析成 <cwd盘符>:\d\... 建到错误位置（08-03 实测踩坑）。
 #      ⚠️ [4/8][7/8]（src-tauri）共用 FX_CARGO_TARGET_DIR；[5/8] wanxiang_engines 用
 #      ENG_CARGO_TARGET_DIR；[6/8] wanxiang/ 工作区用 WX_CARGO_TARGET_DIR —— 三者独立目录，
 #      避免三套 serde 解析产物串扰同一 target（E0277 历史教训）。
 #   ENG_CARGO_TARGET_DIR=<目录>  [5/8] wanxiang_engines 测试的 fresh target（如
-#      D:/fork_FuxiLoom/wanxiang_engines/engcheck）。不设则用该工作区默认 target。
+#      <repo>/wanxiang_engines/engcheck）。不设则用该工作区默认 target。
 #   WX_CARGO_TARGET_DIR=<目录>  [6/8] wanxiang/ 工作区（wanxiang_types / wanxiang_core /
 #      wanxiang_brain / wanxiang_evolution / wanxiang_world / wanxiang_engine / wanxiang_sdk
-#      七个 crate）测试的 fresh target（如 D:/fork_FuxiLoom/wanxiang/wxcheck）。不设则用该
+#      七个 crate）测试的 fresh target（如 <repo>/wanxiang/wxcheck）。不设则用该
 #      工作区默认 target。与 FX / ENG 独立，防三套 serde 产物串扰。
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -134,7 +134,7 @@ else
   for i in 1 2; do
     # CARGO_INCREMENTAL=0：防 Defender 锁 .rmeta 写坏增量缓存导致 rustc ICE（见 [7/8] 注释）
     # ⚠️ wanxiang_engines 是独立工作区（自己的 Cargo.lock），必须用独立 CARGO_TARGET_DIR
-    # （ENG_CARGO_TARGET_DIR，如 D:/fork_FuxiLoom/wanxiang_engines/engcheck）——
+    # （ENG_CARGO_TARGET_DIR，如 <repo>/wanxiang_engines/engcheck）——
     # 与 src-tauri 共用 FX_CARGO_TARGET_DIR 会把两套 serde 解析产物混进同一 target，
     # 导致 CausalGraph 等 trait bound 不匹配（08-03 实测 E0277）。不设则用工作区默认 target。
     if [ -n "${ENG_CARGO_TARGET_DIR:-}" ]; then
@@ -189,7 +189,7 @@ else
   for i in 1 2; do
     # CARGO_INCREMENTAL=0：防 Defender 锁 .rmeta 写坏增量缓存导致 rustc ICE（见 [7/8] 注释）
     # ⚠️ wanxiang/ 是独立工作区（自己的 Cargo.lock），必须用独立 CARGO_TARGET_DIR
-    # （WX_CARGO_TARGET_DIR，如 D:/fork_FuxiLoom/wanxiang/wxcheck）——
+    # （WX_CARGO_TARGET_DIR，如 <repo>/wanxiang/wxcheck）——
     # 与 src-tauri(FX) / wanxiang_engines(ENG) 共用会把三套 serde 解析产物混进同一 target，
     # 导致 trait bound 不匹配（E0277）。不设则用工作区默认 target。
     # 用 (cd wanxiang && ... ) 子 shell，避免改变外层 cwd 影响后续 [7/8] 步骤。
