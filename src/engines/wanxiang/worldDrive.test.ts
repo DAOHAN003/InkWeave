@@ -5,6 +5,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 afterEach(() => {
   vi.unstubAllGlobals();
 });
+
 import {
   buildDriveBrief,
   advanceWorldForChapter,
@@ -15,20 +16,6 @@ import {
   clearWorldBind,
   WORLD_BIND_STORE_KEY,
 } from './worldDrive';
-
-// mock 万象 SDK：确定性推进被 mock 为可记录的调用序列（真实等价性由真机引擎验证）
-vi.mock('./wanxiangSdk', () => ({
-  wxWanxiangCreate: vi.fn(async () => 1001),
-  wxWanxiangCreateFromSpec: vi.fn(),
-  wxWanxiangStep: vi.fn(async () => undefined),
-  wxWanxiangDestroy: vi.fn(async () => true),
-  wxWanxiangExport: vi.fn(async () => JSON.stringify({ entities: [{ name: '饕' }], events: [] })),
-  wxWanxiangReport: vi.fn(async () => JSON.stringify({ day: 1, tick: 1, world_type: 'xianxia' })),
-  wxWanxiangCharacterNames: vi.fn(async () => ['饕', '噬空']),
-  wxWanxiangCharacterMind: vi.fn(async () => '欲吞尽灵脉以突破'),
-}));
-
-import { wxWanxiangCreate, wxWanxiangStep, wxWanxiangDestroy } from './wanxiangSdk';
 
 describe('buildDriveBrief', () => {
   const exportJson = {
@@ -95,66 +82,33 @@ describe('buildDriveBrief', () => {
   });
 });
 
-describe('advanceWorldBatch（并行快照 POC 地基）', () => {
-  const bind = {
-    worldType: 'xianxia',
-    seed: 42,
-    ticksConsumed: 0,
-    ticksPerChapter: 8,
-  };
 
-  beforeEach(() => {
-    vi.mocked(wxWanxiangCreate).mockClear();
-    vi.mocked(wxWanxiangStep).mockClear();
-    vi.mocked(wxWanxiangDestroy).mockClear();
+describe('advanceWorld*（社区版零推进桩）', () => {
+  it('单章推进：brief 为空串、bind 原样返回（ticks 不推进）、worldId=0', async () => {
+    const bind = { worldType: 'xianxia', seed: 42, ticksConsumed: 16, ticksPerChapter: 8 };
+    const r = await advanceWorldForChapter(bind);
+    expect(r.brief).toBe('');
+    expect(r.nextBind).toEqual(bind);
+    expect(r.worldId).toBe(0);
   });
 
-  it('count=3 → 3 份快照简报，nextBind 累计 3×ticksPerChapter（进度合并）', async () => {
-    const { briefs, nextBind } = await advanceWorldBatch(bind, 3);
-    expect(briefs).toHaveLength(3);
-    for (const b of briefs) {
-      expect(b.length).toBeGreaterThan(0);
-      expect(b).toContain('世界类型：xianxia');
-    }
-    expect(nextBind.ticksConsumed).toBe(24);
-    expect(nextBind.worldType).toBe('xianxia');
-    expect(nextBind.seed).toBe(42);
+  it('批量推进：count=3 → 3 份空简报，bind 原样返回', async () => {
+    const bind = { worldType: 'xianxia', seed: 42, ticksConsumed: 0, ticksPerChapter: 8 };
+    const r = await advanceWorldBatch(bind, 3);
+    expect(r.briefs).toEqual(['', '', '']);
+    expect(r.nextBind).toEqual(bind);
   });
 
-  it('create 只 1 次（世界实例复用），step 连续 count×ticksPerChapter（调用契约=串行等价）', async () => {
-    await advanceWorldBatch(bind, 3);
-    expect(vi.mocked(wxWanxiangCreate)).toHaveBeenCalledTimes(1);
-    expect(vi.mocked(wxWanxiangStep)).toHaveBeenCalledTimes(3);
-    for (const call of vi.mocked(wxWanxiangStep).mock.calls) {
-      expect(call[1]).toBe(8); // 每步前进量恒定，与串行单章推进一致
-    }
-  });
-
-  it('count<=0 兜底为 1（至少推进一章，不返回空数组）', async () => {
-    const { briefs, nextBind } = await advanceWorldBatch(bind, 0);
-    expect(briefs).toHaveLength(1);
-    expect(nextBind.ticksConsumed).toBe(8);
+  it('count<=0 兜底为 1（不返回空数组）', async () => {
+    const r = await advanceWorldBatch({ worldType: 'x', seed: 1, ticksConsumed: 0, ticksPerChapter: 8 }, 0);
+    expect(r.briefs).toHaveLength(1);
   });
 
   it('进度不写 localStorage（save 由调用方负责，本函数纯推进）', async () => {
-    const setItem = vi.fn();
-    vi.stubGlobal('localStorage', { setItem, getItem: vi.fn(), removeItem: vi.fn(), clear: vi.fn() });
-    await advanceWorldBatch(bind, 2);
-    expect(setItem).not.toHaveBeenCalled();
-    vi.unstubAllGlobals();
-  });
-
-  it('临时世界实例用完即毁（destroy 被调用且携带 create 返回的 id），防进程内累积', async () => {
-    await advanceWorldBatch(bind, 3);
-    expect(vi.mocked(wxWanxiangDestroy)).toHaveBeenCalledTimes(1);
-    expect(vi.mocked(wxWanxiangDestroy)).toHaveBeenCalledWith(1001);
-  });
-
-  it('推进抛错时仍销毁实例（finally 路径），不泄漏', async () => {
-    vi.mocked(wxWanxiangStep).mockRejectedValueOnce(new Error('boom'));
-    await expect(advanceWorldBatch(bind, 2)).rejects.toThrow('boom');
-    expect(vi.mocked(wxWanxiangDestroy)).toHaveBeenCalledTimes(1);
-    expect(vi.mocked(wxWanxiangDestroy)).toHaveBeenCalledWith(1001);
+    const setter = vi.fn();
+    vi.stubGlobal('localStorage', { getItem: () => null, setItem: setter });
+    await advanceWorldBatch({ worldType: 'x', seed: 1, ticksConsumed: 0, ticksPerChapter: 8 }, 2);
+    expect(setter).not.toHaveBeenCalled();
   });
 });
 
@@ -210,25 +164,3 @@ describe('世界绑定统一存储与迁移', () => {
   });
 });
 
-describe('advanceWorldForChapter（单章推进同样用完即毁）', () => {
-  const bind = {
-    worldType: 'xianxia',
-    seed: 42,
-    ticksConsumed: 16,
-    ticksPerChapter: 8,
-  };
-
-  beforeEach(() => {
-    vi.mocked(wxWanxiangCreate).mockClear();
-    vi.mocked(wxWanxiangStep).mockClear();
-    vi.mocked(wxWanxiangDestroy).mockClear();
-  });
-
-  it('读简报后销毁临时实例，nextBind 累计 8 tick', async () => {
-    const { brief, nextBind } = await advanceWorldForChapter(bind);
-    expect(brief).toContain('世界类型：xianxia');
-    expect(nextBind.ticksConsumed).toBe(24);
-    expect(vi.mocked(wxWanxiangDestroy)).toHaveBeenCalledTimes(1);
-    expect(vi.mocked(wxWanxiangDestroy)).toHaveBeenCalledWith(1001);
-  });
-});

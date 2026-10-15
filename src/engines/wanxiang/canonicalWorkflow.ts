@@ -28,13 +28,7 @@ import {
 } from './outlineTree';
 import { checkWorldConsistency, type WorldConsistencyIssue } from '../../utils/worldConsistency';
 import { buildExperienceContext } from '../knowledgeBase/experienceLibrary';
-import { wxWanxiangRecentEvents, wxWanxiangExport, wxWanxiangReport, wxWanxiangCharacterNames, wxWanxiangCharacterMind, wxCanonicalOutlineConsistencyCheck, wxOutlineQualityCheck } from './wanxiangSdk';
-import { buildDriveBrief } from './worldDrive';
-import {
-  extractForeshadowCandidates,
-  formatForeshadowBlock,
-  type WorldEvent,
-} from './foreshadowEventLinkage';
+import { wxCanonicalOutlineConsistencyCheck, wxOutlineQualityCheck } from './wanxiangSdk';
 
 export interface WorkflowInput {
   title: string;
@@ -109,7 +103,8 @@ const defaultDeps: WorkflowDeps = {
   buildExperienceContext,
   checkWorldConsistency,
   getActiveForeshadowings,
-  fetchWorldEvents: (worldId, n) => wxWanxiangRecentEvents(worldId, n),
+  // 社区版：万象模拟属 PRO 域，无世界事件流可拉——返回空串（上游 filter(Boolean) 会省略）
+  fetchWorldEvents: async () => '',
   fetchOutlineConsistency: (s) => wxCanonicalOutlineConsistencyCheck(s),
   fetchOutlineQuality: (s) => wxOutlineQualityCheck(s),
 };
@@ -144,46 +139,7 @@ export async function runCanonicalWorkflow(
   let worldBrief: string | undefined;
   if (worldId != null && deps.fetchWorldEvents) {
     worldEvents = await deps.fetchWorldEvents(worldId, 50);
-    onProgress?.('已拉取万象世界事件流');
-    // 构建世界简报（万象引擎产出），注入大纲层
-    try {
-      const exportJson = JSON.parse(await wxWanxiangExport(worldId));
-      const reportJson = JSON.parse(await wxWanxiangReport(worldId));
-      const names = await wxWanxiangCharacterNames(worldId);
-      const minds = await Promise.all(
-        names.slice(0, 8).map(async (nm) => ({
-          name: nm,
-          mind: await wxWanxiangCharacterMind(worldId, nm),
-        })),
-      );
-      worldBrief = buildDriveBrief({ exportJson, reportJson, minds, worldType: type });
-      onProgress?.('已构建世界简报（势力/人物/事件/心智）');
-
-      // 伏笔-事件联动：从世界事件中提取伏笔候选
-      if (exportJson.events && Array.isArray(exportJson.events)) {
-        const worldEvents: WorldEvent[] = exportJson.events.slice(0, 50);
-        const candidates = extractForeshadowCandidates(worldEvents, 0);
-        if (candidates.length > 0) {
-          const foreshadowBlock = formatForeshadowBlock(
-            candidates.map(c => ({
-              id: `candidate_${c.sourceEvent.tick}_${c.sourceEvent.event_type}`,
-              description: c.description,
-              plantedChapter: 0,
-              expectedPayoffChapter: c.suggestedPayoffChapter,
-              status: 'planted' as const,
-              priority: c.suggestedPriority,
-            })),
-            0
-          );
-          if (worldBrief) {
-            worldBrief += '\n\n' + foreshadowBlock;
-          }
-          onProgress?.(`已提取 ${candidates.length} 个伏笔候选`);
-        }
-      }
-    } catch {
-      // 世界简报构建失败不阻塞大纲生成
-    }
+    onProgress?.('世界事件流为空（社区版无万象模拟器）');
   }
   // 注入每层的合并上下文：方法论 + 世界事实
   const sharedContext = [experienceContext, worldEvents].filter(Boolean).join('\n\n');

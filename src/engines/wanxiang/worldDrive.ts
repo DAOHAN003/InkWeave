@@ -12,16 +12,6 @@
  * 世界进度按实体持久化（seed + 累计 tick），重启不丢、同 seed 可复现；业务无关，键为 entityId。
  */
 
-import {
-  wxWanxiangCreate,
-  wxWanxiangCreateFromSpec,
-  wxWanxiangStep,
-  wxWanxiangExport,
-  wxWanxiangReport,
-  wxWanxiangCharacterNames,
-  wxWanxiangCharacterMind,
-  wxWanxiangDestroy,
-} from './wanxiangSdk';
 import { buildWorldBrief } from './worldBrief';
 
 /** 本实体绑定的世界（确定性重建所需的最小信息；业务无关，键为 entityId） */
@@ -163,109 +153,25 @@ export function buildDriveBrief(args: {
 }
 
 /**
- * 从世界实例读取一份权威简报（export/report/角色心智 → buildDriveBrief）。
- * advanceWorldForChapter 与 advanceWorldBatch 共享，保证两种推进路径产出同一格式。
- */
-async function readDriveBrief(worldId: number, worldType: string): Promise<string> {
-  const [expRaw, repRaw] = await Promise.all([wxWanxiangExport(worldId), wxWanxiangReport(worldId)]);
-  let exportJson: any = {};
-  let reportJson: any = {};
-  try {
-    exportJson = JSON.parse(expRaw);
-  } catch {
-    /* 解析失败留空，buildWorldBrief 会优雅省略 */
-  }
-  try {
-    reportJson = JSON.parse(repRaw);
-  } catch {
-    /* 同上 */
-  }
-
-  // 角色心智：取前 8 个角色（bounded），组成写作方法论核心数据
-  let minds: Array<{ name: string; mind: string }> = [];
-  try {
-    const names = await wxWanxiangCharacterNames(worldId);
-    const top = (names || []).slice(0, 8);
-    minds = await Promise.all(
-      top.map(async (nm) => {
-        const mind = await wxWanxiangCharacterMind(worldId, nm);
-        return { name: nm, mind: mind || '' };
-      }),
-    );
-  } catch {
-    /* 心智读取失败不阻塞写作 */
-  }
-
-  return buildDriveBrief({
-    exportJson,
-    reportJson,
-    minds,
-    worldType,
-  });
-}
-
-/**
- * 为本作品推进世界并产出本章权威简报。确定性：同 (worldType|spec, seed, ticksConsumed) 重建一致。
- * 返回 { brief, nextBind, worldId }；nextBind.ticksConsumed 已前进 ticksPerChapter，调用方负责 save。
- *
- * 说明：每次写章都从 (seed, ticksConsumed) 确定性重建 + step 增量，保证重启不丢、同 seed 可复现。
- * 这是对真实万象模拟的忠实使用——时间在世界里流淌，章节只是把某段演化戏剧化。
- * 临时世界实例读完简报后立即销毁（wxWanxiangDestroy），防止长期会话 WANXIANG_WORLDS 只增不减。
+ * 社区版（Community Edition）：万象世界模拟引擎属 PRO 域，wx_wanxiang_* 命令不存在。
+ * 以下两个推进函数保留既有签名、降级为零推进——
+ *   - 绑定数据（可能来自完整版导出的工程文件）不会丢，写章 / 连写流程照常进行；
+ *   - 世界简报为空串（不注入 prompt），ticks 不推进。
+ * 完整版此处按 (seed, ticksConsumed) 确定性重建世界、逐章 step 并读取权威简报。
  */
 export async function advanceWorldForChapter(bind: WorldBind): Promise<{
   brief: string;
   nextBind: WorldBind;
   worldId: number;
 }> {
-  const id = bind.specJson
-    ? await wxWanxiangCreateFromSpec(bind.specJson, bind.seed, bind.ticksConsumed)
-    : await wxWanxiangCreate(bind.worldType, bind.seed, bind.ticksConsumed);
-  try {
-    await wxWanxiangStep(id, bind.ticksPerChapter);
-
-    const brief = await readDriveBrief(id, bind.worldType);
-
-    const nextBind: WorldBind = { ...bind, ticksConsumed: bind.ticksConsumed + bind.ticksPerChapter };
-    return { brief, nextBind, worldId: id };
-  } finally {
-    // 用完即毁：本函数创建的临时实例不再被任何调用方引用，释放进程内内存
-    await wxWanxiangDestroy(id).catch(() => {});
-  }
+  return { brief: '', nextBind: { ...bind }, worldId: 0 };
 }
 
-/**
- * 批量推进（并行快照机制 POC 地基）。
- *
- * 并行架构关键洞察：世界推进是顺序确定性的（第 N 章简报只依赖 ticksConsumed，马尔可夫），
- * 所以"并行"的正确切分不是并行跑世界，而是——
- *   1. 世界侧确定性批量快进（本函数，零 LLM、零冲突）：从 (seed, ticksConsumed) 重建一次，
- *      连续 step count×ticksPerChapter，每章读一份简报（=该章的世界快照简报）；
- *   2. LLM 侧并行写 N 章正文（Promise.all）：每章用自己那份简报独立写，互不依赖；
- *   3. 事后合并：一次性 save nextBind；某章正文失败只重写该章，世界不回退。
- *
- * 等价性：同 seed 同 step 序列同状态，本函数产出 == 串行调用 advanceWorldForChapter count 次，
- * 但 create 只 1 次（世界实例复用），快照生成 O(1) 世界句柄。
- */
+/** 批量推进的社区版同上：零推进，每章简报为空串。 */
 export async function advanceWorldBatch(
   bind: WorldBind,
   count: number,
 ): Promise<{ briefs: string[]; nextBind: WorldBind; worldId: number }> {
   const n = Math.max(1, Math.floor(count));
-  const id = bind.specJson
-    ? await wxWanxiangCreateFromSpec(bind.specJson, bind.seed, bind.ticksConsumed)
-    : await wxWanxiangCreate(bind.worldType, bind.seed, bind.ticksConsumed);
-  try {
-    const briefs: string[] = [];
-    let ticks = bind.ticksConsumed;
-    for (let i = 0; i < n; i++) {
-      await wxWanxiangStep(id, bind.ticksPerChapter);
-      ticks += bind.ticksPerChapter;
-      briefs.push(await readDriveBrief(id, bind.worldType));
-    }
-    const nextBind: WorldBind = { ...bind, ticksConsumed: ticks };
-    return { briefs, nextBind, worldId: id };
-  } finally {
-    // 用完即毁：批量快照读完即释放临时世界实例（单章推进同样在 advanceWorldForChapter 内销毁）
-    await wxWanxiangDestroy(id).catch(() => {});
-  }
+  return { briefs: Array.from({ length: n }, () => ''), nextBind: { ...bind }, worldId: 0 };
 }

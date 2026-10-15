@@ -7,10 +7,9 @@ import {
 } from '../../engines/wanxiang/outlineTree';
 import {
   runCanonicalWorkflow,
-  mapTypeToWorldType,
   type CanonicalWorkflowResult,
 } from '../../engines/wanxiang/canonicalWorkflow';
-import { wxWanxiangCreate, wxAiFlavoredLint } from '../../engines/wanxiang/wanxiangSdk';
+import { wxAiFlavoredLint } from '../../engines/wanxiang/wanxiangSdk';
 import {
   createNovel,
   createVolume,
@@ -63,7 +62,6 @@ export default function OutlineWorkflowPanel({
   const [progress, setProgress] = useState('');
   const [error, setError] = useState('');
   const [expanded, setExpanded] = useState<number | null>(null);
-  const [generating, setGenerating] = useState(false);
   const [composeResult, setComposeResult] = useState<ComposeResult | null>(null);
   const [lnnThreshold, setLnnThreshold] = useState<number>(() => {
     try {
@@ -97,21 +95,6 @@ export default function OutlineWorkflowPanel({
   const [composeProgress, setComposeProgress] = useState('');
   const [resumable, setResumable] = useState<ComposeSession | null>(null);
   const [view, setView] = useState<'list' | 'canvas'>('list');
-
-  async function generateWorld() {
-    setError('');
-    setGenerating(true);
-    try {
-      const worldType = mapTypeToWorldType(type);
-      const wid = await wxWanxiangCreate(worldType, Date.now() & 0xffff, 120);
-      setWorldId(String(wid));
-      setProgress(`已生成万象世界 #${wid}（${worldType}，演化 120 tick），运行流水线将注入事件流`);
-    } catch (e: any) {
-      setError(String(e?.message || e));
-    } finally {
-      setGenerating(false);
-    }
-  }
 
   async function runLint() {
     if (!lintText.trim()) return;
@@ -437,10 +420,7 @@ export default function OutlineWorkflowPanel({
             <label className="text-xs text-content-secondary">
               万象世界ID（可选，注入真实世界事件流）
               <div className="flex gap-2">
-                <Input value={worldId} onChange={(e) => setWorldId(e.target.value)} placeholder="如 1（或点生成）" />
-                <Button variant="secondary" onClick={generateWorld} disabled={loading || generating}>
-                  {generating ? '生成中…' : '生成世界'}
-                </Button>
+                <Input value={worldId} onChange={(e) => setWorldId(e.target.value)} placeholder="可选" />
               </div>
             </label>
             <label className="text-xs text-content-secondary">
