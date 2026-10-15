@@ -1,0 +1,47 @@
+[
+  {
+    "name": "真机挂载：顶栏渲染",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "世界构建器：分支收编直达卡在位（恒显）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "直达卡 → 故事矿脉面板打开",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "矿脉编年史页签状态（无世界时禁用=预期）",
+    "pass": true,
+    "detail": "disabled=true"
+  },
+  {
+    "name": "命令面板 → 世界星图 Modal 打开",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "新建世界生成 → 3D 星图 canvas 渲染",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "星图：四视图切换条含「编年史」",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "星图：编年史视图渲染（泳道标签/事件可见）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "模型设置：面板打开且内容渲染",
+    "pass": true,
+    "detail": ""
+  }
+]

@@ -1,0 +1,13 @@
+[package]
+name = "wanxiang_sdk"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "万象世界模型可嵌入 SDK —— 稳定、最小的 WorldModel 公共 API，供下游（游戏后端/互动叙事/看板/研究脚本）嵌入"
+
+[dependencies]
+wanxiang_types = { path = "../wanxiang_types" }
+wanxiang_engine = { path = "../wanxiang_engine" }
+wanxiang_world = { path = "../wanxiang_world" }
+serde = { workspace = true }
+serde_json = { workspace = true }

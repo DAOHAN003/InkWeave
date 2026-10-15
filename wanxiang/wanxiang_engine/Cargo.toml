@@ -1,0 +1,22 @@
+[package]
+name = "wanxiang_engine"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[lib]
+name = "wanxiang_engine"
+crate-type = ["rlib"]
+
+[dependencies]
+wanxiang_types = { path = "../wanxiang_types" }
+wanxiang_core = { path = "../wanxiang_core" }
+wanxiang_brain = { path = "../wanxiang_brain" }
+wanxiang_evolution = { path = "../wanxiang_evolution" }
+wanxiang_world = { path = "../wanxiang_world" }
+serde.workspace = true
+serde_json.workspace = true
+parking_lot.workspace = true
+rayon.workspace = true
+tracing.workspace = true
+anyhow.workspace = true

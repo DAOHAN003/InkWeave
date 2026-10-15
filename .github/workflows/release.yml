@@ -1,0 +1,67 @@
+name: Release
+
+# 触发方式：
+#   1. 推 tag：git tag v10.1.0 && git push origin v10.1.0
+#   2. 手动：Actions → Release → Run workflow，填入已有 tag 名（重新发版用）
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: '要发布的 tag（如 v10.1.0，必须已存在于远端）'
+        required: true
+
+# 平台说明：当前仅构建 Windows（NSIS）。
+# Linux 矩阵项暂缺：credential_vault.rs 依赖 Windows 凭据管理器（windows_sys），
+# HiDPI 处理同理——跨平台凭据后端落地后再恢复 Linux (AppImage + deb) 目标。
+# 上传 Release 产物需要写权限
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Windows：tauri.conf.json 的 bundle.targets 已是 nsis（默认即可）
+          - name: Windows (NSIS)
+            os: windows-latest
+            args: ''
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build installers and publish draft release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.event.inputs.tag || github.ref_name }}
+          releaseName: 墨织 InkWeave ${{ github.event.inputs.tag || github.ref_name }}
+          releaseBody: |
+            本版本变更见 [CHANGELOG.md](CHANGELOG.md)。
+
+            Windows 下载 `.exe`（NSIS 安装包）。
+          releaseDraft: true
+          prerelease: false
+          # 不产出 updater 签名清单（避免需要 updater 私钥）
+          includeUpdaterJson: false
+          args: ${{ matrix.args }}

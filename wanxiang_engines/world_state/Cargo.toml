@@ -1,0 +1,17 @@
+[package]
+name = "world_state"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "世界态真理源：守恒律四池 + 世界Trait抽象 + 确定性ID，Q+S=const with drift≈0"
+
+[lib]
+name = "world_state"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }

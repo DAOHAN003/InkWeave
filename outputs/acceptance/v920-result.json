@@ -1,0 +1,37 @@
+[
+  {
+    "name": "真机挂载：编辑器就位",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T1 三击选段：选区 AI 工具条浮出（role=toolbar）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T1 三按钮：润色 / 扩写 / 描写 全在位",
+    "pass": true,
+    "detail": "polish=true expand=true describe=true"
+  },
+  {
+    "name": "T2 描写下拉：视觉/听觉/嗅觉/触觉/氛围 五维全在位",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T3 AI 调用链路通：结果浮卡或错误提示出现（本机 llama 可用则真出结果）",
+    "pass": true,
+    "detail": "error-toast"
+  },
+  {
+    "name": "T4 点击选区外：选区清空 → 工具条隐藏",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T5 全程零 pageerror（含世界页 progression 组装路径）",
+    "pass": true,
+    "detail": ""
+  }
+]

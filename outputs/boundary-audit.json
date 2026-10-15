@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-10-12T15:07:59.308Z",
+  "registered": 142,
+  "prodReferenced": 142,
+  "deadCommands": [],
+  "ghostCalls": [],
+  "unmounted": [],
+  "detached": [
+    {
+      "name": "intuition_think",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 472
+    },
+    {
+      "name": "intuition_status",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 520
+    },
+    {
+      "name": "evolution_evolve",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 542
+    },
+    {
+      "name": "evolution_status",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 549
+    },
+    {
+      "name": "evolution_feedback",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 556
+    },
+    {
+      "name": "memory_add",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 566
+    },
+    {
+      "name": "memory_search",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 578
+    },
+    {
+      "name": "memory_extract_essence",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 619
+    },
+    {
+      "name": "memory_status",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 660
+    },
+    {
+      "name": "event_publish",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 696
+    },
+    {
+      "name": "event_history",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 704
+    },
+    {
+      "name": "lingming_status",
+      "file": "src-tauri/src/lingming/commands.rs",
+      "line": 713
+    }
+  ],
+  "deadKeys": [],
+  "deadI18nKeys": [],
+  "deadI18nList": [],
+  "deadI18nTotal": 0,
+  "deadI18nSingleSeg": [
+    "切换主题 · 自动",
+    "切换主题 · 墨黑",
+    "切换主题 · 纸白",
+    "切换主题 · 木纹",
+    "当前刻 {tick} 可见关联 {n} 条",
+    "当前筛选下没有故事线——作品里还没有角色 / 势力 / 伏笔数据。"
+  ],
+  "i18nTotal": 819,
+  "i18nPending": [
+    {
+      "prefix": "platform",
+      "count": 24
+    },
+    {
+      "prefix": "settings",
+      "count": 17
+    },
+    {
+      "prefix": "platformGroup",
+      "count": 4
+    }
+  ],
+  "i18nPendingExpired": 0,
+  "i18nPendingStale": [],
+  "dynamicInvokes": [
+    {
+      "file": "src/engines/wanxiang/types.ts",
+      "line": 22,
+      "via": "invokeJson",
+      "text": "command: string,\n  args?: Record<string, unknown>\n): Promise<T> {\n  try {\n    const raw = "
+    },
+    {
+      "file": "src/engines/wanxiang/types.ts",
+      "line": 27,
+      "via": "invoke",
+      "text": "command, args);\n    const parsed = JSON.parse(raw) as T & { error?: string };\n    if (pars"
+    }
+  ],
+  "tsReachability": {
+    "entries": [
+      "src/main.tsx"
+    ],
+    "reachable": 251,
+    "judged": 251
+  },
+  "tsIslands": [],
+  "tsPending": [],
+  "tsPendingExpired": [],
+  "tsPendingStale": [],
+  "limits": {
+    "maxDeadCommands": 0,
+    "maxDeadKeys": 0,
+    "maxTsDead": 0,
+    "maxDeadI18n": 0
+  },
+  "violations": []
+}

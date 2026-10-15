@@ -1,0 +1,102 @@
+# Python
+__pycache__/
+*.py[cod]
+$py.class
+*.so
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 万象 - 输出目录
+output/
+*.log
+
+# 大型数据文件（不进代码库�?
+knowledge_base/_archive/
+worlds/_archive/
+
+# 临时/缓存
+.lingma/
+*.egg-info/
+dist/
+build/
+
+# 重构归档
+_refactor_archive/
+
+# �? JSONL
+*.jsonl
+
+# 实验报告/计划
+wanxiang_import_report.json
+REFACTOR_PLAN.md
+
+# 专家模型权重
+_archive/expert_weights/
+
+# 3D模型
+_archive/3d_models/
+*.obj
+*.mtl
+*.blend
+*.blend1
+
+# 图片
+_archive/images/
+
+# C++ 构建产物
+*.tlog
+*.lastbuildstate
+*.recipe
+*.check_cache
+*.stamp
+*.depend
+*.filters
+*.lib
+*.exp
+
+# 测试脚本（不进仓库）
+test_*.py
+*_test.py
+
+# 临时修复脚本
+_fix_*.py
+patch_*.py
+integrate_*.py
+verify_*.py
+check_*.py
+
+# 工作区临时文�?
+wanxiang_*.txt
+wanxiang_*.py
+
+# Rust���뻺��
+target/
+world/wx_com/rust/target/
+
+
+# Python编译产物
+*.pyd
+*.pyc
+
+# 临时文件
+cargo_check.log
+cargo_result.txt
+test_output.txt
+traceback.txt
+_temp_update.txt
+
+# WorkBuddy private workspace (memory/config, do not commit)
+.workbuddy/

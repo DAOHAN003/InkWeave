@@ -1,0 +1,42 @@
+[
+  {
+    "name": "真机挂载：编辑器就位",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "侧栏 AI 主操作「AI 写本章」在位",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "洞察面板：质量门 chip 出现",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "洞察面板：文本分 chip 出现（V9.0.0 口径统一）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "文本分 chip 文案形如 nn/100",
+    "pass": true,
+    "detail": "文本分 89/100"
+  },
+  {
+    "name": "文本分与综合分同源（overallScore 文本分量 = rubric/100）",
+    "pass": true,
+    "detail": "rubric=89"
+  },
+  {
+    "name": "质量门 chip 带综合分",
+    "pass": true,
+    "detail": "质量门 0.96"
+  },
+  {
+    "name": "截图留档 outputs/acceptance/v900-insight-textscore.png",
+    "pass": true,
+    "detail": ""
+  }
+]

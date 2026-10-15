@@ -1,0 +1,42 @@
+[
+  {
+    "name": "真机挂载：编辑器就位",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T1 AiSidePanel「去 AI 味」按钮挂载",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T2 DeslopPanel：浓度评分 + findings≥3",
+    "pass": true,
+    "detail": "badges=3 万能句=true 否定排比=true 升华=true"
+  },
+  {
+    "name": "T3 本地快速去味采纳：套话删除 + 比喻降级",
+    "pass": true,
+    "detail": "值得注意=false 仿佛=false"
+  },
+  {
+    "name": "T4 林晚照画像：弧光三段 + 台词指纹 + 无弧光单薄风险",
+    "pass": true,
+    "detail": "弧=true 指纹=true 无单薄=true"
+  },
+  {
+    "name": "T5 老周头画像：弧光单薄预警出现",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T6 写作统计：AI 选区工具使用区块",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T7 全程零 pageerror",
+    "pass": true,
+    "detail": ""
+  }
+]

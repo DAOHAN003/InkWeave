@@ -1,0 +1,17 @@
+[package]
+name = "security_suite"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "万象 L8 安全部署层：七层纵深防御（深度扫描/文件沙箱/隐私/CSP/审计/红队/威胁建模）+ Bell-LaPadula + 链式哈希 + STRIDE"
+
+[lib]
+name = "security_suite"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }

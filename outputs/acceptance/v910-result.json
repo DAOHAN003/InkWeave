@@ -1,0 +1,127 @@
+[
+  {
+    "name": "真机挂载：编辑器就位",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T1a 「更多」下拉打开：分组「写作冲刺」可见（出舱后行为保持）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T1b 版本面板：保存当前为版本 → 版本条目入列（出舱后行为保持）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T3 AI 助手面板：「写作参数」区在位（参数化提升）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T3 三 chip：注入前情 / 写后自检 / 按 lint 定向修 全在位",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T3 点选「注入前情」→ aria-pressed=true（与「更多」下拉同频同源）",
+    "pass": true,
+    "detail": "aria-pressed=true"
+  },
+  {
+    "name": "T2 手动登记：条目入板（内容可见）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T2 条目带「手动」徽标（与引擎抽取区分）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T2 短窗口钳制生效：埋设 1 / 回收 3 → 窗口 [3,3] → 当前第 1 章为「待到窗口」",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T2 localStorage 条目存储写入（manual- 前缀 + planted 状态 + 回收章 2[0基]）",
+    "pass": true,
+    "detail": "{\"count\":1,\"id\":\"manual-1790804688779-qu1iv\",\"status\":\"planted\",\"payoff\":2}"
+  },
+  {
+    "name": "T2 hover 操作：标记回收 → 已回收",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T2 回收状态落库（status=resolved）",
+    "pass": true,
+    "detail": "status=resolved"
+  },
+  {
+    "name": "T2 hover 操作：重新打开 → 回到待到窗口",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T2 hover 操作：删除 → 条目移除且存储清空",
+    "pass": true,
+    "detail": "store count=0"
+  },
+  {
+    "name": "T5 连写启动：进度卡出现",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T5 连写 3 章完成（骨架稿降级路径）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T5 c2-c4 全部落盘（正文非空）",
+    "pass": true,
+    "detail": "[914,914,918]"
+  },
+  {
+    "name": "T5 终态「部分重做」→ 勾选清单展开（保活挂起生效）",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T5 勾选清单：3 章均带「已成稿」徽标",
+    "pass": true,
+    "detail": "badges=3"
+  },
+  {
+    "name": "T5 勾选清单：3 行章节条目（默认全预选）",
+    "pass": true,
+    "detail": "rows=3"
+  },
+  {
+    "name": "T5 默认预选 = 已成稿 3 章",
+    "pass": true,
+    "detail": "checked=3"
+  },
+  {
+    "name": "T5 取消 1 章后点「重做选中（2 章）」",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T5 部分重做 2 章再次完成",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "name": "T5 重跑后 c2 仍非空（未选中章未被重写清空）",
+    "pass": true,
+    "detail": "{\"c2\":914,\"c5\":0}"
+  },
+  {
+    "name": "截图留档 outputs/acceptance/v910-*.png × 5",
+    "pass": true,
+    "detail": ""
+  }
+]

@@ -1,0 +1,13 @@
+# 项目级 cargo 配置（V6.0.0 班同步自 src-tauri/.cargo/config.toml）。
+# 本机全局 ~/.cargo/config.toml 强制 git 协议 crates.io-index + CLI 拉取，
+# schannel 吊销服务器离线时会 CRYPT_E_REVOCATION_OFFLINE 拉不动新依赖。
+# 此文件仅作用于本工作区：切换 sparse 协议 + 关闭吊销检查（TLS 验证不受影响），
+# 不修改用户全局配置。首次拉取后走本地缓存，可离线编译。
+[source.crates-io]
+registry = "sparse+https://index.crates.io/"
+
+[net]
+git-fetch-with-cli = false
+
+[http]
+check-revoke = false

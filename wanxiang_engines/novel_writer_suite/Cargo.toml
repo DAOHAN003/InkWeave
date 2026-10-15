@@ -1,0 +1,17 @@
+[package]
+name = "novel_writer_suite"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "万象 L6 写作场景应用层：直觉发散引擎 + 因果一致性门控 + 连贯拼接/OOC检测 + 三层记忆防遗忘 + 总线闭环，集成 causal_core 因果图真因检查"
+
+[lib]
+name = "novel_writer_suite"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+causal_core = { path = "../causal_core" }

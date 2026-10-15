@@ -1,0 +1,18 @@
+[package]
+name = "llm_adapter"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "万象 L5 AI/LLM 适配层：BaseLLMAdapter 统一接口 + LLMRouter 降级链智能路由 + Multimodal 多模态，集成 causal_core 因果级联可靠性分析"
+
+[lib]
+name = "llm_adapter"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+causal_core = { path = "../causal_core" }

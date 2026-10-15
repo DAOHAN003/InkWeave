@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>万象 · 世界编年史看板</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#ffffff; --ink:#1f2933; --muted:#67707b;
+    --line:#e3e7ec; --accent:#2f6fed; --good:#1f9d6b; --warn:#c97a1a; --bad:#c0392b;
+    --chip:#eef2f7;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;line-height:1.55}
+  header{padding:20px 26px;background:linear-gradient(120deg,#2f6fed,#5a8def);color:#fff}
+  header h1{margin:0;font-size:22px;font-weight:700}
+  header .sub{margin-top:6px;opacity:.92;font-size:13px}
+  header .meta{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+  header .meta span{background:rgba(255,255,255,.16);padding:3px 10px;border-radius:999px;font-size:12px}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 18px 60px}
+  .grid{display:grid;gap:18px}
+  .cols-2{grid-template-columns:1fr 1fr}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){.cols-2,.cols-3{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+    box-shadow:0 1px 2px rgba(16,24,40,.04)}
+  .card h2{margin:0 0 12px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .card h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .stat-row{display:flex;flex-wrap:wrap;gap:10px}
+  .stat{flex:1;min-width:120px;background:var(--chip);border-radius:10px;padding:10px 12px}
+  .stat .k{font-size:12px;color:var(--muted)}
+  .stat .v{font-size:18px;font-weight:700;margin-top:2px}
+  .badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
+  .badge.good{background:#e3f6ee;color:var(--good)}
+  .badge.bad{background:#fbe7e4;color:var(--bad)}
+  .chart-box{position:relative;height:300px}
+  .chart-box.sm{height:240px}
+  .scroll{max-height:340px;overflow:auto;border:1px solid var(--line);border-radius:10px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{position:sticky;top:0;background:var(--chip);cursor:pointer;user-select:none;font-weight:600}
+  th:hover{color:var(--accent)}
+  tbody tr:hover{background:#fafbfc}
+  .tag{display:inline-block;padding:1px 7px;border-radius:6px;font-size:11px;background:var(--chip);color:var(--muted)}
+  .tag.crit{background:#fbe7e4;color:var(--bad)}
+  .tag.nota{background:#fff1da;color:var(--warn)}
+  .tag.maj{background:#e7f0ff;color:var(--accent)}
+  .ev{padding:8px 10px;border-bottom:1px solid var(--line)}
+  .ev:hover{background:#fafbfc}
+  .ev .t{color:var(--muted);font-size:12px}
+  .ev .d{margin-top:2px}
+  .ev .a{margin-top:2px;color:var(--muted);font-size:12px}
+  .pill{display:inline-block;background:var(--chip);border-radius:6px;padding:1px 7px;margin:2px 4px 2px 0;font-size:12px}
+  .muted{color:var(--muted)}
+  .res-bar{height:7px;border-radius:4px;background:var(--chip);overflow:hidden;margin-top:4px}
+  .res-bar i{display:block;height:100%;background:var(--accent)}
+  .sec-note{color:var(--muted);font-size:12px;margin:-4px 0 10px}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="h-title">万象 · 世界编年史</h1>
+  <div class="sub" id="h-sub"></div>
+  <div class="meta" id="h-meta"></div>
+</header>
+<div class="wrap grid" id="root">
+  <div class="grid cols-3">
+    <div class="card"><h2><span class="dot"></span>守恒律仪表</h2>
+      <div class="stat-row" id="cons-stats"></div>
+      <div class="chart-box sm" style="margin-top:12px"><canvas id="consChart"></canvas></div>
+      <div class="sec-note">四池之和恒等于初始总量（drift≈0 = 各层良好经守恒律路由）</div>
+    </div>
+    <div class="card"><h2><span class="dot"></span>时代时间线</h2>
+      <div class="chart-box sm"><canvas id="eraChart"></canvas></div>
+      <div class="sec-note" id="era-note"></div>
+    </div>
+    <div class="card"><h2><span class="dot"></span>势力兴衰（事件参与度）</h2>
+      <div class="chart-box sm"><canvas id="facChart"></canvas></div>
+      <div class="sec-note">按事件 actor 聚合的每纪参与度（仅取活跃度前 8 的势力）</div>
+    </div>
+  </div>
+
+  <div class="grid cols-2">
+    <div class="card"><h2><span class="dot"></span>事件流</h2>
+      <div class="sec-note">按 tick 顺序；可点击表头筛选。每条显示参与方（已解析为名称）。</div>
+      <div class="scroll" id="eventFeed"></div>
+    </div>
+    <div class="card"><h2><span class="dot"></span>重要纪事（各纪 Notable+）</h2>
+      <div class="scroll" id="notableFeed"></div>
+    </div>
+  </div>
+
+  <div class="grid cols-2">
+    <div class="card"><h2><span class="dot"></span>势力快照</h2>
+      <div class="scroll"><table id="facTable"><thead><tr>
+        <th>势力</th><th>领袖</th><th>成员</th><th>领土</th><th>外交</th><th>主资源</th></tr></thead>
+        <tbody></tbody></table></div>
+    </div>
+    <div class="card"><h2><span class="dot"></span>角色（按总战力）</h2>
+      <div class="scroll"><table id="entTable"><thead><tr>
+        <th>角色</th><th>阵营</th><th>总战力</th><th>战力值</th><th>技艺数</th><th>状态</th></tr></thead>
+        <tbody></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="grid cols-2">
+    <div class="card"><h2><span class="dot"></span>有因之战</h2>
+      <div class="scroll" id="warList"></div>
+    </div>
+    <div class="card"><h2><span class="dot"></span>技艺树（目录 + 各角色掌握）</h2>
+      <div class="scroll" id="skillList"></div>
+    </div>
+  </div>
+
+  <div class="card"><h2><span class="dot"></span>世界规则</h2>
+    <pre id="rulesBox" style="white-space:pre-wrap;font-size:12px;color:var(--muted);max-height:300px;overflow:auto;margin:0"></pre>
+  </div>
+</div>
+
+<script>
+const W = /*__WORLD_JSON__*/;
+// id -> 可读名称（数据驱动解析；缺失则回退原始 id，不报错）
+const nameMap = {};
+(W.entities||[]).forEach(e => { if(e.id) nameMap[e.id] = e.name; });
+(W.factions||[]).forEach(f => { if(f.id) nameMap[f.id] = f.name; });
+function nm(id){ return (id && nameMap[id]) ? nameMap[id] : (id||"?"); }
+function importanceTag(imp){
+  const map = {WorldShaking:"crit",Critical:"crit",Major:"nota",Notable:"nota",Minor:"maj",Trivial:"",Suzerain:"",Vassal:""};
+  return map[imp] !== undefined ? map[imp] : "";
+}
+
+// ── 头部 ──
+document.getElementById("h-title").textContent = "万象 · " + (W.meta.world_name||"世界") + " 编年史";
+document.getElementById("h-sub").textContent = "类型 " + (W.meta.world_type||"?") + " · 由 8 份通用 JSON 驱动渲染（不绑定世界模板）";
+document.getElementById("h-meta").innerHTML = [
+  "种子 "+W.meta.seed, "tick "+W.meta.tick, "天 "+W.meta.day,
+  "角色 "+(W.entities||[]).length, "势力 "+(W.factions||[]).length, "事件 "+(W.events||[]).length
+].map(s=>"<span>"+s+"</span>").join("");
+
+// ── 守恒律仪表 ──
+const c = W.resources.conservation;
+const consStats = document.getElementById("cons-stats");
+function stat(k,v,extra){ return '<div class="stat"><div class="k">'+k+'</div><div class="v">'+v+'</div></div>'; }
+consStats.innerHTML =
+  stat("物质", c.matter.toFixed(1)) + stat("能量", c.energy.toFixed(1)) +
+  stat("信息", c.information.toFixed(1)) + stat("熵", c.entropy.toFixed(1)) +
+  stat("总量", c.total.toFixed(1)) +
+  '<div class="stat"><div class="k">守恒漂移</div><div class="v">'+
+    '<span class="badge '+(c.conserved?"good":"bad")+'">'+(c.conserved?"守恒✓":"失恒✗")+'</span> '+
+    c.drift.toFixed(4)+'</div></div>';
+new Chart(document.getElementById("consChart"), {
+  type:"doughnut",
+  data:{ labels:["物质","能量","信息","熵"],
+    datasets:[{ data:[c.matter,c.energy,c.information,c.entropy],
+      backgroundColor:["#2f6fed","#1f9d6b","#c97a1a","#9aa5b1"] }]},
+  options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{position:"right",labels:{font:{size:11}}},
+      tooltip:{callbacks:{label:ctx=>ctx.label+": "+ctx.parsed.toFixed(1)}} } }
+});
+
+// ── 时代时间线 ──
+const eras = W.eras.buckets || [];
+const eraLabels = eras.map(b=>"第"+b.index+"纪");
+const eraEv = eras.map(b=>b.event_count);
+const eraNo = eras.map(b=>b.notable_count);
+new Chart(document.getElementById("eraChart"), {
+  type:"bar",
+  data:{ labels:eraLabels, datasets:[
+    {label:"事件数", data:eraEv, backgroundColor:"#2f6fed"},
+    {label:"重要事件", data:eraNo, backgroundColor:"#c97a1a"}]},
+  options:{ responsive:true, maintainAspectRatio:false,
+    scales:{x:{stacked:false},y:{beginAtZero:true}},
+    plugins:{legend:{labels:{font:{size:11}}}} }
+});
+document.getElementById("era-note").textContent =
+  "共 "+W.eras.bucket_count+" 纪，每纪 "+W.eras.era_span+" tick；总 tick "+W.eras.total_ticks;
+
+// ── 势力兴衰（按 actor 聚合的事件参与度）──
+const byEra = {}; // eraIndex -> {facId:count}
+eras.forEach(b=>{ byEra[b.index] = {}; });
+const evByTick = {};
+(W.events||[]).forEach(e=>{ evByTick[e.tick] = evByTick[e.tick]||[]; evByTick[e.tick].push(e); });
+eras.forEach(b=>{
+  for(let t=b.start_tick; t<=b.end_tick; t++){
+    (evByTick[t]||[]).forEach(e=>{
+      (e.actors||[]).forEach(a=>{ byEra[b.index][a] = (byEra[b.index][a]||0)+1; });
+    });
+  }
+});
+// 取总参与度高者前 8
+const totals = {};
+Object.values(byEra).forEach(m=>{ for(const k in m) totals[k]=(totals[k]||0)+m[k]; });
+const top = Object.keys(totals).sort((a,b)=>totals[b]-totals[a]).slice(0,8);
+const palette = ["#2f6fed","#1f9d6b","#c97a1a","#9b59b6","#16a2b8","#e0566b","#6c757d","#28a745"];
+const facDatasets = top.map((fid,i)=>({
+  label: nm(fid),
+  data: eras.map(b=> byEra[b.index][fid]||0),
+  borderColor: palette[i%palette.length],
+  backgroundColor: palette[i%palette.length],
+  tension:.3, fill:false
+}));
+if(facDatasets.length){
+  new Chart(document.getElementById("facChart"), {
+    type:"line",
+    data:{ labels:eraLabels, datasets:facDatasets },
+    options:{ responsive:true, maintainAspectRatio:false,
+      scales:{y:{beginAtZero:true}},
+      plugins:{legend:{labels:{font:{size:11},boxWidth:12}}} }
+  });
+} else {
+  document.getElementById("facChart").parentElement.innerHTML =
+    '<div class="muted" style="padding:20px">暂无势力参与事件</div>';
+}
+
+// ── 事件流 ──
+const feed = document.getElementById("eventFeed");
+const sortedEvents = (W.events||[]).slice().sort((a,b)=>a.tick-b.tick);
+function renderFeed(list){
+  feed.innerHTML = list.map(e=>{
+    const tag = importanceTag(e.importance);
+    const actors = (e.actors||[]).map(nm).join("、");
+    return '<div class="ev"><div class="t">tick '+e.tick+' · '+(e.event_type||"")+
+      (tag?' <span class="tag '+tag+'">'+e.importance+'</span>':'')+'</div>'+
+      '<div class="d">'+e.description+'</div>'+
+      (actors?'<div class="a">参与：'+actors+'</div>':'')+'</div>';
+  }).join("");
+}
+renderFeed(sortedEvents);
+
+// ── 重要纪事 ──
+const notableFeed = document.getElementById("notableFeed");
+const notableItems = [];
+eras.forEach(b=>{ (b.notable_events||[]).forEach(desc=>{
+  notableItems.push({tick:b.start_tick+"-"+b.end_tick, desc}); }); });
+notableFeed.innerHTML = notableItems.length ? notableItems.map(it=>
+  '<div class="ev"><div class="t">第'+it.tick+'纪</div><div class="d">'+it.desc+'</div></div>'
+).join("") : '<div class="muted" style="padding:20px">无 Notable+ 事件</div>';
+
+// ── 势力表 ──
+const facBody = document.querySelector("#facTable tbody");
+facBody.innerHTML = (W.factions||[]).map(f=>{
+  const res = (f.resources||[]).slice().sort((a,b)=>b[1]-a[1])[0];
+  const resStr = res ? (res[0]+" "+res[1].toFixed(1)) : "—";
+  const maxRes = res ? res[1] : 1;
+  return '<tr><td>'+f.name+'</td><td>'+(f.leader_name?nm(f.leader_id):"—")+'</td>'+
+    '<td>'+f.member_count+'</td><td>'+f.territory_count+'</td><td>'+f.diplomacy_count+'</td>'+
+    '<td>'+resStr+'</td></tr>';
+}).join("");
+
+// ── 角色表（可排序）──
+const entBody = document.querySelector("#entTable tbody");
+let entRows = (W.entities||[]).map(e=>({
+  name:e.name, faction:e.faction_name||"—", total:e.total_power,
+  power:e.power_value, tech:e.techniques?e.techniques.length:0,
+  alive:e.alive?"存活":"陨落"
+}));
+function renderEnt(rows){
+  entBody.innerHTML = rows.map(r=>'<tr><td>'+r.name+'</td><td>'+r.faction+'</td>'+
+    '<td>'+r.total.toFixed(1)+'</td><td>'+r.power.toFixed(1)+'</td><td>'+r.tech+'</td><td>'+r.alive+'</td></tr>').join("");
+}
+renderEnt(entRows.slice().sort((a,b)=>b.total-a.total));
+const entTh = document.querySelectorAll("#entTable th");
+entTh.forEach((th,i)=>{ th.onclick=()=>{
+  const keys=["name","faction","total","power","tech","alive"];
+  const k=keys[i];
+  entRows.sort((a,b)=> (typeof a[k]==="number") ? a[k]-b[k] : (""+a[k]).localeCompare(""+b[k]));
+  renderEnt(entRows);
+};});
+
+// ── 战争 ──
+const warList = document.getElementById("warList");
+warList.innerHTML = (W.wars||[]).length ? (W.wars||[]).map(w=>
+  '<div class="ev"><div class="t">tick '+w.started_tick+' · '+(w.resolved?"已决":"进行中")+
+    ' · 强度 '+w.intensity.toFixed(2)+'</div>'+
+  '<div class="d"><b>'+nm(w.attacker)+'</b> 攻 <b>'+nm(w.defender)+'</b></div>'+
+  '<div class="a">导火索：'+w.cause+' ｜ 夺地 '+w.territory_captured+' · 伤亡 '+w.casualties.toFixed(1)+'</div></div>'
+).join("") : '<div class="muted" style="padding:20px">无有因之战</div>';
+
+// ── 技艺 ──
+const skillList = document.getElementById("skillList");
+const cat = (W.skills.catalog||[]).map(n=>'<span class="pill">'+n.name+
+  (n.element?'（'+n.element+'）':'')+' R'+n.rank+'</span>').join("");
+const known = (W.skills.known||[]).filter(k=>k.techniques&&k.techniques.length)
+  .map(k=>'<div class="ev"><div class="d"><b>'+k.character_name+'</b>：'+k.techniques.join("、")+'</div></div>').join("");
+skillList.innerHTML = '<div class="sec-note">技艺目录（'+((W.skills.catalog||[]).length)+' 项）</div>'+
+  (cat||'<span class="muted">无</span>') + '<div class="sec-note" style="margin-top:10px">各角色已掌握</div>'+
+  (known||'<span class="muted">无</span>');
+
+// ── 规则 ──
+document.getElementById("rulesBox").textContent = JSON.stringify(W.rules, null, 2);
+</script>
+</body>
+</html>

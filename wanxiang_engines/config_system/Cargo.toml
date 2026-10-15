@@ -1,0 +1,17 @@
+[package]
+name = "config_system"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "万象 L8 配置系统：13 Provider 环境变量映射 + 自动补全 + config.toml 加载 + 优先级覆盖链 + JSON Schema 校验 + 密钥隔离"
+
+[lib]
+name = "config_system"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+toml = { workspace = true }

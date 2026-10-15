@@ -1,0 +1,25 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "墨织主窗口能力：core 默认 + 对话框开/存 + fs 限定目录读写 + shell open（v1 allowlist 的 v2 等价重配）",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "dialog:allow-open",
+    "dialog:allow-save",
+    "dialog:allow-confirm",
+    "dialog:allow-ask",
+    "dialog:allow-message",
+    "fs:allow-read-text-file",
+    "fs:allow-read-file",
+    "fs:allow-write-text-file",
+    "fs:allow-write-file",
+    "fs:allow-mkdir",
+    "fs:allow-remove",
+    "fs:scope-appcache-recursive",
+    "fs:scope-appdata-recursive",
+    "fs:scope-document-recursive",
+    "fs:scope-download-recursive",
+    "shell:allow-open"
+  ]
+}

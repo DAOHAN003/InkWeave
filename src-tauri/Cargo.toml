@@ -1,0 +1,48 @@
+[package]
+name = "fuxiloom-novel-writer-ai"
+version = "10.1.1"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+# 冷编译修复（P0，10-12 定位）：tauri-build 2.x 传递依赖 schemars 0.8 → indexmap 1.9.3。
+# indexmap 1.9.3 的 build.rs 靠 CARGO_FEATURE_STD 决定是否 emit has_std；resolver v2 下
+# build-deps 的 feature 独立实例化，tauri-build 那个实例拿不到该环境变量 → has_std 不生效
+# → 走 no_std 分支（IndexMap 强制 3 个泛型参数）→ schemars 编译失败。
+# 症状：warm target 全绿（复用已编 rmeta），干净环境必挂——GitHub Actions / 新克隆 / 社区版冷编译。
+# 修法：显式声明同版本依赖，把 std feature 注入 build-deps 实例。
+indexmap = { version = "1.9.3", features = ["std"] }
+
+[dependencies]
+tauri = { version = "2", features = [ "devtools" ] }
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+tauri-plugin-shell = "2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+windows-sys = { version = "0.52", features = ["Win32_Foundation", "Win32_Security_Credentials", "Win32_UI_HiDpi"] }
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+rand = "0.8"
+lazy_static = "1.4"
+
+# ─── L7 桥接层：万象引擎 L0-L6 + L8 path 依赖 ───
+world_state = { path = "../wanxiang_engines/world_state" }
+causal_core = { path = "../wanxiang_engines/causal_core" }
+lingming_core = { path = "../wanxiang_engines/lingming_core" }
+memory_core = { path = "../wanxiang_engines/memory_core" }
+lingming_com = { path = "../wanxiang_engines/lingming_com" }
+agent_runtime = { path = "../wanxiang_engines/agent_runtime" }
+llm_adapter = { path = "../wanxiang_engines/llm_adapter" }
+novel_writer_suite = { path = "../wanxiang_engines/novel_writer_suite" }
+security_suite = { path = "../wanxiang_engines/security_suite" }
+config_system = { path = "../wanxiang_engines/config_system" }
+
+# ─── 完整版万象世界模拟引擎（path 依赖，进程内调用 WorldModel）───
+wanxiang_sdk = { path = "../wanxiang/wanxiang_sdk" }
+wanxiang_types = { path = "../wanxiang/wanxiang_types" }
+
+#[patch.crates-io]
+# generic-array = { path = "vendor/generic-array-0.14.7" }
+
+# v2 迁移：custom-protocol 特性已移除（v2 恒启用），旧 [features] 段整体删除。

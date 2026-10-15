@@ -1,0 +1,24 @@
+[package]
+name = "wanxiang_core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[lib]
+name = "wanxiang_core"
+crate-type = ["rlib"]
+
+[dependencies]
+wanxiang_types = { path = "../wanxiang_types" }
+serde.workspace = true
+serde_json.workspace = true
+parking_lot.workspace = true
+dashmap.workspace = true
+crossbeam.workspace = true
+rayon.workspace = true
+tracing.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+rand.workspace = true

@@ -1,0 +1,17 @@
+[package]
+name = "wanxiang_brain"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[lib]
+name = "wanxiang_brain"
+crate-type = ["rlib"]
+
+[dependencies]
+wanxiang_types = { path = "../wanxiang_types" }
+serde.workspace = true
+serde_json.workspace = true
+rand.workspace = true
+rand_distr.workspace = true
+tracing.workspace = true

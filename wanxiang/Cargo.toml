@@ -1,0 +1,43 @@
+[workspace]
+resolver = "2"
+members = [
+    "wanxiang_types",
+    "wanxiang_core",
+    "wanxiang_brain",
+    "wanxiang_evolution",
+    "wanxiang_world",
+    "wanxiang_engine",
+    "wanxiang_sdk",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["灵明 <lingming@wanxiang.ai>"]
+
+[workspace.dependencies]
+# 序列化
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# 并发
+parking_lot = "0.12"
+dashmap = "5.5"
+crossbeam = "0.8"
+rayon = "1.8"
+# 数学与随机
+rand = "0.8"
+rand_distr = "0.4"
+# 日志
+tracing = "0.1"
+# 错误处理
+thiserror = "1.0"
+anyhow = "1.0"
+# 时间
+chrono = { version = "0.4", features = ["serde"] }
+# UUID
+uuid = { version = "1.6", features = ["v4"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3

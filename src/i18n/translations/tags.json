@@ -1,0 +1,369 @@
+{
+  "categories": {
+    "trope":          { "zh": "常用套路",         "ja": "定番展開",            "en": "Common Tropes" },
+    "relation":       { "zh": "关系设定",         "ja": "関係設定",            "en": "Relationships" },
+    "protagonist":    { "zh": "主角人设",         "ja": "主人公属性",          "en": "Protagonist" },
+    "setting":        { "zh": "背景设定",         "ja": "世界観・舞台",        "en": "Setting" },
+    "mood":           { "zh": "氛围情绪",         "ja": "雰囲気・情緒",        "en": "Mood" },
+    "plot":           { "zh": "情节元素",         "ja": "プロット要素",        "en": "Plot Elements" },
+    "target":         { "zh": "受众向",           "ja": "ターゲット層",        "en": "Audience" },
+    "jp_trope":       { "zh": "日本向 · 套路",    "ja": "日本向 · 定番展開",   "en": "JP · Tropes" },
+    "jp_heroine":     { "zh": "日本向 · 女主属性", "ja": "日本向 · ヒロイン属性", "en": "JP · Heroine Type" },
+    "jp_protagonist": { "zh": "日本向 · 主角属性", "ja": "日本向 · 主人公属性", "en": "JP · Protagonist Type" },
+    "jp_setting":     { "zh": "日本向 · 世界观",  "ja": "日本向 · 世界観",     "en": "JP · World" },
+    "jp_relation":    { "zh": "日本向 · 关系",    "ja": "日本向 · 関係",       "en": "JP · Relationships" },
+    "jp_mood":        { "zh": "日本向 · 氛围",    "ja": "日本向 · 雰囲気",     "en": "JP · Mood" }
+  },
+  "tags": {
+    "rebirth": {
+      "label": { "zh": "重生", "ja": "転生（同世界）", "en": "Rebirth" },
+      "desc":  { "zh": "死后 / 回档 / 重来一次", "ja": "死後・人生やり直し", "en": "Death + redo, time-rewind" }
+    },
+    "transmigration": {
+      "label": { "zh": "穿越", "ja": "異世界転移", "en": "Transmigration" },
+      "desc":  { "zh": "魂穿 / 身穿 / 异世界", "ja": "魂転移 / 身体ごと転移", "en": "Soul or body transfer to another world" }
+    },
+    "system": {
+      "label": { "zh": "系统", "ja": "システム", "en": "System" },
+      "desc":  { "zh": "系统 / 金手指 / 面板", "ja": "システム / チート / ステータス画面", "en": "System / cheat / status panel" }
+    },
+    "golden_finger": {
+      "label": { "zh": "金手指", "ja": "チート能力", "en": "Cheat Ability" },
+      "desc":  { "zh": "外挂 / 天赋 / 先知", "ja": "外付チート / 天賦 / 予知", "en": "External cheat / talent / foresight" }
+    },
+    "face_slap": {
+      "label": { "zh": "打脸", "ja": "顔面殴打", "en": "Face-Slap" },
+      "desc":  { "zh": "反转 / 装逼 / 打脸", "ja": "逆転 / 自慢 / 顔面殴打", "en": "Reversal / showoff / comeuppance" }
+    },
+    "hidden_identity": {
+      "label": { "zh": "扮猪吃虎", "ja": "見かけ最弱", "en": "Hidden Power" },
+      "desc":  { "zh": "马甲 / 大佬在身边", "ja": "アバター / 隣の大物", "en": "Alts / silent boss nearby" }
+    },
+    "revenge_marriage": {
+      "label": { "zh": "退婚流", "ja": "婚約破棄もの", "en": "Broken Engagement" },
+      "desc":  { "zh": "悔婚 / 复仇", "ja": "婚約破棄 / 復讐", "en": "Broken engagement / revenge" }
+    },
+    "marriage_first": {
+      "label": { "zh": "先婚后爱", "ja": "結婚先行ロマンス", "en": "Marriage Before Love" },
+      "desc":  { "zh": "契约婚姻 / 从婚姻开始", "ja": "契約結婚 / 結婚スタート", "en": "Contract marriage / starts at the altar" }
+    },
+    "level_up": {
+      "label": { "zh": "升级流", "ja": "レベルアップ系", "en": "Power-Leveling" },
+      "desc":  { "zh": "境界 / 装备 / 属性", "ja": "境界 / 装備 / 属性", "en": "Tiers / gear / stats" }
+    },
+    "infinite": {
+      "label": { "zh": "无限流", "ja": "無限ループ系", "en": "Infinite Flow" },
+      "desc":  { "zh": "副本 / 主神 / 积分", "ja": "ダンジョン / 主神 / ポイント", "en": "Instances / God / points" }
+    },
+    "villain": {
+      "label": { "zh": "反派", "ja": "悪役", "en": "Villain" },
+      "desc":  { "zh": "反派 / 悪役 / 洗白", "ja": "悪役 / 悪堕ち / 名誉回復", "en": "Villain / antagonist / redemption" }
+    },
+    "fake_hate_real_love": {
+      "label": { "zh": "欢喜冤家", "ja": "犬猿の仲ロマンス", "en": "Bickering Lovers" },
+      "desc":  { "zh": "口是心非 / 相爱相杀", "ja": "ツンデレ / 愛憎", "en": "Tsundere / love-hate" }
+    },
+    "anti_trope": {
+      "label": { "zh": "反套路", "ja": "アンチテンプレ", "en": "Anti-Trope" },
+      "desc":  { "zh": "梗 / 颠覆", "ja": "王道破り / ネタ", "en": "Trope-subversion / meta" }
+    },
+
+    "he":   { "label": { "zh": "HE", "ja": "HE / ハッピーエンド", "en": "HE" }, "desc": { "zh": "Happy Ending", "ja": "ハッピーエンド", "en": "Happy Ending" } },
+    "be":   { "label": { "zh": "BE", "ja": "BE / バッドエンド",   "en": "BE" }, "desc": { "zh": "Bad Ending",   "ja": "バッドエンド",   "en": "Bad Ending" } },
+    "oe":   { "label": { "zh": "OE", "ja": "OE / オープンエンド", "en": "OE" }, "desc": { "zh": "Open Ending",  "ja": "オープンエンド", "en": "Open Ending" } },
+    "1v1":  { "label": { "zh": "1V1", "ja": "1ヒロイン1ヒーロー", "en": "1v1" }, "desc": { "zh": "感情线唯一", "ja": "恋愛線は一筋", "en": "Single romantic arc" } },
+    "no_cp":{ "label": { "zh": "无CP", "ja": "恋愛なし", "en": "No Romance" }, "desc": { "zh": "没有恋爱主线", "ja": "恋愛主線なし", "en": "No romantic main plot" } },
+    "harem":{ "label": { "zh": "后宫", "ja": "ハーレム", "en": "Harem" }, "desc": { "zh": "多女主 / 多男主", "ja": "多ヒロイン / 逆ハーレム", "en": "Multiple love interests" } },
+    "double_ml": { "label": { "zh": "双男主", "ja": "Wメイン男", "en": "Dual Male Leads" }, "desc": { "zh": "BL / 耽美", "ja": "BL / 耽美", "en": "BL / shounen-ai" } },
+    "double_fl": { "label": { "zh": "双女主", "ja": "Wメイン女", "en": "Dual Female Leads" }, "desc": { "zh": "GL / 百合", "ja": "GL / 百合", "en": "GL / yuri" } },
+    "age_gap":   { "label": { "zh": "年下 / 年上", "ja": "年下 / 年上", "en": "Age Gap" }, "desc": { "zh": "年龄差", "ja": "年齢差", "en": "Age difference" } },
+    "childhood": { "label": { "zh": "青梅竹马", "ja": "幼馴染", "en": "Childhood Friends" }, "desc": { "zh": "幼馴染", "ja": "幼馴染同士", "en": "Childhood-friend romance" } },
+    "master_disciple": { "label": { "zh": "师徒", "ja": "師弟", "en": "Master & Disciple" }, "desc": { "zh": "师尊 / 弟子", "ja": "師匠 / 弟子", "en": "Master / disciple" } },
+    "enemy_lovers":    { "label": { "zh": "敌对", "ja": "敵対関係", "en": "Enemies" }, "desc": { "zh": "身份对立 / 立场敌对", "ja": "立場対立 / 敵対陣営", "en": "Opposing factions / sides" } },
+
+    "strong_heroine":     { "label": { "zh": "大女主", "ja": "強ヒロイン", "en": "Strong Heroine" }, "desc": { "zh": "独立 / 事业至上", "ja": "独立志向 / 仕事第一", "en": "Independent / career-first" } },
+    "cool":               { "label": { "zh": "冷酷", "ja": "クール", "en": "Cool" }, "desc": { "zh": "面瘫 / 冷淡", "ja": "無表情 / 冷淡", "en": "Stoic / aloof" } },
+    "blackbelly":         { "label": { "zh": "腹黑", "ja": "腹黒", "en": "Cunning" }, "desc": { "zh": "表里不一 / 心机", "ja": "表裏のある / 計算高い", "en": "Two-faced / calculating" } },
+    "kind":               { "label": { "zh": "温柔", "ja": "優しい", "en": "Kindhearted" }, "desc": { "zh": "白月光 / 治愈系", "ja": "高嶺の花 / 癒し系", "en": "White-moonlight / soothing" } },
+    "sickly":             { "label": { "zh": "病弱", "ja": "病弱", "en": "Sickly" }, "desc": { "zh": "体弱 / 体质特殊", "ja": "病弱体質 / 特殊体質", "en": "Frail / special constitution" } },
+    "otaku":              { "label": { "zh": "宅", "ja": "オタク", "en": "Otaku" }, "desc": { "zh": "社恐 / 不善社交", "ja": "社交恐怖症 / 人見知り", "en": "Social anxiety / shy" } },
+    "outgoing":           { "label": { "zh": "开朗", "ja": "明るい", "en": "Outgoing" }, "desc": { "zh": "阳光 / 外向", "ja": "陽キャ / 外向的", "en": "Sunny / extroverted" } },
+    "genius":             { "label": { "zh": "天才", "ja": "天才", "en": "Genius" }, "desc": { "zh": "实力派 / 神童", "ja": "実力派 / 神童", "en": "Prodigy" } },
+    "fool_genius":        { "label": { "zh": "扮猪吃虎", "ja": "見かけ最弱", "en": "Sandbagger" }, "desc": { "zh": "深藏不露", "ja": "実力を隠す", "en": "Hides true strength" } },
+    "reincarnated_adult": { "label": { "zh": "成熟灵魂", "ja": "成熟した魂", "en": "Mature Soul" }, "desc": { "zh": "外表幼 / 内心熟", "ja": "見た目幼 / 中身大人", "en": "Young exterior / mature inside" } },
+
+    "ancient":         { "label": { "zh": "古代", "ja": "古代中国", "en": "Ancient China" }, "desc": { "zh": "古风 / 架空古代", "ja": "古風 / 架空古代", "en": "Ancient style / pseudo-historical" } },
+    "modern":          { "label": { "zh": "现代", "ja": "現代", "en": "Modern" }, "desc": { "zh": "现代都市", "ja": "現代都市", "en": "Modern urban" } },
+    "future":          { "label": { "zh": "未来", "ja": "近未来", "en": "Near Future" }, "desc": { "zh": "近未来 / 科幻", "ja": "近未来 / SF", "en": "Near future / sci-fi" } },
+    "interstellar":    { "label": { "zh": "星际", "ja": "宇宙", "en": "Interstellar" }, "desc": { "zh": "宇宙 / 星舰", "ja": "宇宙 / 宇宙艦", "en": "Outer space / starships" } },
+    "cultivation":     { "label": { "zh": "修真", "ja": "修真（仙侠）", "en": "Cultivation" }, "desc": { "zh": "仙侠 / 修炼", "ja": "仙侠 / 修練", "en": "Xianxia / cultivation" } },
+    "campus":          { "label": { "zh": "校园", "ja": "学園", "en": "Campus" }, "desc": { "zh": "学园 / 青春", "ja": "学園 / 青春", "en": "Academy / youth" } },
+    "workplace":       { "label": { "zh": "职场", "ja": "職場", "en": "Workplace" }, "desc": { "zh": "公司 / 行业", "ja": "会社 / 業界", "en": "Office / industry" } },
+    "entertainment":   { "label": { "zh": "娱乐圈", "ja": "芸能界", "en": "Entertainment Industry" }, "desc": { "zh": "明星 / 综艺", "ja": "芸能人 / バラエティ", "en": "Celebrity / variety show" } },
+    "apocalypse":      { "label": { "zh": "末世", "ja": "ポストアポカリプス", "en": "Apocalypse" }, "desc": { "zh": "灾变 / 丧尸", "ja": "災害 / ゾンビ", "en": "Disaster / zombies" } },
+    "western_fantasy": { "label": { "zh": "西幻", "ja": "西洋ファンタジー", "en": "Western Fantasy" }, "desc": { "zh": "西方奇幻 / 魔法", "ja": "西洋ファンタジー / 魔法", "en": "Western fantasy / magic" } },
+    "palace":          { "label": { "zh": "宫廷", "ja": "宮廷", "en": "Court" }, "desc": { "zh": "后宫 / 朝堂", "ja": "後宮 / 朝廷", "en": "Harem / court" } },
+    "jianghu":         { "label": { "zh": "江湖", "ja": "江湖（武侠）", "en": "Jianghu" }, "desc": { "zh": "武侠 / 侠义", "ja": "武侠 / 侠気", "en": "Wuxia / chivalry" } },
+    "zhan_shen":      { "label": { "zh": "战神归来", "ja": "戦神帰還", "en": "War God Return" }, "desc": { "zh": "赘婿 / 战神 / 龙王", "ja": "贅婿 / 戦神 / 龍王", "en": "Son-in-law / war god / dragon king" } },
+    "cthulhu_mystery":{ "label": { "zh": "诡秘", "ja": "クトゥルフ", "en": "Eldritch" }, "desc": { "zh": "序列 / 克苏鲁 / 不可名状", "ja": "序列 / 神話 / 名状しがたい", "en": "Sequence / Cthulhu / unspeakable" } },
+    "urban_cultivation":{ "label": { "zh": "都市修仙", "ja": "都市修仙", "en": "Urban Cultivation" }, "desc": { "zh": "现代 + 修真异能并行", "ja": "現代 + 修真異能並走", "en": "Modern + cultivation powers combined" } },
+    "game_world":     { "label": { "zh": "游戏世界", "ja": "ゲーム世界", "en": "Game World" }, "desc": { "zh": "网游 / 全息游戏", "ja": "网游 / VRゲーム", "en": "MMO / full-dive game" } },
+    "spirit_revival": { "label": { "zh": "灵气复苏", "ja": "霊気復興", "en": "Spirit Revival" }, "desc": { "zh": "世界灵气回归 / 全民觉醒", "ja": "世界霊力復活 / 全民覚醒", "en": "Global qi return / mass awakening" } },
+    "era_setting":    { "label": { "zh": "年代", "ja": "年代物", "en": "Vintage Era" }, "desc": { "zh": "七八十年代 / 知青 / 改革开放", "ja": "70-80年代 / 知青 / 改革開放", "en": "1970s-80s / sent-down youth / reform era" } },
+    "real_life":      { "label": { "zh": "现实", "ja": "リアル", "en": "Real Life" }, "desc": { "zh": "当代社会 / 现实主义", "ja": "現代社会 / リアリズム", "en": "Contemporary society / realism" } },
+    "doujin":         { "label": { "zh": "同人", "ja": "二次創作", "en": "Doujin" }, "desc": { "zh": "衍生 / 二创 / 原作再创作", "ja": "派生 / 二次創作 / 原作再構成", "en": "Derivative / fan-work / re-imagining" } },
+    "sports_arena":   { "label": { "zh": "体育赛场", "ja": "スポーツ競技", "en": "Sports Arena" }, "desc": { "zh": "竞技体育 / 篮球 / 足球", "ja": "競技 / バスケ / サッカー", "en": "Competitive sports / basketball / football" } },
+    "dog_path":      { "label": { "zh": "苟道流", "ja": "隠忍発展", "en": "Stealth Growth" }, "desc": { "zh": "苟着发育 / 稳健 / 不惹事", "ja": "隠れて育つ / 慎重", "en": "Lay low and power up / cautious play" } },
+    "sign_in":       { "label": { "zh": "签到流", "ja": "ログインボーナス", "en": "Sign-In Bonus" }, "desc": { "zh": "每日签到获得奖励", "ja": "毎日ログイン報酬", "en": "Daily sign-in rewards" } },
+    "king_builder":  { "label": { "zh": "争霸流", "ja": "天下争覇", "en": "Conquest" }, "desc": { "zh": "逐鹿天下 / 建国立业", "ja": "天下統一 / 建国", "en": "Conquer the realm / nation-building" } },
+    "salty_fish":    { "label": { "zh": "咸鱼", "ja": "怠け者", "en": "Slacker" }, "desc": { "zh": "躺平 / 佛系 / 摆烂", "ja": "適当 / マイペース", "en": "Laid-back / lazy / easygoing" } },
+    "anti_hero_cn":  { "label": { "zh": "反英雄", "ja": "アンチヒーロー", "en": "Anti-Hero" }, "desc": { "zh": "非传统好人 / 灰色主角", "ja": "善ではない主人公", "en": "Morally grey protagonist" } },
+    "tomb_setting":  { "label": { "zh": "盗墓", "ja": "盗墓探検", "en": "Tomb Raiding" }, "desc": { "zh": "古墓 / 秘境 / 探险", "ja": "古墓 / 秘境 / 探検", "en": "Ancient tombs / ruins / exploration" } },
+    "honghuang":     { "label": { "zh": "洪荒", "ja": "洪荒（神話）", "en": "Primeval" }, "desc": { "zh": "先天 / 量劫 / 神话", "ja": "先天 / 量劫 / 神話", "en": "Primordial / kalpa / myth" } },
+    "cyberpunk":     { "label": { "zh": "赛博朋克", "ja": "サイバーパンク", "en": "Cyberpunk" }, "desc": { "zh": "高科技低生活 / 霓虹", "ja": "ハイテク低生活 / ネオン", "en": "High-tech low-life / neon" } },
+    "food_setting":  { "label": { "zh": "美食", "ja": "グルメ", "en": "Food / Cuisine" }, "desc": { "zh": "烹饪 / 厨艺 / 美食经营", "ja": "料理 / 飲食店経営", "en": "Cooking / culinary / food business" } },
+    "medical_setting":{ "label": { "zh": "医道", "ja": "医術", "en": "Medical" }, "desc": { "zh": "中医 / 手术 / 神医", "ja": "漢方 / 手術 / 名医", "en": "Traditional medicine / surgery / divine doctor" } },
+    "shuang_wen":    { "label": { "zh": "爽文", "ja": "爽快小説", "en": "Power Fantasy" }, "desc": { "zh": "纯爽 / 无脑爽", "ja": "ひたすら爽快", "en": "Pure wish fulfillment / brain-off fun" } },
+    "power_fantasy": { "label": { "zh": "无敌流", "ja": "無双系", "en": "Invincible MC" }, "desc": { "zh": "开局无敌 / 一路碾压", "ja": "最初から最強", "en": "Overpowered from the start" } },
+    "infrastructure":{ "label": { "zh": "基建", "ja": "内政チート", "en": "Infrastructure" }, "desc": { "zh": "种田 / 建设 / 经营", "ja": "内政 / 建設 / 経営", "en": "Farming / building / management" } },
+    "livestream":    { "label": { "zh": "直播", "ja": "配信系", "en": "Livestream" }, "desc": { "zh": "直播流 / 弹幕互动", "ja": "配信 / コメント連動", "en": "Livestream / chat interaction" } },
+    "raising_child": { "label": { "zh": "养崽", "ja": "子育て", "en": "Child-Rearing" }, "desc": { "zh": "带娃 / 养孩子 / 亲子", "ja": "子育て / 親子", "en": "Raising kids / parenting" } },
+    "baoGuangLiu":   { "label": { "zh": "曝光流", "ja": "暴露系", "en": "Public Reveal" }, "desc": { "zh": "曝光系统 / 公开真相 / 全民目睹", "ja": "真実暴露 / 全国民が目撃", "en": "Reveal system / truth exposed to all" } },
+    "panDianLiu_tag":{ "label": { "zh": "盘点流", "ja": "ランキング暴露", "en": "Countdown Reveal" }, "desc": { "zh": "榜单揭晓 / 名场面复盘", "ja": "ランキング発表 / 名シーン総ざらい", "en": "Ranking reveals / scene retrospectives" } },
+    "tunHuo":        { "label": { "zh": "囤货", "ja": "買いだめ", "en": "Stockpiling" }, "desc": { "zh": "末世囤货 / 万界经商", "ja": "備蓄 / 万界トレード", "en": "Apocalypse hoarding / inter-world trading" } },
+    "bingFeng":      { "label": { "zh": "全球冰封", "ja": "地球氷結", "en": "Global Freeze" }, "desc": { "zh": "冰封末世 / 全球冻结", "ja": "氷の終末 / 地球凍結", "en": "Ice apocalypse / global deep freeze" } },
+    "kongJian":      { "label": { "zh": "随身空间", "ja": "携帯空間", "en": "Portable Space" }, "desc": { "zh": "空间灵泉 / 储物空间", "ja": "空間霊泉 / アイテムボックス", "en": "Space spring / dimensional storage" } },
+
+    "sweet":         { "label": { "zh": "甜", "ja": "甘々", "en": "Sweet" }, "desc": { "zh": "糖度高 / 宠文", "ja": "糖度高 / 溺愛系", "en": "High sweetness / pampering" } },
+    "angst":         { "label": { "zh": "虐", "ja": "虐展開", "en": "Angst" }, "desc": { "zh": "刀片 / 虐恋", "ja": "鬱展開 / 痛い恋", "en": "Painful / hurts" } },
+    "healing":       { "label": { "zh": "治愈", "ja": "癒し", "en": "Healing" }, "desc": { "zh": "温暖 / 向上", "ja": "温かい / 前向き", "en": "Warm / uplifting" } },
+    "dark":          { "label": { "zh": "暗黑", "ja": "ダーク", "en": "Dark" }, "desc": { "zh": "沉重 / 压抑", "ja": "重い / 抑圧", "en": "Heavy / oppressive" } },
+    "funny":         { "label": { "zh": "搞笑", "ja": "コメディ", "en": "Funny" }, "desc": { "zh": "轻松 / 喜剧", "ja": "軽い / コメディ", "en": "Light / comedic" } },
+    "epic":          { "label": { "zh": "史诗", "ja": "叙事詩", "en": "Epic" }, "desc": { "zh": "宏大叙事", "ja": "壮大な叙事", "en": "Sweeping narrative" } },
+    "slow_burn":     { "label": { "zh": "慢热", "ja": "スローテンポ", "en": "Slow Burn" }, "desc": { "zh": "慢节奏 / 细腻", "ja": "ゆっくり / 繊細", "en": "Slow pace / delicate" } },
+    "fast_paced":    { "label": { "zh": "快节奏", "ja": "快テンポ", "en": "Fast-Paced" }, "desc": { "zh": "爽文 / 紧凑", "ja": "爽快テンポ / コンパクト", "en": "Snappy / tight" } },
+    "thrilling":     { "label": { "zh": "烧脑", "ja": "頭脳戦", "en": "Mind-Bending" }, "desc": { "zh": "推理 / 反转", "ja": "推理 / 逆転", "en": "Mystery / twist" } },
+    "mystery_mood":  { "label": { "zh": "诡秘", "ja": "陰鬱・怪奇", "en": "Eerie" }, "desc": { "zh": "氛围感恐怖", "ja": "雰囲気のあるホラー", "en": "Atmospheric horror" } },
+
+    "misunderstanding":   { "label": { "zh": "误会", "ja": "誤解", "en": "Misunderstanding" }, "desc": { "zh": "身份 / 关系误认", "ja": "身分 / 関係の誤認", "en": "Misidentified identity / relations" } },
+    "redemption":         { "label": { "zh": "救赎", "ja": "救済", "en": "Redemption" }, "desc": { "zh": "双向救赎 / 自我救赎", "ja": "双方向救済 / 自己救済", "en": "Mutual / self-redemption" } },
+    "pretend_couple":     { "label": { "zh": "假装情侣", "ja": "恋人のフリ", "en": "Fake Dating" }, "desc": { "zh": "契约 / 戏精", "ja": "契約 / 演技派", "en": "Contract / performance" } },
+    "amnesia":            { "label": { "zh": "失忆", "ja": "記憶喪失", "en": "Amnesia" }, "desc": { "zh": "遗忘 / 记忆恢复", "ja": "忘却 / 記憶回復", "en": "Forgetting / memory recovery" } },
+    "time_loop":          { "label": { "zh": "时间循环", "ja": "タイムループ", "en": "Time Loop" }, "desc": { "zh": "反复 / 倒带", "ja": "繰り返し / 巻き戻し", "en": "Repeats / rewinds" } },
+    "body_swap":          { "label": { "zh": "身体互换", "ja": "身体入れ替わり", "en": "Body Swap" }, "desc": { "zh": "灵魂交换", "ja": "魂の入れ替わり", "en": "Soul exchange" } },
+    "cp_reunion":         { "label": { "zh": "破镜重圆", "ja": "CPよりを戻す", "en": "Reunion" }, "desc": { "zh": "分开后复合", "ja": "別れた後の復縁", "en": "Reunion after parting" } },
+    "enemies_to_lovers":  { "label": { "zh": "欢喜冤家", "ja": "犬猿恋愛", "en": "Enemies-to-Lovers" }, "desc": { "zh": "相爱相杀", "ja": "愛憎入り混じる", "en": "Love-hate dynamic" } },
+    "family_intrigue":    { "label": { "zh": "家族斗争", "ja": "家族抗争", "en": "Family Intrigue" }, "desc": { "zh": "嫡庶 / 家斗", "ja": "嫡庶 / 家督争い", "en": "Legitimate-vs-bastard / inheritance" } },
+    "faction_war":        { "label": { "zh": "阵营之战", "ja": "勢力争い", "en": "Faction War" }, "desc": { "zh": "势力对抗", "ja": "勢力対立", "en": "Faction rivalry" } },
+
+    "male":     { "label": { "zh": "男频", "ja": "男性向け", "en": "Male-Oriented" }, "desc": { "zh": "男性向", "ja": "男性向け", "en": "Male readership" } },
+    "female":   { "label": { "zh": "女频", "ja": "女性向け", "en": "Female-Oriented" }, "desc": { "zh": "女性向", "ja": "女性向け", "en": "Female readership" } },
+    "teen":     { "label": { "zh": "青少年", "ja": "ティーン向け", "en": "Teen" }, "desc": { "zh": "低龄向", "ja": "低年齢向け", "en": "Younger readers" } },
+    "adult":    { "label": { "zh": "成人", "ja": "大人向け", "en": "Adult" }, "desc": { "zh": "成熟读者", "ja": "成熟読者向け", "en": "Mature readers" } },
+    "casual":   { "label": { "zh": "休闲", "ja": "カジュアル", "en": "Casual" }, "desc": { "zh": "碎片阅读", "ja": "スキマ時間読書", "en": "Snack reading" } },
+    "hardcore": { "label": { "zh": "硬核", "ja": "コアユーザー向け", "en": "Hardcore" }, "desc": { "zh": "考据 / 设定党", "ja": "考証 / 設定派", "en": "Lore-heavy / setting-focused" } },
+
+    "isekai_tensei": {
+      "label": { "zh": "异世界转生", "ja": "異世界転生", "en": "Isekai Reincarnation" },
+      "desc":  { "zh": "前世死亡 → 异世界转生", "ja": "前世死亡 → 異世界転生", "en": "Death → reborn in another world" }
+    },
+    "isekai_tenii": {
+      "label": { "zh": "异世界转移", "ja": "異世界転移", "en": "Isekai Transfer" },
+      "desc":  { "zh": "召唤 / 卡车撞击转移", "ja": "召喚 / トラック転移", "en": "Summoning / truck-isekai" }
+    },
+    "akuyaku_reincarnation": {
+      "label": { "zh": "反派千金转生", "ja": "悪役令嬢転生", "en": "Villainess Reincarnation" },
+      "desc":  { "zh": "乙女游戏反派 / 破灭 flag 回避", "ja": "乙女ゲ悪役 / 破滅フラグ回避", "en": "Otome-game villainess / dodge ruin flag" }
+    },
+    "kondate_yarinaoshi": {
+      "label": { "zh": "重来一次", "ja": "やり直し", "en": "Do-Over" },
+      "desc":  { "zh": "人生重来 / 循环", "ja": "人生やり直し / ループ", "en": "Life redo / loop" }
+    },
+    "loop": {
+      "label": { "zh": "循环", "ja": "ループ物", "en": "Loop" },
+      "desc":  { "zh": "时间循环 / 死亡回归", "ja": "時間ループ / 死に戻り", "en": "Time loop / death return" }
+    },
+    "tensei_otoko": {
+      "label": { "zh": "TS转生", "ja": "TS転生", "en": "TS Reincarnation" },
+      "desc":  { "zh": "性别转换转生", "ja": "性転換転生", "en": "Gender-swap reincarnation" }
+    },
+    "ore_tueee": {
+      "label": { "zh": "主角超强", "ja": "俺TUEEE", "en": "OP Protagonist" },
+      "desc":  { "zh": "主角超强 / 作弊", "ja": "主役超強 / チート", "en": "MC overpowered / cheat" }
+    },
+    "cheat": {
+      "label": { "zh": "作弊能力", "ja": "チート", "en": "Cheat" },
+      "desc":  { "zh": "礼物 / 技能 / 异常成长", "ja": "ギフト / スキル / 異常成長", "en": "Gift / skill / overgrowth" }
+    },
+    "slow_life_jp": {
+      "label": { "zh": "慢生活", "ja": "スローライフ", "en": "Slow Life" },
+      "desc":  { "zh": "平静 / 悠闲", "ja": "ほのぼの / のんびり", "en": "Cozy / laid-back" }
+    },
+    "zamaa": {
+      "label": { "zh": "活该 (ざまぁ)", "ja": "ざまぁ", "en": "Zamaa" },
+      "desc":  { "zh": "因果报应 / 复仇成功", "ja": "因果応報 / 復讐成功", "en": "Karmic / successful revenge" }
+    },
+    "saimai_yarikorashi": {
+      "label": { "zh": "复仇", "ja": "復讐", "en": "Revenge" },
+      "desc":  { "zh": "复仇剧 / 复仇者", "ja": "復讐譚 / 復讐者", "en": "Revenge tale / avenger" }
+    },
+    "narou_template": {
+      "label": { "zh": "成为小说家系", "ja": "なろう系", "en": "Narou Template" },
+      "desc":  { "zh": "成为小说家王道模板", "ja": "なろう系王道テンプレ", "en": "Shōsetsuka-ni-narō template" }
+    },
+    "anti_narou": {
+      "label": { "zh": "反成为小说家", "ja": "アンチなろう", "en": "Anti-Narou" },
+      "desc":  { "zh": "逆向成为小说家系", "ja": "なろう系を逆張り", "en": "Subverts narou-style" }
+    },
+    "skill_panel": {
+      "label": { "zh": "状态画面", "ja": "ステータス画面", "en": "Status Screen" },
+      "desc":  { "zh": "状态 / 技能可视化", "ja": "ステータス / スキル可視化", "en": "Stats / skill UI" }
+    },
+    "guild": {
+      "label": { "zh": "冒险者公会", "ja": "冒険者ギルド", "en": "Adventurer Guild" },
+      "desc":  { "zh": "公会注册 / 接任务", "ja": "ギルド登録 / クエスト受注", "en": "Guild registration / quests" }
+    },
+    "demon_lord": {
+      "label": { "zh": "魔王讨伐", "ja": "魔王討伐", "en": "Demon Lord" },
+      "desc":  { "zh": "勇者 vs 魔王", "ja": "勇者 vs 魔王", "en": "Hero vs Demon Lord" }
+    },
+    "anti_hero": {
+      "label": { "zh": "反英雄", "ja": "アンチヒーロー", "en": "Anti-Hero" },
+      "desc":  { "zh": "恶 / 灰色主角", "ja": "悪 / グレー主役", "en": "Evil / morally grey" }
+    },
+    "tensei_villain_male": {
+      "label": { "zh": "反派少爷", "ja": "悪役令息", "en": "Villainous Heir" },
+      "desc":  { "zh": "男版反派千金", "ja": "男版悪役令嬢", "en": "Male villainess" }
+    },
+
+    "tsundere":     { "label": { "zh": "傲娇", "ja": "ツンデレ", "en": "Tsundere" }, "desc": { "zh": "嘴硬 + 心软", "ja": "口悪い + 内心デレ", "en": "Mouth harsh / heart soft" } },
+    "kuudere":      { "label": { "zh": "冷娇", "ja": "クーデレ", "en": "Kuudere" }, "desc": { "zh": "冷酷 + 心软", "ja": "クール + 内心デレ", "en": "Cool / soft inside" } },
+    "yandere":      { "label": { "zh": "病娇", "ja": "ヤンデレ", "en": "Yandere" }, "desc": { "zh": "病态 + 独占", "ja": "病み + 独占欲", "en": "Mentally unstable / possessive" } },
+    "dandere":      { "label": { "zh": "沉默娇", "ja": "ダンデレ", "en": "Dandere" }, "desc": { "zh": "沉默 + 心软", "ja": "無口 + 内心デレ", "en": "Silent / soft inside" } },
+    "deredere":     { "label": { "zh": "痴心", "ja": "デレデレ", "en": "Deredere" }, "desc": { "zh": "一开始就示好", "ja": "最初から好意全開", "en": "Affectionate from start" } },
+    "himedere":     { "label": { "zh": "公主娇", "ja": "姫デレ", "en": "Himedere" }, "desc": { "zh": "公主气质", "ja": "姫様気質", "en": "Princess-like" } },
+    "imouto":       { "label": { "zh": "妹系", "ja": "妹キャラ", "en": "Imouto" }, "desc": { "zh": "妹妹 / 义妹", "ja": "妹 / 義妹", "en": "Sister / step-sister" } },
+    "ane":          { "label": { "zh": "姐系", "ja": "姉キャラ", "en": "Onee-san" }, "desc": { "zh": "姐姐 / 义姐", "ja": "姉 / 義姉", "en": "Big sister" } },
+    "osananajimi":  { "label": { "zh": "青梅竹马", "ja": "幼馴染", "en": "Childhood Friend" }, "desc": { "zh": "青梅竹马女主", "ja": "幼馴染ヒロイン", "en": "Childhood-friend heroine" } },
+    "iincho":       { "label": { "zh": "班长", "ja": "委員長", "en": "Class Rep" }, "desc": { "zh": "班长 / 认真系", "ja": "クラス委員長 / 真面目系", "en": "Diligent class rep" } },
+    "ojo_sama":     { "label": { "zh": "大小姐", "ja": "お嬢様", "en": "Lady" }, "desc": { "zh": "高贵 / 上流阶级", "ja": "高貴 / 上流階級", "en": "Noble / upper class" } },
+    "miko":         { "label": { "zh": "巫女", "ja": "巫女", "en": "Miko" }, "desc": { "zh": "神社巫女 / 灵感持有", "ja": "神社巫女 / 霊感持ち", "en": "Shrine maiden / spiritual" } },
+    "elf":          { "label": { "zh": "精灵", "ja": "エルフ", "en": "Elf" }, "desc": { "zh": "精灵 / 长寿种族", "ja": "エルフ / 長命種", "en": "Elf / long-lived race" } },
+    "kemomimi":     { "label": { "zh": "兽耳娘", "ja": "獣人 / ケモ耳", "en": "Kemonomimi" }, "desc": { "zh": "兽耳 / 兽人女主", "ja": "獣耳 / 獣人ヒロイン", "en": "Animal ears / beastfolk heroine" } },
+    "loli":         { "label": { "zh": "萝莉", "ja": "ロリ", "en": "Loli" }, "desc": { "zh": "幼女 / 外表幼", "ja": "幼女 / 見た目幼", "en": "Young / young-looking" } },
+    "onee_san":     { "label": { "zh": "御姐系", "ja": "お姉さん系", "en": "Onee-san" }, "desc": { "zh": "年长姐姐", "ja": "年上お姉さん", "en": "Older sister figure" } },
+    "knight_girl":  { "label": { "zh": "骑士令嬢", "ja": "騎士令嬢", "en": "Knight Girl" }, "desc": { "zh": "女骑士 / 男装骑士", "ja": "女騎士 / 男装騎士", "en": "Female knight / crossdressing knight" } },
+    "demon_girl":   { "label": { "zh": "魔族娘", "ja": "魔族娘", "en": "Demon Girl" }, "desc": { "zh": "魔族 / 恶魔女主", "ja": "魔族 / 悪魔ヒロイン", "en": "Demon / devil heroine" } },
+
+    "salaryman_tensei": { "label": { "zh": "大叔转生", "ja": "オッサン転生", "en": "Salaryman Reborn" }, "desc": { "zh": "中年上班族转生", "ja": "中年サラリーマン転生", "en": "Middle-aged salaryman reborn" } },
+    "neet_tensei":      { "label": { "zh": "尼特转生", "ja": "ニート転生", "en": "NEET Reborn" }, "desc": { "zh": "尼特 / 家里蹲转生", "ja": "ニート / 引きこもり転生", "en": "NEET / shut-in reborn" } },
+    "tensei_loli":      { "label": { "zh": "幼女转生", "ja": "幼女転生", "en": "Reborn as Loli" }, "desc": { "zh": "前世 → 幼女 / 幼儿", "ja": "前世 → 幼女 / 幼児", "en": "Reborn into young girl" } },
+    "tensei_jiisan":    { "label": { "zh": "老爷子转生", "ja": "ジジイ転生", "en": "Old Man Reborn" }, "desc": { "zh": "高龄者 / 老人转生", "ja": "高齢者 / 老人転生", "en": "Elderly / old man reborn" } },
+    "kishidan":         { "label": { "zh": "骑士团长", "ja": "騎士団長", "en": "Knight Captain" }, "desc": { "zh": "骑士 / 军人系", "ja": "騎士 / 軍人系", "en": "Knight / soldier" } },
+    "majutsu_master":   { "label": { "zh": "大魔法师", "ja": "魔法使い", "en": "Magus" }, "desc": { "zh": "贤者 / 大魔导师", "ja": "賢者 / 大魔導師", "en": "Sage / archmage" } },
+    "dansei_seijo":     { "label": { "zh": "圣骑士", "ja": "聖騎士", "en": "Paladin" }, "desc": { "zh": "圣骑士 / 神官系", "ja": "聖騎士 / 神官系", "en": "Paladin / priest" } },
+    "chuuni":           { "label": { "zh": "中二病", "ja": "中二病", "en": "Chuuni" }, "desc": { "zh": "厨二 / 妄想癖", "ja": "厨二 / 妄想癖", "en": "Edgelord / delusional" } },
+    "yu_sha":           { "label": { "zh": "勇者", "ja": "勇者", "en": "Hero" }, "desc": { "zh": "选定的勇者", "ja": "選ばれし勇者", "en": "Chosen hero" } },
+    "ore_kyojaku":      { "label": { "zh": "看似最弱", "ja": "見かけ最弱", "en": "Seemingly Weakest" }, "desc": { "zh": "外强中干，其实最强", "ja": "見かけ弱 + 実は最強", "en": "Looks weak / actually strongest" } },
+    "aikawarazu":       { "label": { "zh": "迟钝", "ja": "鈍感", "en": "Dense" }, "desc": { "zh": "对女主好意毫无察觉", "ja": "ヒロインの好意に気付かない", "en": "Oblivious to heroine's feelings" } },
+    "kuro_majutsu":     { "label": { "zh": "黑魔法师", "ja": "黒魔術師", "en": "Dark Mage" }, "desc": { "zh": "黑魔法 / 地下", "ja": "ダーク魔法 / アンダーグラウンド", "en": "Dark magic / underground" } },
+
+    "isekai_world":    { "label": { "zh": "异世界", "ja": "異世界", "en": "Isekai" }, "desc": { "zh": "剑与魔法 / 中世纪欧洲风", "ja": "剣と魔法 / 中世ヨーロッパ風", "en": "Sword and sorcery / medieval Europe" } },
+    "vrmmo_world":     { "label": { "zh": "VRMMO", "ja": "VRMMO", "en": "VRMMO" }, "desc": { "zh": "在线游戏世界", "ja": "オンラインゲーム世界", "en": "Online game world" } },
+    "academy":         { "label": { "zh": "学园 / 学院", "ja": "学園 / アカデミー", "en": "Academy" }, "desc": { "zh": "魔法学园 / 骑士学园", "ja": "魔法学園 / 騎士学園", "en": "Magic / knight academy" } },
+    "dungeon_world":   { "label": { "zh": "迷宫", "ja": "ダンジョン", "en": "Dungeon" }, "desc": { "zh": "迷宫 / 层层攻略", "ja": "迷宮 / 階層攻略", "en": "Dungeon / floor delve" } },
+    "kingdom":         { "label": { "zh": "王国 / 帝国", "ja": "王国 / 帝国", "en": "Kingdom / Empire" }, "desc": { "zh": "国家政治 / 王宫剧", "ja": "国家政治 / 王宮劇", "en": "Politics / palace drama" } },
+    "demon_realm":     { "label": { "zh": "魔界 / 魔王领", "ja": "魔界 / 魔王領", "en": "Demon Realm" }, "desc": { "zh": "魔王城 / 魔族领", "ja": "魔王城 / 魔族領", "en": "Demon castle / demon territory" } },
+    "edo":             { "label": { "zh": "江户时代", "ja": "江戸時代", "en": "Edo Era" }, "desc": { "zh": "江户 / 浮世", "ja": "江戸 / 浮世", "en": "Edo / floating world" } },
+    "sengoku":         { "label": { "zh": "战国时代", "ja": "戦国時代", "en": "Sengoku Era" }, "desc": { "zh": "战国武将 / 大河时代剧", "ja": "戦国武将 / 大河時代物", "en": "Sengoku warlord / period epic" } },
+    "bakumatsu":       { "label": { "zh": "幕末", "ja": "幕末", "en": "Bakumatsu" }, "desc": { "zh": "幕末 / 维新", "ja": "幕末 / 維新", "en": "Bakumatsu / Restoration" } },
+    "showa":           { "label": { "zh": "昭和", "ja": "昭和", "en": "Showa" }, "desc": { "zh": "昭和 / 复古", "ja": "昭和 / レトロ", "en": "Showa / retro" } },
+    "neon_tokyo":      { "label": { "zh": "近未来东京", "ja": "近未来東京", "en": "Neon Tokyo" }, "desc": { "zh": "赛博朋克东京", "ja": "サイバーパンク東京", "en": "Cyberpunk Tokyo" } },
+    "yokai_world":     { "label": { "zh": "妖怪界", "ja": "妖怪界", "en": "Yokai World" }, "desc": { "zh": "妖 / 神灵", "ja": "あやかし / 神霊", "en": "Ayakashi / spirits" } },
+    "post_apocalypse": { "label": { "zh": "后启示录", "ja": "ポストアポカリプス", "en": "Post-Apocalypse" }, "desc": { "zh": "终末后 / 废墟世界", "ja": "終末後 / 廃墟世界", "en": "After-the-end / ruins" } },
+    "space_opera":     { "label": { "zh": "太空歌剧", "ja": "スペースオペラ", "en": "Space Opera" }, "desc": { "zh": "宇宙 / 银河帝国", "ja": "宇宙 / 銀河帝国", "en": "Cosmos / galactic empire" } },
+    "labyrinth_city":  { "label": { "zh": "迷宫都市", "ja": "迷宮都市", "en": "Labyrinth City" }, "desc": { "zh": "迷宫城市 / 奥林匹斯系", "ja": "ダンジョン都市 / オリュンポス系", "en": "Dungeon city / Olympus-style" } },
+
+    "harem_jp":         { "label": { "zh": "后宫", "ja": "ハーレム", "en": "Harem" }, "desc": { "zh": "多女主", "ja": "多ヒロイン", "en": "Multiple heroines" } },
+    "reverse_harem_jp": { "label": { "zh": "逆后宫", "ja": "逆ハーレム", "en": "Reverse Harem" }, "desc": { "zh": "乙女向多男主", "ja": "乙女向け多男主", "en": "Otome-style multi male leads" } },
+    "1v1_jp":           { "label": { "zh": "1女主", "ja": "1ヒロイン", "en": "Single Heroine" }, "desc": { "zh": "唯一女主", "ja": "ヒロイン1人固定", "en": "Fixed sole heroine" } },
+    "monogamy":         { "label": { "zh": "一心一意", "ja": "一途", "en": "Monogamy" }, "desc": { "zh": "专一恋爱", "ja": "一途な恋愛", "en": "Single-minded romance" } },
+    "mutual_yandere":   { "label": { "zh": "互相病娇", "ja": "相互ヤンデレ", "en": "Mutual Yandere" }, "desc": { "zh": "双向病娇", "ja": "両思いヤンデレ", "en": "Mutually obsessive" } },
+    "fake_couple_jp":   { "label": { "zh": "伪装夫妻", "ja": "偽装夫婦", "en": "Fake Couple" }, "desc": { "zh": "契约结婚 / 伪装情侣", "ja": "契約結婚 / フェイクカップル", "en": "Contract marriage / fake couple" } },
+    "master_servant":   { "label": { "zh": "主从", "ja": "主従", "en": "Master-Servant" }, "desc": { "zh": "主人与仆从", "ja": "主人と従者", "en": "Master and servant" } },
+    "shisho_deshi":     { "label": { "zh": "师匠弟子", "ja": "師匠弟子", "en": "Master-Disciple" }, "desc": { "zh": "师徒关系", "ja": "師弟関係", "en": "Mentor-apprentice" } },
+    "buddy":            { "label": { "zh": "搭档物", "ja": "バディ物", "en": "Buddy" }, "desc": { "zh": "搭档 / 男性间的羁绊", "ja": "相棒 / 男同士の絆", "en": "Partner / male bond" } },
+    "imouto_relation":  { "label": { "zh": "义妹关系", "ja": "義妹関係", "en": "Step-Sister Bond" }, "desc": { "zh": "没有血缘的妹妹", "ja": "血の繋がらない妹", "en": "Non-blood-related sister" } },
+    "tensei_couple":    { "label": { "zh": "转生CP", "ja": "転生CP", "en": "Reincarnation Pair" }, "desc": { "zh": "前世延续的CP", "ja": "前世から続くCP", "en": "Couple continuing from past lives" } },
+    "boys_love_jp":     { "label": { "zh": "BL", "ja": "BL", "en": "BL" }, "desc": { "zh": "男孩之爱", "ja": "ボーイズラブ", "en": "Boys' Love" } },
+    "girls_love_jp":    { "label": { "zh": "GL / 百合", "ja": "GL / 百合", "en": "GL / Yuri" }, "desc": { "zh": "女孩之爱", "ja": "ガールズラブ", "en": "Girls' Love" } },
+
+    "honobono":          { "label": { "zh": "温馨", "ja": "ほのぼの", "en": "Cozy" }, "desc": { "zh": "温暖 / 治愈系", "ja": "ほっこり / 癒し系", "en": "Warm / healing" } },
+    "shoujo_mood":       { "label": { "zh": "少女向", "ja": "少女向け", "en": "Shoujo" }, "desc": { "zh": "少女小说风", "ja": "少女小説風", "en": "Shoujo novel feel" } },
+    "shounen_mood":      { "label": { "zh": "少年漫画风", "ja": "少年漫画風", "en": "Shounen Manga" }, "desc": { "zh": "少年JUMP系热血", "ja": "ジャンプ系熱血", "en": "Jump-style hot-blooded" } },
+    "seinen_mood":       { "label": { "zh": "青年漫画风", "ja": "青年漫画風", "en": "Seinen" }, "desc": { "zh": "严肃 / 成人向", "ja": "深刻 / 大人向け", "en": "Serious / mature" } },
+    "moe":               { "label": { "zh": "萌", "ja": "萌え", "en": "Moe" }, "desc": { "zh": "萌要素重视", "ja": "萌え要素重視", "en": "Moe-focused" } },
+    "comedy_jp":         { "label": { "zh": "喜剧", "ja": "コメディ", "en": "Comedy" }, "desc": { "zh": "笑 / 吐槽", "ja": "笑い / ボケツッコミ", "en": "Laughs / boke-tsukkomi" } },
+    "serious":           { "label": { "zh": "严肃", "ja": "シリアス", "en": "Serious" }, "desc": { "zh": "严肃展开重视", "ja": "シリアス展開重視", "en": "Serious-toned" } },
+    "dark_fantasy_mood": { "label": { "zh": "黑暗奇幻", "ja": "ダークファンタジー", "en": "Dark Fantasy" }, "desc": { "zh": "暗黑 / 厚重", "ja": "暗黒 / 重厚", "en": "Dark / heavy" } },
+    "sukima_mood":       { "label": { "zh": "反差萌", "ja": "隙間萌え", "en": "Gap Moe" }, "desc": { "zh": "反差 / 隙间萌", "ja": "ギャップ / 隙間萌え", "en": "Gap moe" } },
+    "kakkoii":           { "label": { "zh": "帅气", "ja": "格好いい", "en": "Cool" }, "desc": { "zh": "老练 / 帅哥", "ja": "シブい / イケメン", "en": "Suave / handsome" } },
+    "iyashi":            { "label": { "zh": "治愈", "ja": "癒し", "en": "Healing" }, "desc": { "zh": "无压力", "ja": "ストレスフリー", "en": "Stress-free" } },
+    "natsukashii":       { "label": { "zh": "怀旧", "ja": "ノスタルジー", "en": "Nostalgia" }, "desc": { "zh": "怀念 / 过去回忆", "ja": "懐かしさ / 過去回想", "en": "Nostalgia / past memories" } },
+
+    "bing_wang":         { "label": { "zh": "兵王", "ja": "退役兵王", "en": "Veteran Soldier" }, "desc": { "zh": "退役军人 / 特种兵 / 都市归来", "ja": "退役軍人 / 特殊部隊 / 都市帰還", "en": "Retired soldier / special forces / urban return" } },
+    "gao_wu":            { "label": { "zh": "高武", "ja": "高武世界", "en": "High Martial" }, "desc": { "zh": "武力为体系核心 / 拳意通神", "ja": "武力本位の体系 / 拳意で神に至る", "en": "Martial arts as the core power system" } },
+    "mu_hou_liu":        { "label": { "zh": "幕后流", "ja": "裏ボス系", "en": "Behind-the-Scenes" }, "desc": { "zh": "幕后大佬 / 万界商人 / 暗中操控", "ja": "裏ボス / 影の支配者", "en": "Hidden mastermind / shadow operator" } },
+    "brain_hole":        { "label": { "zh": "脑洞流", "ja": "脳穴系", "en": "High Concept" }, "desc": { "zh": "高概念设定 / 反差认知", "ja": "高コンセプト / ギャップ認知", "en": "High-concept premise / cognitive twist" } },
+    "video_to_ancient":  { "label": { "zh": "视频通古代", "ja": "古代に動画配信", "en": "Video to Ancient" }, "desc": { "zh": "现代视频/直播单向播给古人看", "ja": "現代動画を古代へ一方通行配信", "en": "Modern video broadcast one-way to the ancient era" } },
+    "live_transmigration":{ "label": { "zh": "直播穿越", "ja": "配信×転生", "en": "Live-Streaming Isekai" }, "desc": { "zh": "穿越 + 直播复合", "ja": "転生 + 配信複合", "en": "Transmigration + live streaming combo" } },
+    "modern_reverse":    { "label": { "zh": "现代反穿", "ja": "古人現代へ", "en": "Reverse Transmigration" }, "desc": { "zh": "古人穿越到现代", "ja": "古代人が現代に転生", "en": "Ancient person transmigrates to modern day" } },
+    "die_zhan":          { "label": { "zh": "谍战", "ja": "諜報戦", "en": "Espionage" }, "desc": { "zh": "情报 / 卧底 / 反侦察", "ja": "諜報 / 潜入 / 防諜", "en": "Intelligence / undercover / counter-espionage" } },
+    "kang_zhan":         { "label": { "zh": "抗战", "ja": "抗日戦争", "en": "Anti-Japanese War" }, "desc": { "zh": "抗日战争 / 家国仇恨 / 战火残酷", "ja": "抗日戦 / 家国の恨み / 戦火の残酷", "en": "WWII Sino-Japanese resistance / national hatred" } },
+    "guoshu":            { "label": { "zh": "国术", "ja": "国術", "en": "Guoshu" }, "desc": { "zh": "国术武学 / 武侠现实流", "ja": "中華武術 / 武侠リアル系", "en": "Traditional Chinese martial arts / realistic wuxia" } },
+    "mu_zhu_liu":        { "label": { "zh": "母主流", "ja": "母転生もの", "en": "Mother Reborn" }, "desc": { "zh": "女主重生回母亲身份", "ja": "ヒロインが母として転生", "en": "Heroine reborn as a mother" } },
+
+    "jun_hun":           { "label": { "zh": "军婚", "ja": "軍人婚", "en": "Military Marriage" }, "desc": { "zh": "军人婚恋 / 年代文核心", "ja": "軍人ロマンス / 年代物の定番", "en": "Soldier romance / vintage-era staple" } },
+    "shi_sheng_lian":    { "label": { "zh": "师生恋", "ja": "師弟恋", "en": "Teacher-Student" }, "desc": { "zh": "教师 / 学生（区别于修真师徒）", "ja": "教師 / 生徒（修真師弟と区別）", "en": "Teacher / student (distinct from cultivation master-disciple)" } },
+    "gu_ke":             { "label": { "zh": "骨科", "ja": "血縁兄妹", "en": "Blood Siblings" }, "desc": { "zh": "有血缘的兄妹 / 姐弟", "ja": "血の繋がる兄妹 / 姉弟", "en": "Blood-related sibling pairing" } },
+    "wang_fei":          { "label": { "zh": "王妃", "ja": "王妃もの", "en": "Royal Consort" }, "desc": { "zh": "王爷 / 王妃 / 古言权贵", "ja": "王爺 / 王妃 / 古風権貴", "en": "Prince / consort / ancient nobility" } },
+    "di_nü":             { "label": { "zh": "嫡女庶女", "ja": "嫡女庶女", "en": "Legitimate vs Concubine-Born" }, "desc": { "zh": "嫡庶 / 宅斗身份", "ja": "嫡庶 / 邸宅闘争", "en": "Legitimate / illegitimate / household intrigue" } },
+
+    "xueba":             { "label": { "zh": "学霸", "ja": "学業神", "en": "Top Student" }, "desc": { "zh": "成绩 / 智商碾压", "ja": "成績 / 知力で圧倒", "en": "Academic powerhouse" } },
+    "xiaoba":            { "label": { "zh": "校霸", "ja": "学園の覇者", "en": "School Bully Lead" }, "desc": { "zh": "校园风云 / 强势人设", "ja": "学園の風雲児 / 強気キャラ", "en": "Top dog of campus / dominant persona" } },
+    "shen_yi":           { "label": { "zh": "神医", "ja": "神医", "en": "Divine Doctor" }, "desc": { "zh": "医道高人 / 神医人设", "ja": "医道の達人 / 神医キャラ", "en": "Master physician archetype" } },
+    "zhi_qing":          { "label": { "zh": "知青", "ja": "知青（下放青年）", "en": "Sent-Down Youth" }, "desc": { "zh": "知青下乡 / 年代主角身份", "ja": "知青下放 / 年代主役", "en": "Sent-down youth / vintage-era protagonist" } },
+    "wei_niang":         { "label": { "zh": "伪娘", "ja": "男の娘", "en": "Otokonoko" }, "desc": { "zh": "女装 / 伪娘人设", "ja": "女装 / 男の娘キャラ", "en": "Crossdresser / otokonoko persona" } },
+    "yang_cheng_protag": { "label": { "zh": "养成系主角", "ja": "育成系主役", "en": "Coming-of-Age MC" }, "desc": { "zh": "被读者看着长大 / 阶段性成长", "ja": "読者に育てられる / 段階的成長", "en": "Reader watches them grow / stage-by-stage growth" } },
+    "fei_chai_ni_xi_protag": { "label": { "zh": "废柴逆袭", "ja": "無能逆襲", "en": "Underdog Rise" }, "desc": { "zh": "起点废材 / 逆袭崛起", "ja": "無能スタート / 逆襲", "en": "Starts as deadweight / rises to top" } },
+    "tuan_chong_protag": { "label": { "zh": "团宠主角", "ja": "全員溺愛主役", "en": "Beloved by All" }, "desc": { "zh": "被全员宠爱 / 治愈反差萌", "ja": "全員に愛される / 癒しギャップ", "en": "Pampered by everyone / healing gap-moe" } },
+
+    "chao_tang":         { "label": { "zh": "朝堂", "ja": "朝廷", "en": "Imperial Court" }, "desc": { "zh": "庙堂 / 权谋 / 朝局", "ja": "朝廷 / 権謀 / 政局", "en": "Court / scheming / political stage" } },
+    "min_guo":           { "label": { "zh": "民国", "ja": "民国", "en": "Republican China" }, "desc": { "zh": "民国时代 / 旗袍 / 军阀", "ja": "民国 / 旗袍 / 軍閥", "en": "Republican era / qipao / warlords" } },
+    "kang_zhan_era":     { "label": { "zh": "抗战时期", "ja": "抗日戦時期", "en": "Anti-Japanese Era" }, "desc": { "zh": "抗日战争背景", "ja": "抗日戦時代背景", "en": "WWII anti-Japanese resistance setting" } },
+    "era_seventies":     { "label": { "zh": "七零八零", "ja": "70-80年代", "en": "70s-80s Era" }, "desc": { "zh": "七零 / 八零 / 九零年代", "ja": "70 / 80 / 90 年代", "en": "1970s / 80s / 90s" } },
+    "xiu_xian_men_pai":  { "label": { "zh": "修仙门派", "ja": "修仙門派", "en": "Cultivation Sect" }, "desc": { "zh": "宗门 / 师门 / 修真势力", "ja": "宗門 / 師門 / 修真勢力", "en": "Sect / lineage / cultivation faction" } },
+    "zong_men":          { "label": { "zh": "宗门", "ja": "宗門", "en": "Sect" }, "desc": { "zh": "门派对抗 / 宗门世界观", "ja": "門派対抗 / 宗門世界観", "en": "Sect rivalry / sect-based world" } },
+    "mihoyo_world":      { "label": { "zh": "米哈游世界观", "ja": "miHoYo 世界観", "en": "miHoYo Universe" }, "desc": { "zh": "崩坏 / 星铁 / 原神同人", "ja": "崩壊 / スターレイル / 原神二次創作", "en": "Honkai / Star Rail / Genshin doujin" } },
+
+    "an_lian":           { "label": { "zh": "暗恋", "ja": "片思い", "en": "Unrequited Love" }, "desc": { "zh": "单向情感 / 默默守护", "ja": "片思い / 黙って見守る", "en": "One-sided feelings / silent devotion" } },
+    "swap_identity":     { "label": { "zh": "互换身份", "ja": "身分入れ替え", "en": "Identity Swap" }, "desc": { "zh": "自愿身份互换（非灵魂换体）", "ja": "自発的な身分入れ替え（魂交換ではない）", "en": "Voluntary role swap (not soul exchange)" } },
+    "zheng_chong":       { "label": { "zh": "争宠", "ja": "寵愛争い", "en": "Vying for Favor" }, "desc": { "zh": "宫闱争宠 / 后院斗法", "ja": "後宮の寵愛争い / 後院の駆引き", "en": "Harem favor competition / inner-court rivalry" } },
+    "luo_nan":           { "label": { "zh": "落难", "ja": "落魄からの再起", "en": "Fallen-then-Risen" }, "desc": { "zh": "失势落魄 → 重新崛起", "ja": "失墜 → 再起", "en": "Downfall then resurgence" } },
+    "fu_chou_da_zao":    { "label": { "zh": "复仇打造", "ja": "全面復讐", "en": "Total Vengeance" }, "desc": { "zh": "全面复仇 / 系统性反扑", "ja": "全面復讐 / 体系的反撃", "en": "Sweeping revenge / systematic counterattack" } },
+    "ju_ben_sha_plot":   { "label": { "zh": "剧本杀情节", "ja": "脚本殺人ゲーム", "en": "Murder-Mystery Game" }, "desc": { "zh": "本格剧本杀 / 角色扮演推理", "ja": "本格マーダーミステリ / RP推理", "en": "Honkaku murder-mystery / RPG reasoning" } },
+    "chat_form":         { "label": { "zh": "聊天体", "ja": "チャット小説", "en": "Chat-Format" }, "desc": { "zh": "对话体 / 聊天截图叙事", "ja": "会話体 / チャットスクショ叙事", "en": "Dialogue-only / chat-screenshot narrative" } },
+    "xinSheng_plot":     { "label": { "zh": "心声流", "ja": "本音暴露", "en": "Inner Voice Exposed" }, "desc": { "zh": "心声暴露 / 反差认知 / 集体震惊", "ja": "心の声漏れ / ギャップ / 全員驚愕", "en": "Inner thoughts leak / contrast / collective shock" } },
+    "bao_guang_plot":    { "label": { "zh": "曝光流", "ja": "暴露系", "en": "Public Reveal" }, "desc": { "zh": "曝光系统 / 公开真相 / 全民目睹", "ja": "暴露系 / 真実公開 / 全員目撃", "en": "Reveal system / truth exposed nationwide" } },
+
+    "fairy_tale":        { "label": { "zh": "童话风", "ja": "おとぎ話風", "en": "Fairy Tale" }, "desc": { "zh": "童话色彩 / 寓言意境", "ja": "おとぎ話の色 / 寓話的", "en": "Fairy-tale color / fable mood" } },
+    "bittersweet":       { "label": { "zh": "酸甜", "ja": "甘酸っぱい", "en": "Bittersweet" }, "desc": { "zh": "青春酸甜 / 苦乐交织", "ja": "青春の甘酸 / 苦楽交錯", "en": "Youthful sweet-sour / mixed bitter and sweet" } },
+    "high_tension":      { "label": { "zh": "高能", "ja": "ハイテンション", "en": "High Tension" }, "desc": { "zh": "紧绷悬疑 / 高强度刺激", "ja": "緊張サスペンス / 高刺激", "en": "Taut suspense / high-intensity thrills" } },
+    "shaXiao":           { "label": { "zh": "沙雕", "ja": "シャ雕（無厘頭）", "en": "Absurd Comedy" }, "desc": { "zh": "无厘头 / 夸张恶搞", "ja": "無厘頭 / 誇張ギャグ", "en": "Nonsense / over-the-top gags" } },
+    "shura_field":       { "label": { "zh": "修罗场", "ja": "修羅場", "en": "Love Triangle Standoff" }, "desc": { "zh": "三角对峙 / 互戳紧张", "ja": "三角対峙 / 激突緊張", "en": "Three-way standoff / mutual antagonism" } },
+
+    "second_dimension":  { "label": { "zh": "二次元向", "ja": "二次元向け", "en": "Anime/Manga Audience" }, "desc": { "zh": "ACGN / 动漫风受众", "ja": "ACGN / アニメ風読者向け", "en": "ACGN / anime-style audience" } },
+    "fu_nü":             { "label": { "zh": "腐女向", "ja": "腐女子向け", "en": "Fujoshi Audience" }, "desc": { "zh": "BL 受众细分", "ja": "BL受読者細分", "en": "BL-readership niche" } },
+    "otome_target":      { "label": { "zh": "乙女向", "ja": "乙女向け", "en": "Otome Audience" }, "desc": { "zh": "女性向恋爱受众", "ja": "女性向け恋愛読者", "en": "Female-oriented romance audience" } }
+  }
+}
