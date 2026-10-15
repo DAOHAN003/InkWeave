@@ -1,80 +1,29 @@
-name: Bug 报告
-description: 报告一个 bug（行为不符合预期）
-labels: [bug, needs-triage]
+name: Bug report
+description: Report a reproducible bug
+title: "[Bug]: "
+labels: ["bug"]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        感谢你提交 bug 报告！请尽量填全以下信息，方便我们快速定位。
-
   - type: textarea
-    id: what-happened
+    id: summary
     attributes:
-      label: 发生了什么？
-      description: 简述你遇到的问题
-      placeholder: 我在做 X 的时候，期望 Y，但实际看到 Z
+      label: What happened?
+      description: Describe observed behaviour.
     validations:
       required: true
-
   - type: textarea
     id: reproduce
     attributes:
-      label: 复现步骤
-      description: 如何重现这个问题（越细越好）
-      placeholder: |
-        1. 打开 ...
-        2. 选中作品 ...
-        3. 点击「...」
-        4. 看到 ...
+      label: Reproduction steps
+      description: Minimal input, command and expected/actual result.
     validations:
       required: true
-
-  - type: textarea
-    id: expected
-    attributes:
-      label: 期望行为
-      description: 你认为应该看到什么
-    validations:
-      required: true
-
-  - type: textarea
-    id: actual
-    attributes:
-      label: 实际行为
-      description: 你实际看到什么（含报错文案/截图）
-    validations:
-      required: true
-
   - type: input
-    id: version
+    id: rust
     attributes:
-      label: 墨织版本
-      description: 设置面板「关于」里的版本号
-      placeholder: 例如 V10.1.0
-    validations:
-      required: true
-
-  - type: dropdown
-    id: os
-    attributes:
-      label: 操作系统
-      options:
-        - Windows 11
-        - Windows 10
-        - macOS
-        - Linux
-        - 其他
-    validations:
-      required: true
-
+      label: Rust version
+      placeholder: "rustc --version"
   - type: textarea
     id: logs
     attributes:
-      label: 日志 / 截图
-      description: 如有控制台报错、DevTools 截图、崩溃日志，请粘贴或拖入
-
-  - type: textarea
-    id: extra
-    attributes:
-      label: 补充信息
-      description: 还有什么想说的（关联作品/世界数据/操作上下文）
+      label: Relevant logs
+      description: Remove API keys, personal data and secrets before posting.

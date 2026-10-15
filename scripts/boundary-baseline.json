@@ -1,8 +1,0 @@
-{
-  "deadCommands": 0,
-  "deadStorageKeys": 0,
-  "tsDeadModules": 0,
-  "deadI18nKeys": 0,
-  "note": "棘轮基线：只许降不许升。清理后跑 BOUNDARY_UPDATE_BASELINE=1 下调水位。",
-  "updatedAt": "2026-09-16"
-}

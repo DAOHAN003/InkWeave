@@ -1,41 +1,12 @@
-# 贡献者公约（Code of Conduct）
+# Code of Conduct
 
-## 我们的承诺
+We aim to make participation in Wanxiang respectful, constructive and safe for contributors with different backgrounds and experience levels.
 
-为了营造一个开放友好的环境，我们作为贡献者和维护者承诺：参与本项目的每一位成员，无论经验水平、性别、性别认同与表达、性取向、外貌、身体条件、种族、民族、宗教信仰、国籍，或其他任何身份维度，都应免受骚扰与歧视。
+Expected behaviour:
+- Be respectful and specific when discussing code or ideas.
+- Critique implementation and evidence, not people.
+- Accept good-faith corrections and acknowledge uncertainty.
+- Avoid harassment, insults, doxxing, discrimination and unwelcome personal contact.
+- Keep security reports and private information out of public discussion.
 
-我们承诺以同理心、尊重和合作的态度互动，营造一个多元、包容的社区。
-
-## 我们的标准
-
-**正面行为示例**：
-
-- 对他人展现同理心与善意
-- 尊重不同观点与经验
-- 给予建设性反馈，也优雅地接受反馈
-- 承认错误、道歉，并从中学习
-- 不仅关注个人目标，也关注社区整体利益
-
-**不可接受的行为**：
-
-- 使用带有性意味的语言或 imagery，不受欢迎的性关注
-- 针对性 troll、侮辱性评论，人身或政治攻击
-- 公开或私下的骚扰
-- 未经明确许可泄露他人私人信息（如物理地址、电子邮箱）
-- 其他在专业场合可被合理认定为不当的行为
-
-## 维护者的责任
-
-维护者有权移除、编辑或拒绝不符合本公约的评论、提交、代码、wiki 编辑、issue 和贡献。维护者将说明理由并秉公执行。
-
-## 适用范围
-
-本公约适用于所有项目空间，以及在公共空间中个人代表项目时的行为。
-
-## 执行
-
-如遇违反本公约的行为，请通过 GitHub Issue（私密标记）或邮件联系维护者。所有投诉都会被及时审慎处理。
-
-## 来源
-
-本公约改编自 [Contributor Covenant 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)。
+Maintainers may edit or remove abusive content, close discussions, or restrict participation for conduct they consider unacceptable. To report a concern, contact the maintainers through GitHub.

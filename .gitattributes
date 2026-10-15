@@ -1,1 +1,13 @@
+# 仓库内统一使用 LF 换行，杜绝 Windows/macOS 间的 CRLF 噪音
+# （core.autocrlf=true 下，配合此文件可消除 LF↔CRLF 警告）
 * text=auto eol=lf
+
+# 二进制资源：不text处理
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.bin binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
