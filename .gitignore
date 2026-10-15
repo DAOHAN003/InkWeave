@@ -161,7 +161,6 @@ public
 # Tauri
 /dist
 /src-tauri/target
-/src-tauri/Cargo.lock
 /src-tauri/vendor/
 
 # Rust 构建产物（覆盖所有工作区：wanxiang_engines/、novel_core/ 等）
